@@ -4,13 +4,13 @@
 		<loc>http://sample.com/</loc>
 	</url>
 	<url>
-		<loc>http://sample.com/default/Go%E5%A4%96%E9%83%A8%E5%8C%85%E6%93%8D%E4%BD%9C%E9%9D%9E%E5%AF%BC%E5%87%BA%E5%AD%97%E6%AE%B5/</loc>
+		<loc>http://sample.com/2016/new-born.html</loc>
 		<lastmod>2016-02-15</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
-		<loc>http://sample.com/2013/new-born.html</loc>
-		<lastmod>2013-02-08</lastmod>
+		<loc>http://sample.com/default/Go%E5%A4%96%E9%83%A8%E5%8C%85%E6%93%8D%E4%BD%9C%E9%9D%9E%E5%AF%BC%E5%87%BA%E5%AD%97%E6%AE%B5/</loc>
+		<lastmod>2016-02-15</lastmod>
 		<changefreq>weekly</changefreq>
 	</url>
 </urlset>
