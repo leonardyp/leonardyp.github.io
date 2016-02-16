@@ -2,7 +2,19 @@
 <rss version="2.0">  <channel>
     <title>Blog Title</title>
     <link>http://sample.com</link>
-    <pubDate>15 Feb 16 22:28 CST</pubDate>
+    <pubDate>16 Feb 16 13:33 CST</pubDate>
+    <item>
+      <title>mount</title>
+      <link>http://sample.com/default/mount/</link>
+      <pubDate>2016-02-16 12:00:00 +0800</pubDate>
+      <description></description>
+    </item>
+    <item>
+      <title>说明</title>
+      <link>http://sample.com/README/%E8%AF%B4%E6%98%8E/</link>
+      <pubDate>2016-02-16 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;&lt;em&gt;本博客初次使用&lt;/em&gt;&lt;/p&gt;&#xA;&#xA;&lt;h1&gt;本人相关博客近期会陆续迁移到此处,欢迎批评指点!&lt;/h1&gt;&#xA;</description>
+    </item>
     <item>
       <title>Leonard的第一篇博客</title>
       <link>http://sample.com/2016/new-born.html</link>
