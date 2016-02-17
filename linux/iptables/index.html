@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>systemctl</title>
+    <title>iptables</title>
   
-    <meta name="description" content="CentOS 7 上systemctl">
+    <meta name="description" content="iptables">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,63 +80,82 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>systemctl </h1>
+  <h1>iptables </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p><strong>systemctl</strong> 是管制服务的主要工具，<br />
-它整合了<em>chkconfig</em> 与 *service*功能于一体。</p>
+    <h2>1,<strong>检测iptables</strong>:</h2>
+
+<pre><code>`rpm -qa iptables`  
+</code></pre>
+
+<p><strong>result:</strong> <code>iptables-1.4.21-13.el7.x86_64</code></p>
+
+<h2>2,<strong>怎样检测并且确保iptables服务正在运行？</strong></h2>
+
+<pre><code>service status iptables           [On CentOS 6/5]
+systemctl status iptables         [On CentOS 7]
+</code></pre>
+
+<p>如果iptables没有在运行，可以使用下面的语句</p>
+
+<p>---------------- <strong>在CentOS 6/5下</strong> ----------------<br />
+<code>chkconfig --level 35 iptables on</code><br />
+<code>service iptables start</code></p>
+
+<p>---------------- <strong>在CentOS 7下</strong> ----------------<br />
+<code>systemctl enable iptables</code><br />
+<code>systemctl start iptables</code></p>
+
+<h3>检查iptables中当前定义的规则</h3>
+
+<pre><code>iptables -L
+</code></pre>
+
+<h3>刷新所有的iptables规则或者特定的链, 使用下面的命令来刷新一个特定的链。</h3>
 
 <blockquote>
-<p>systemctl is-enabled iptables.service</p>
-
-<p>systemctl is-enabled servicename.service #查询服务是否开机启动<br />
-systemctl enable *.service #开机运行服务<br />
-systemctl disable *.service #取消开机运行<br />
-systemctl start *.service #启动服务<br />
-systemctl stop *.service #停止服务<br />
-systemctl restart *.service #重启服务<br />
-systemctl reload *.service #重新加载服务配置文件<br />
-systemctl status *.service #查询服务运行状态<br />
-systemctl --failed #显示启动失败的服务<br />
-注：*代表某个服务的名字，如http的服务名为httpd</p>
+<p>iptables --flush OUTPUT</p>
 </blockquote>
 
-<h3>例如在CentOS 7 上安装http</h3>
+<h3>要刷新所有的规则，可以用：</h3>
 
-<p>[root@CentOS7 ~]#</p>
+<blockquote>
+<p>iptables --flush</p>
+</blockquote>
 
-<p><code>yum -y install httpd</code>
-启动服务（等同于service httpd start）<br />
-<code>systemctl start httpd.service</code>
-停止服务（等同于service httpd stop）</p>
+<h3>在iptables中添加一条规则，接受所有从一个信任的IP地址（例如，192.168.0.7）过来的包。</h3>
 
-<p><code>systemctl stop httpd.service</code>
-重启服务（等同于service httpd restart）<br />
-<code>systemctl restart httpd.service</code>
-查看服务是否运行（等同于service httpd status）</p>
+<blockquote>
+<p>iptables -A INPUT -s 192.168.0.7 -j ACCEPT</p>
+</blockquote>
 
-<p><code>systemctl status httpd.service</code>
-开机自启动服务（等同于chkconfig httpd on）<br />
-<code>systemctl enable httpd.service</code>
-开机时禁用服务（等同于chkconfig httpd on）
-<code>systemctl disable httpd.service</code>
-查看服务是否开机启动 （等同于chkconfig --list）</p>
+<h3>还可以在源IP中使用标准的斜线和子网掩码：</h3>
+
+<blockquote>
+<p>iptables -A INPUT -s 192.168.0.<sup>7</sup>&frasl;<sub>24</sub> -j ACCEPT
+iptables -A INPUT -s 192.168.0.<sup>7</sup>&frasl;<sub>255</sub>.255.255.0 -j ACCEPT</p>
+</blockquote>
+
+<h3>假如有一台电脑的本地IP地址是192.168.0.6。你需要封锁在21、22、23和80号端口上的连接，你会怎么做？</h3>
+
+<p><strong>答案</strong>  : 这时，我所需要的就是在iptables中使用‘multiport‘选项，并将要封锁的端口号跟在它后面。<br />
+<code>iptables -A INPUT -s 192.168.0.6 -p tcp -m multiport --dport 22,23,80,8080 -j DROP</code></p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
+            <li class="prev"><a href="/centos/systemctl/" title="systemctl">&larr; Previous</a></li>
           
-            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/linux/iptables/" title="iptables">Next &rarr;</a></li>
+            <li class="next"><a href="/centos/mount/" title="mount">Next &rarr;</a></li>
           
           
         </ul>
@@ -168,6 +187,10 @@ systemctl --failed #显示启动失败的服务<br />
     <ul class="tag_box">
     
       <li>
+  <a href="/categories/#linux-ref">linux <span>1</span></a>
+</li>
+    
+      <li>
   <a href="/categories/#centos-ref">centos <span>3</span></a>
 </li>
     
@@ -177,7 +200,7 @@ systemctl --failed #显示启动失败的服务<br />
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#systemctl-ref">systemctl <span>1</span></a>
+  <a href="/tags/#iptables-ref">iptables <span>1</span></a>
 </li>
     
     </ul>

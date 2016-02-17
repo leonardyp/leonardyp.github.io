@@ -9,6 +9,11 @@
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
+		<loc>http://sample.com/linux/iptables/</loc>
+		<lastmod>2016-02-17</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/centos/mount/</loc>
 		<lastmod>2016-02-16</lastmod>
 		<changefreq>weekly</changefreq>

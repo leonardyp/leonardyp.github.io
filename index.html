@@ -127,6 +127,40 @@ systemctl --failed #显示启动失败的服务<br />
 </div>
 
 <div class="post">
+  <h3 class="title"><a href="/linux/iptables/">iptables</a> <span class="date">2016-02-17</span></h3>
+
+  <h2>1,<strong>检测iptables</strong>:</h2>
+
+<pre><code>`rpm -qa iptables`  
+</code></pre>
+
+<p><strong>result:</strong> <code>iptables-1.4.21-13.el7.x86_64</code></p>
+
+<h2>2,<strong>怎样检测并且确保iptables服务正在运行？</strong></h2>
+
+<pre><code>service status iptables           [On CentOS 6/5]
+systemctl status iptables         [On CentOS 7]
+</code></pre>
+
+<p>如果iptables没有在运行，可以使用下面的语句</p>
+
+<p>---------------- <strong>在CentOS 6/5下</strong> ----------------<br />
+<code>chkconfig --level 35 iptables on</code><br />
+<code>service iptables start</code></p>
+
+<p>---------------- <strong>在CentOS 7下</strong> ----------------<br />
+<code>systemctl enable iptables</code><br />
+<code>systemctl start iptables</code></p>
+
+<h3>检查iptables中当前定义的规则</h3>
+
+
+  <div class="more">
+    <a href="/linux/iptables/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/centos/mount/">mount</a> <span class="date">2016-02-16</span></h3>
 
   <pre><code>sudo mount -t ntfs-3g  /dev/sdb1 /pic/
