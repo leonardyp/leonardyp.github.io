@@ -2,7 +2,7 @@
 <rss version="2.0">  <channel>
     <title>Blog Title</title>
     <link>http://sample.com</link>
-    <pubDate>17 Feb 16 23:02 CST</pubDate>
+    <pubDate>17 Feb 16 23:13 CST</pubDate>
     <item>
       <title>systemctl</title>
       <link>http://sample.com/centos/systemctl/</link>
@@ -11,9 +11,9 @@
     </item>
     <item>
       <title>mount</title>
-      <link>http://sample.com/default/mount/</link>
+      <link>http://sample.com/centos/mount/</link>
       <pubDate>2016-02-16 12:00:00 +0800</pubDate>
-      <description></description>
+      <description>&lt;pre&gt;&lt;code&gt;sudo mount -t ntfs-3g  /dev/sdb1 /pic/&#xA;&#xA;sudo umount /pic/  强制卸载&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
     </item>
     <item>
       <title>说明</title>
