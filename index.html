@@ -96,6 +96,37 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/centos/systemctl/">systemctl</a> <span class="date">2016-02-17</span></h3>
+
+  <p><strong>systemctl</strong> 是管制服务的主要工具，<br />
+它整合了<em>chkconfig</em> 与 *service*功能于一体。</p>
+
+<blockquote>
+<p>systemctl is-enabled iptables.service</p>
+
+<p>systemctl is-enabled servicename.service #查询服务是否开机启动<br />
+systemctl enable *.service #开机运行服务<br />
+systemctl disable *.service #取消开机运行<br />
+systemctl start *.service #启动服务<br />
+systemctl stop *.service #停止服务<br />
+systemctl restart *.service #重启服务<br />
+systemctl reload *.service #重新加载服务配置文件<br />
+systemctl status *.service #查询服务运行状态<br />
+systemctl --failed #显示启动失败的服务<br />
+注：*代表某个服务的名字，如http的服务名为httpd</p>
+</blockquote>
+
+<h3>例如在CentOS 7 上安装http</h3>
+
+<p>[root@CentOS7 ~]#</p>
+
+
+  <div class="more">
+    <a href="/centos/systemctl/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/default/mount/">mount</a> <span class="date">2016-02-16</span></h3>
 
   

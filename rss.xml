@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Blog Title</title>
     <link>http://sample.com</link>
-    <pubDate>16 Feb 16 13:33 CST</pubDate>
+    <pubDate>17 Feb 16 23:02 CST</pubDate>
+    <item>
+      <title>systemctl</title>
+      <link>http://sample.com/centos/systemctl/</link>
+      <pubDate>2016-02-17 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;&lt;strong&gt;systemctl&lt;/strong&gt; 是管制服务的主要工具，&lt;br /&gt;&#xA;它整合了&lt;em&gt;chkconfig&lt;/em&gt; 与 *service*功能于一体。&lt;/p&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;systemctl is-enabled iptables.service&lt;/p&gt;&#xA;&#xA;&lt;p&gt;systemctl is-enabled servicename.service #查询服务是否开机启动&lt;br /&gt;&#xA;systemctl enable *.service #开机运行服务&lt;br /&gt;&#xA;systemctl disable *.service #取消开机运行&lt;br /&gt;&#xA;systemctl start *.service #启动服务&lt;br /&gt;&#xA;systemctl stop *.service #停止服务&lt;br /&gt;&#xA;systemctl restart *.service #重启服务&lt;br /&gt;&#xA;systemctl reload *.service #重新加载服务配置文件&lt;br /&gt;&#xA;systemctl status *.service #查询服务运行状态&lt;br /&gt;&#xA;systemctl --failed #显示启动失败的服务&lt;br /&gt;&#xA;注：*代表某个服务的名字，如http的服务名为httpd&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&#xA;&lt;h3&gt;例如在CentOS 7 上安装http&lt;/h3&gt;&#xA;&#xA;&lt;p&gt;[root@CentOS7 ~]#&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;yum -y install httpd&lt;/code&gt;&#xA;启动服务（等同于service httpd start）&lt;br /&gt;&#xA;&lt;code&gt;systemctl start httpd.service&lt;/code&gt;&#xA;停止服务（等同于service httpd stop）&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;systemctl stop httpd.service&lt;/code&gt;&#xA;重启服务（等同于service httpd restart）&lt;br /&gt;&#xA;&lt;code&gt;systemctl restart httpd.service&lt;/code&gt;&#xA;查看服务是否运行（等同于service httpd status）&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;systemctl status httpd.service&lt;/code&gt;&#xA;开机自启动服务（等同于chkconfig httpd on）&lt;br /&gt;&#xA;&lt;code&gt;systemctl enable httpd.service&lt;/code&gt;&#xA;开机时禁用服务（等同于chkconfig httpd on）&#xA;&lt;code&gt;systemctl disable httpd.service&lt;/code&gt;&#xA;查看服务是否开机启动 （等同于chkconfig --list）&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>mount</title>
       <link>http://sample.com/default/mount/</link>

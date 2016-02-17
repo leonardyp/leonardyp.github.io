@@ -4,6 +4,11 @@
 		<loc>http://sample.com/</loc>
 	</url>
 	<url>
+		<loc>http://sample.com/centos/systemctl/</loc>
+		<lastmod>2016-02-17</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/default/mount/</loc>
 		<lastmod>2016-02-16</lastmod>
 		<changefreq>weekly</changefreq>
