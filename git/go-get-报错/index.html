@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>systemctl</title>
+    <title>go get 报错</title>
   
-    <meta name="description" content="CentOS 7 上systemctl">
+    <meta name="description" content="go get 提示证书报错">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,63 +80,36 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>systemctl </h1>
+  <h1>go get 报错 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p><strong>systemctl</strong> 是管制服务的主要工具，<br />
-它整合了<em>chkconfig</em> 与 *service*功能于一体。</p>
+    <pre><code>Cloning into 'E:\work\gopath\src\github.com\astaxie\beego'...
+fatal: unable to access 'https://github.com/astaxie/beego/': error setting certificate verify locations:
+CAfile: E:/Software/git/Git/mingw64/ssl/certs/ca-bundle.crt
+CApath: none
+</code></pre>
+
+<h1>解决:</h1>
 
 <blockquote>
-<p>systemctl is-enabled iptables.service</p>
-
-<p>systemctl is-enabled servicename.service #查询服务是否开机启动<br />
-systemctl enable *.service #开机运行服务<br />
-systemctl disable *.service #取消开机运行<br />
-systemctl start *.service #启动服务<br />
-systemctl stop *.service #停止服务<br />
-systemctl restart *.service #重启服务<br />
-systemctl reload *.service #重新加载服务配置文件<br />
-systemctl status *.service #查询服务运行状态<br />
-systemctl --failed #显示启动失败的服务<br />
-注：*代表某个服务的名字，如http的服务名为httpd</p>
+<p>git config --global http.sslVerify false//跳过ssl校验即可</p>
 </blockquote>
-
-<h3>例如在CentOS 7 上安装http</h3>
-
-<p>[root@CentOS7 ~]#</p>
-
-<p><code>yum -y install httpd</code>
-启动服务（等同于service httpd start）<br />
-<code>systemctl start httpd.service</code>
-停止服务（等同于service httpd stop）</p>
-
-<p><code>systemctl stop httpd.service</code>
-重启服务（等同于service httpd restart）<br />
-<code>systemctl restart httpd.service</code>
-查看服务是否运行（等同于service httpd status）</p>
-
-<p><code>systemctl status httpd.service</code>
-开机自启动服务（等同于chkconfig httpd on）<br />
-<code>systemctl enable httpd.service</code>
-开机时禁用服务（等同于chkconfig httpd on）
-<code>systemctl disable httpd.service</code>
-查看服务是否开机启动 （等同于chkconfig --list）</p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/git/go-get-%E6%8A%A5%E9%94%99/" title="go get 报错">&larr; Previous</a></li>
+            <li class="prev"><a href="/gitlab/docker-gitlab/" title="docker gitlab">&larr; Previous</a></li>
           
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/linux/iptables/" title="iptables">Next &rarr;</a></li>
+            <li class="next"><a href="/centos/systemctl/" title="systemctl">Next &rarr;</a></li>
           
           
         </ul>
@@ -162,13 +135,17 @@ systemctl --failed #显示启动失败的服务<br />
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-02-17</span></div>
+    <div class="date"><span>2016-02-18</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#centos-ref">centos <span>3</span></a>
+  <a href="/categories/#git-ref">git <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/categories/#go-ref">go <span>1</span></a>
 </li>
     
     </ul>
@@ -177,7 +154,7 @@ systemctl --failed #显示启动失败的服务<br />
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#systemctl-ref">systemctl <span>1</span></a>
+  <a href="/tags/#git-ref">git <span>1</span></a>
 </li>
     
     </ul>

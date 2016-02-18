@@ -9,6 +9,11 @@
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
+		<loc>http://sample.com/git/go-get-%E6%8A%A5%E9%94%99/</loc>
+		<lastmod>2016-02-18</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/centos/systemctl/</loc>
 		<lastmod>2016-02-17</lastmod>
 		<changefreq>weekly</changefreq>
