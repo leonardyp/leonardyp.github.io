@@ -24,6 +24,16 @@
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
+		<loc>http://sample.com/centos/centos7%E5%AE%89%E8%A3%85gitlab/</loc>
+		<lastmod>2016-02-18</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
+		<loc>http://sample.com/gitlab/centos6.5-gitlab/</loc>
+		<lastmod>2016-02-18</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/centos/systemctl/</loc>
 		<lastmod>2016-02-17</lastmod>
 		<changefreq>weekly</changefreq>
