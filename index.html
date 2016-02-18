@@ -150,6 +150,40 @@ CApath: none
 </div>
 
 <div class="post">
+  <h3 class="title"><a href="/git/git-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E5%B9%B6%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B/">git 创建分支并提交到远程</a> <span class="date">2016-02-18</span></h3>
+
+  <h2>1,从已有的分支创建新的分支(如从master分支),创建一个dev分支</h2>
+
+<p><code>git checkout -b dev</code></p>
+
+<h2>2,创建完可以查看一下,分支已经切换到dev</h2>
+
+<pre><code>git branch
+
+    * dev
+
+    master
+</code></pre>
+
+<h2>3,提交该分支到远程仓库</h2>
+
+<pre><code>git push origin dev
+</code></pre>
+
+<h2>4,测试从远程获取dev</h2>
+
+<pre><code>git pull origin dev
+</code></pre>
+
+<h2>或者：</h2>
+
+
+  <div class="more">
+    <a href="/git/git-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E5%B9%B6%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/git/%E5%9C%A8github%E4%B8%8A%E5%90%8C%E6%AD%A5%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%28fork%29/">在github上同步一个分支(fork)</a> <span class="date">2016-02-18</span></h3>
 
   <h3>在github上同步一个分支(fork)</h3>

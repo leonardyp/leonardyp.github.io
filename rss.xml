@@ -2,7 +2,7 @@
 <rss version="2.0">  <channel>
     <title>Blog Title</title>
     <link>http://sample.com</link>
-    <pubDate>18 Feb 16 11:58 CST</pubDate>
+    <pubDate>18 Feb 16 12:04 CST</pubDate>
     <item>
       <title>docker gitlab</title>
       <link>http://sample.com/gitlab/docker-gitlab/</link>
@@ -14,6 +14,12 @@
       <link>http://sample.com/git/go-get-%E6%8A%A5%E9%94%99/</link>
       <pubDate>2016-02-18 12:00:00 +0800</pubDate>
       <description>&lt;pre&gt;&lt;code&gt;Cloning into &#39;E:\work\gopath\src\github.com\astaxie\beego&#39;...&#xA;fatal: unable to access &#39;https://github.com/astaxie/beego/&#39;: error setting certificate verify locations:&#xA;CAfile: E:/Software/git/Git/mingw64/ssl/certs/ca-bundle.crt&#xA;CApath: none&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h1&gt;解决:&lt;/h1&gt;&#xA;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;git config --global http.sslVerify false//跳过ssl校验即可&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>git 创建分支并提交到远程</title>
+      <link>http://sample.com/git/git-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E5%B9%B6%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B/</link>
+      <pubDate>2016-02-18 12:00:00 +0800</pubDate>
+      <description>&lt;h2&gt;1,从已有的分支创建新的分支(如从master分支),创建一个dev分支&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;git checkout -b dev&lt;/code&gt;&lt;/p&gt;&#xA;&#xA;&lt;h2&gt;2,创建完可以查看一下,分支已经切换到dev&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;git branch&#xA;&#xA;    * dev&#xA;&#xA;    master&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;3,提交该分支到远程仓库&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;git push origin dev&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;4,测试从远程获取dev&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;git pull origin dev&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;或者：&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;如果用命令行，运行 git fetch，可以将远程分支信息获取到本地,&lt;br /&gt;&#xA;再运行 &lt;strong&gt;git checkout -b local-branchname origin/remote_branchname&lt;/strong&gt;&lt;br /&gt;&#xA;就可以将远程分支映射到本地命名为local-branchname  的一分支&lt;/p&gt;&#xA;&#xA;&lt;h2&gt;5,我觉得现在重要的就是设置git push,pull默认的提交获取分支,这样就很方便的使用git push 提交信息或git pull获取信息&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;git branch --set-upstream-to=origin/dev&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h3&gt;取消对master的跟踪&lt;/h3&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;git branch --unset-upstream master&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;6,现在随便修改一下工程文件的内容,然后&lt;em&gt;git commit ,git push&lt;/em&gt;,之后就可以直接提交到远程的dev分支中,而不会是master&lt;/h2&gt;&#xA;</description>
     </item>
     <item>
       <title>在github上同步一个分支(fork)</title>
