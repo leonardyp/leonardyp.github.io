@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>centos7安装gitlab</title>
+  
+    <meta name="author" content="Leonard YP">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Blog Title</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/pages">Pages</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">About Me</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>centos7安装gitlab </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p><a href="http://my.oschina.net/u/1169607/blog/345833">参考</a></p>
+
+<p><code>gitlab-ctl reconfigure 报错解决方法</code></p>
+
+<h2>遇见的问题及解决:</h2>
+
+<p>[root@websvr01 ~]# sudo gitlab-ctl reconfigure</p>
+
+<pre><code>Starting Chef Client, version 11.12.2
+Compiling Cookbooks...
+Recipe: gitlab::default
+  directory[/etc/gitlab] action create (up to date)
+================================================================================
+Recipe Compile Error in /opt/gitlab/embedded/cookbooks/gitlab/recipes/default.rb
+================================================================================
+RuntimeError
+------------
+External URL must include a FQDN
+Cookbook Trace:
+---------------
+  /opt/gitlab/embedded/cookbooks/gitlab/libraries/gitlab.rb:109:in `parse_external_url'
+  /opt/gitlab/embedded/cookbooks/gitlab/libraries/gitlab.rb:260:in `generate_config'
+  /opt/gitlab/embedded/cookbooks/gitlab/recipes/default.rb:34:in `from_file'
+Relevant File Content:
+----------------------
+/opt/gitlab/embedded/cookbooks/gitlab/libraries/gitlab.rb:
+102:  
+103:      def parse_external_url
+104:        return unless external_url
+105:  
+106:        uri = URI(external_url.to_s)
+107:  
+108:        unless uri.host
+109&gt;&gt;         raise &quot;External URL must include a FQDN&quot;
+110:        end
+111:        Gitlab['user']['git_user_email'] ||= &quot;gitlab@#{uri.host}&quot;
+112:        Gitlab['gitlab_rails']['gitlab_host'] = uri.host
+113:        Gitlab['gitlab_rails']['gitlab_email_from'] ||= &quot;gitlab@#{uri.host}&quot;
+114:  
+115:        case uri.scheme
+116:        when &quot;http&quot;
+117:          Gitlab['gitlab_rails']['gitlab_https'] = false
+118:        when &quot;https&quot;
+Running handlers:
+[2014-11-25T11:10:44+08:00] ERROR: Running exception handlers
+Running handlers complete
+[2014-11-25T11:10:44+08:00] ERROR: Exception handlers complete
+[2014-11-25T11:10:44+08:00] FATAL: Stacktrace dumped to /opt/gitlab/embedded/cookbooks/cache/chef-stacktrace.out
+Chef Client failed. 0 resources updated in 7.716937465 seconds
+[2014-11-25T11:10:44+08:00] ERROR: External URL must include a FQDN
+[2014-11-25T11:10:45+08:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
+</code></pre>
+
+<h2>解决方法：</h2>
+
+<p>是因为/etc/gitlab/gitlab.rb文件中的内容是：</p>
+
+<pre><code>external_url 'hostname'
+</code></pre>
+
+<p>将其修改为：</p>
+
+<pre><code>external_url='hostname'
+</code></pre>
+
+<p>即可，只需要在原来的配置项中添加个 ‘=’ 即可，为了避免域名引起的问题，也可以直接配置ip，如下所示：</p>
+
+<pre><code>external_url='192.168.1.49'。
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/git/%E5%9C%A8github%E4%B8%8A%E5%90%8C%E6%AD%A5%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%28fork%29/" title="在github上同步一个分支(fork)">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/gitlab/centos6.5-gitlab/" title="centos6.5 gitlab">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2016-02-18</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#centos-ref">centos <span>4</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#gitlab-ref">gitlab <span>3</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; Leonard YP 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
