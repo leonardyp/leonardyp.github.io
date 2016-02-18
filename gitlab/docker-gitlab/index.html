@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>systemctl</title>
+    <title>docker gitlab</title>
   
-    <meta name="description" content="CentOS 7 上systemctl">
+    <meta name="description" content="使用docker安装gitlab">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,63 +80,84 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>systemctl </h1>
+  <h1>docker gitlab </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p><strong>systemctl</strong> 是管制服务的主要工具，<br />
-它整合了<em>chkconfig</em> 与 *service*功能于一体。</p>
+    <p>相关参考资料:</p>
 
-<blockquote>
-<p>systemctl is-enabled iptables.service</p>
+<h3><a href="http://yangchangming.com/blog/show/47">OS X 上安装GitLab全程指南</a></h3>
 
-<p>systemctl is-enabled servicename.service #查询服务是否开机启动<br />
-systemctl enable *.service #开机运行服务<br />
-systemctl disable *.service #取消开机运行<br />
-systemctl start *.service #启动服务<br />
-systemctl stop *.service #停止服务<br />
-systemctl restart *.service #重启服务<br />
-systemctl reload *.service #重新加载服务配置文件<br />
-systemctl status *.service #查询服务运行状态<br />
-systemctl --failed #显示启动失败的服务<br />
-注：*代表某个服务的名字，如http的服务名为httpd</p>
-</blockquote>
+<h3><a href="http://www.tuicool.com/articles/UrQJFz">gitlab一键安装 笔记</a></h3>
 
-<h3>例如在CentOS 7 上安装http</h3>
+<h3><a href="https://github.com/sameersbn/docker-gitlab/blob/master/README.md#redis">sameersbn/gitlab:8.4.4</a></h3>
 
-<p>[root@CentOS7 ~]#</p>
+<pre><code>docker run --name gitlab -d  -p 10080:80  --link gitlab-postgresql:postgresql --link gitlab-redis:redisio --volume /srv/docker/gitlab/gitlab:/home/git/data  sameersbn/gitlab:7.5.3
+</code></pre>
 
-<p><code>yum -y install httpd</code>
-启动服务（等同于service httpd start）<br />
-<code>systemctl start httpd.service</code>
-停止服务（等同于service httpd stop）</p>
+<p>docker@boot2docker:~$</p>
 
-<p><code>systemctl stop httpd.service</code>
-重启服务（等同于service httpd restart）<br />
-<code>systemctl restart httpd.service</code>
-查看服务是否运行（等同于service httpd status）</p>
+<pre><code>docker ps -a
 
-<p><code>systemctl status httpd.service</code>
-开机自启动服务（等同于chkconfig httpd on）<br />
-<code>systemctl enable httpd.service</code>
-开机时禁用服务（等同于chkconfig httpd on）
-<code>systemctl disable httpd.service</code>
-查看服务是否开机启动 （等同于chkconfig --list）</p>
+CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                    NAMES
+
+2b61b7095091        sameersbn/gitlab:7.5.3           &quot;/app/init app:start   7 seconds ago       Up 6 seconds        22/tcp, 443/tcp, 0.0.0.0:10080-&gt;80/tcp   gitlab              
+
+0d3c6db7f97d        quay.io/sameersbn/redis:latest   &quot;/sbin/entrypoint.sh   23 hours ago        Up 23 hours         6379/tcp                                 gitlab-redis        
+
+7171631f285d        sameersbn/postgresql:latest      &quot;/sbin/entrypoint.sh   23 hours ago        Up 23 hours         5432/tcp                                 gitlab-postgresql  
+</code></pre>
+
+<h2>&gt;git remote add origin <a href="http://192.168.59.103:10080/root/demo.git">http://192.168.59.103:10080/root/demo.git</a></h2>
+
+<h2>&gt;使用局域网ip或localhost或127.0.0.1  加上10080端口访问  192.168.59.103:10080</h2>
+
+<ul>
+<li><p>ip是boot2docker  start 得到的 ip</p>
+
+<pre><code>boot2docker  start
+Waiting for VM and Docker daemon to start........o
+Started.
+Writing /Users/leonard/.boot2docker/certs/boot2docker-vm/ca.pem
+Writing /Users/leonard/.boot2docker/certs/boot2docker-vm/cert.pem
+Writing /Users/leonard/.boot2docker/certs/boot2docker-vm/key.pem
+
+To connect the Docker client to the Docker daemon, please set:
+    export DOCKER_TLS_VERIFY=1
+    export DOCKER_HOST=tcp://192.168.59.103:2376
+    export DOCKER_CERT_PATH=/Users/leonard/.boot2docker/certs/boot2docker-vm
+</code></pre></li>
+</ul>
+
+<p>使用 boot2docker时，所有的 container都在boot2docker up命令启动的 Virtual Box VM里，<br />
+container使用的端口通过 docker -P或者 -p映射到了 VM里的 LinuxHost上，但是在 Mac OS X里是没有的。<br />
+从本机倒是可能用VM的ip访问到 container，从移动设备或其它机器上需要访问 container时，就需要在 Mac OS X上再做一次端口映射(portmapping)。</p>
+
+<p><strong>有两个方法</strong>，在<strong><a href="https://github.com/boot2docker/boot2docker/blob/master/doc/WORKAROUNDS.md">https://github.com/boot2docker/boot2docker/blob/master/doc/WORKAROUNDS.md</a></strong>里有介绍：</p>
+
+<p>在 Mac OS X与 VM Linux之间临时建立 ssh tunnel<br />
+<code>boot2docker ssh -vnNTL 8000:localhost:10080</code></p>
+
+<h1>用 Virtual Box的 NAT端口映射能力建立永久性的映射</h1>
+
+<p>虚拟机已关闭时：<code>VBoxManage modifyvm &quot;boot2docker-vm&quot; --natpf1 &quot;tcp-port8000,tcp,,8000,,10080&quot;;</code></p>
+
+<p>虚拟机在运行时：<code>VBoxManage controlvm &quot;boot2docker-vm&quot; natpf1 &quot;tcp-port8000,tcp,,8000,,10080&quot;</code></p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/gitlab/docker-gitlab/" title="docker gitlab">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/linux/iptables/" title="iptables">Next &rarr;</a></li>
+            <li class="next"><a href="/centos/systemctl/" title="systemctl">Next &rarr;</a></li>
           
           
         </ul>
@@ -162,13 +183,17 @@ systemctl --failed #显示启动失败的服务<br />
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-02-17</span></div>
+    <div class="date"><span>2016-02-18</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#centos-ref">centos <span>3</span></a>
+  <a href="/categories/#gitlab-ref">gitlab <span>1</span></a>
+</li>
+    
+      <li>
+  <a href="/categories/#docker-ref">docker <span>1</span></a>
 </li>
     
     </ul>
@@ -177,7 +202,7 @@ systemctl --failed #显示启动失败的服务<br />
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#systemctl-ref">systemctl <span>1</span></a>
+  <a href="/tags/#gitlab-ref">gitlab <span>1</span></a>
 </li>
     
     </ul>

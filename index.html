@@ -96,6 +96,39 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/gitlab/docker-gitlab/">docker gitlab</a> <span class="date">2016-02-18</span></h3>
+
+  <p>相关参考资料:</p>
+
+<h3><a href="http://yangchangming.com/blog/show/47">OS X 上安装GitLab全程指南</a></h3>
+
+<h3><a href="http://www.tuicool.com/articles/UrQJFz">gitlab一键安装 笔记</a></h3>
+
+<h3><a href="https://github.com/sameersbn/docker-gitlab/blob/master/README.md#redis">sameersbn/gitlab:8.4.4</a></h3>
+
+<pre><code>docker run --name gitlab -d  -p 10080:80  --link gitlab-postgresql:postgresql --link gitlab-redis:redisio --volume /srv/docker/gitlab/gitlab:/home/git/data  sameersbn/gitlab:7.5.3
+</code></pre>
+
+<p>docker@boot2docker:~$</p>
+
+<pre><code>docker ps -a
+
+CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                    NAMES
+
+2b61b7095091        sameersbn/gitlab:7.5.3           &quot;/app/init app:start   7 seconds ago       Up 6 seconds        22/tcp, 443/tcp, 0.0.0.0:10080-&gt;80/tcp   gitlab              
+
+0d3c6db7f97d        quay.io/sameersbn/redis:latest   &quot;/sbin/entrypoint.sh   23 hours ago        Up 23 hours         6379/tcp                                 gitlab-redis        
+
+7171631f285d        sameersbn/postgresql:latest      &quot;/sbin/entrypoint.sh   23 hours ago        Up 23 hours         5432/tcp                                 gitlab-postgresql  
+</code></pre>
+
+
+  <div class="more">
+    <a href="/gitlab/docker-gitlab/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/centos/systemctl/">systemctl</a> <span class="date">2016-02-17</span></h3>
 
   <p><strong>systemctl</strong> 是管制服务的主要工具，<br />
