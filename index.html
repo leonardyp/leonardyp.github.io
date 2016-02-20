@@ -136,6 +136,42 @@ git pull
 </div>
 
 <div class="post">
+  <h3 class="title"><a href="/git/centos7%E6%90%AD%E5%BB%BAgit-server/">centos7搭建git-server</a> <span class="date">2016-02-21</span></h3>
+
+  <h2>1、安装Git</h2>
+
+<pre><code> yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel
+ yum install git
+</code></pre>
+
+<p>接下来我们 创建一个git用户组和用户，用来运行git服务：</p>
+
+<pre><code>groupadd git
+adduser git -g git
+</code></pre>
+
+<h2>2、创建证书登录</h2>
+
+<p>收集所有需要登录的用户的公钥，公钥位于id_rsa.pub文件中，<br />
+把我们的公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。<br />
+如果没有该文件创建它:</p>
+
+<pre><code>    $ cd /home/git/  
+    $ mkdir .ssh  
+    $ chmod 700 .ssh  
+    $ touch .ssh/authorized_keys  
+    $ chmod 600 .ssh/authorized_keys  
+</code></pre>
+
+<h2>3、初始化Git仓库</h2>
+
+
+  <div class="more">
+    <a href="/git/centos7%E6%90%AD%E5%BB%BAgit-server/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/gitlab/docker-gitlab/">docker gitlab</a> <span class="date">2016-02-18</span></h3>
 
   <p>相关参考资料:</p>
@@ -416,20 +452,6 @@ systemctl status iptables         [On CentOS 7]
 
   <div class="more">
     <a href="/linux/iptables/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/centos/centos%E6%8C%82%E8%BD%BDntfs/">centos挂载ntfs</a> <span class="date">2016-02-16</span></h3>
-
-  <pre><code>sudo mount -t ntfs-3g  /dev/sdb1 /pic/
-
-sudo umount /pic/  强制卸载
-</code></pre>
-
-
-  <div class="more">
-    <a href="/centos/centos%E6%8C%82%E8%BD%BDntfs/" class="btn">read more..</a>
   </div>
 </div>
 

@@ -2,12 +2,18 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>21 Feb 16 00:29 CST</pubDate>
+    <pubDate>21 Feb 16 00:37 CST</pubDate>
     <item>
       <title>git conflict</title>
       <link>http://sample.com/git/git-conflict/</link>
       <pubDate>2016-02-21 12:00:00 +0800</pubDate>
       <description>&lt;h3&gt;如果系统中有一些配置文件在服务器上做了配置修改,然后后续开发又新添加一些配置项的时候,&lt;/h3&gt;&#xA;&#xA;&lt;h4&gt;&lt;em&gt;在发布这个配置文件的时候,会发生代码冲突:&lt;/em&gt;&lt;/h4&gt;&#xA;&#xA;&lt;hr /&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;error: Your local changes to the following files would be overwritten by merge:&#xA;     protected/config/main.php&lt;/code&gt;&lt;/p&gt;&#xA;&#xA;&lt;h2&gt;&lt;code&gt;Please, commit your changes or stash them before you can merge.&lt;/code&gt;&lt;/h2&gt;&#xA;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;p&gt;希望保留生产服务器上所做的改动,仅仅并入新配置项&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;  git stash&#xA;  git pull&#xA;  git stash pop   &#xA;&#xA;  然后可以使用git diff -w +文件名 来确认代码自动合并的情况.&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;&#xA;&#xA;&lt;li&gt;&lt;p&gt;如果希望用代码库中的文件完全覆盖本地工作版本&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;git reset --hard&#xA;git pull&#xA;其中git reset是针对版本,  &#xA;&#xA;如果想针对文件回退本地修改,使用&#xA;git checkout HEAD file/to/restore  &#xA;&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>centos7搭建git-server</title>
+      <link>http://sample.com/git/centos7%E6%90%AD%E5%BB%BAgit-server/</link>
+      <pubDate>2016-02-21 12:00:00 +0800</pubDate>
+      <description>&lt;h2&gt;1、安装Git&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt; yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel&#xA; yum install git&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;接下来我们 创建一个git用户组和用户，用来运行git服务：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;groupadd git&#xA;adduser git -g git&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;2、创建证书登录&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;收集所有需要登录的用户的公钥，公钥位于id_rsa.pub文件中，&lt;br /&gt;&#xA;把我们的公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。&lt;br /&gt;&#xA;如果没有该文件创建它:&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;    $ cd /home/git/  &#xA;    $ mkdir .ssh  &#xA;    $ chmod 700 .ssh  &#xA;    $ touch .ssh/authorized_keys  &#xA;    $ chmod 600 .ssh/authorized_keys  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;3、初始化Git仓库&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;首先我们选定一个目录作为Git仓库，假定是/home/gitrepo/w3cschoolcc.git，&#xA;在/home/gitrepo目录下输入命令：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;$ cd /home&#xA;$ mkdir gitrepo&#xA;$ chown git:git gitrepo/&#xA;$ cd gitrepo&#xA;&#xA;$ git init --bare w3cschoolcc.git&#xA;Initialized empty Git repository in /home/gitrepo/w3cschoolcc.git/&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;以上命令Git创建一个空仓库，服务器上的Git仓库通常都以.git结尾。&lt;br /&gt;&#xA;然后，把仓库所属用户改为git：&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;$ chown -R git:git w3cschoolcc.git&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;4、克隆仓库&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;$ git clone git@192.168.45.4:/home/gitrepo/w3cschoolcc.git  #可能需要输入git用户密码&#xA;也可以git clone root@192.168.45.4:/home/gitrepo/w3cschoolcc.git  #此时输入root密码&#xA;&#xA;Cloning into &#39;w3cschoolcc&#39;... warning: You appear to have cloned an empty repository. Checking connectivity... done.&#xA;192.168.45.4 为 Git 所在服务器 ip ，你需要将其修改为你自己的 Git 服务 ip。&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h4&gt;这样我们的 Git 服务器安装就完成了，接下来我们可以禁用 git 用户通过shell登录，可以通过编辑/etc/passwd文件完成。找到类似下面的一行：&lt;/h4&gt;&#xA;&#xA;&lt;h2&gt;git:x:503:503::/home/git:/bin/bash&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;改为：&lt;/p&gt;&#xA;&#xA;&lt;h2&gt;git:x:503:503::/home/git:/sbin/nologin&lt;/h2&gt;&#xA;</description>
     </item>
     <item>
       <title>docker gitlab</title>

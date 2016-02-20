@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>docker gitlab</title>
+    <title>centos7搭建git-server</title>
   
-    <meta name="description" content="使用docker安装gitlab">
+    <meta name="description" content="centos7搭建git-server">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,84 +80,86 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>docker gitlab </h1>
+  <h1>centos7搭建git-server </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>相关参考资料:</p>
+    <h2>1、安装Git</h2>
 
-<h3><a href="http://yangchangming.com/blog/show/47">OS X 上安装GitLab全程指南</a></h3>
-
-<h3><a href="http://www.tuicool.com/articles/UrQJFz">gitlab一键安装 笔记</a></h3>
-
-<h3><a href="https://github.com/sameersbn/docker-gitlab/blob/master/README.md#redis">sameersbn/gitlab:8.4.4</a></h3>
-
-<pre><code>docker run --name gitlab -d  -p 10080:80  --link gitlab-postgresql:postgresql --link gitlab-redis:redisio --volume /srv/docker/gitlab/gitlab:/home/git/data  sameersbn/gitlab:7.5.3
+<pre><code> yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel
+ yum install git
 </code></pre>
 
-<p>docker@boot2docker:~$</p>
+<p>接下来我们 创建一个git用户组和用户，用来运行git服务：</p>
 
-<pre><code>docker ps -a
-
-CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                    NAMES
-
-2b61b7095091        sameersbn/gitlab:7.5.3           &quot;/app/init app:start   7 seconds ago       Up 6 seconds        22/tcp, 443/tcp, 0.0.0.0:10080-&gt;80/tcp   gitlab              
-
-0d3c6db7f97d        quay.io/sameersbn/redis:latest   &quot;/sbin/entrypoint.sh   23 hours ago        Up 23 hours         6379/tcp                                 gitlab-redis        
-
-7171631f285d        sameersbn/postgresql:latest      &quot;/sbin/entrypoint.sh   23 hours ago        Up 23 hours         5432/tcp                                 gitlab-postgresql  
+<pre><code>groupadd git
+adduser git -g git
 </code></pre>
 
-<h2>&gt;git remote add origin <a href="http://192.168.59.103:10080/root/demo.git">http://192.168.59.103:10080/root/demo.git</a></h2>
+<h2>2、创建证书登录</h2>
 
-<h2>&gt;使用局域网ip或localhost或127.0.0.1  加上10080端口访问  192.168.59.103:10080</h2>
+<p>收集所有需要登录的用户的公钥，公钥位于id_rsa.pub文件中，<br />
+把我们的公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。<br />
+如果没有该文件创建它:</p>
 
-<ul>
-<li><p>ip是boot2docker  start 得到的 ip</p>
+<pre><code>    $ cd /home/git/  
+    $ mkdir .ssh  
+    $ chmod 700 .ssh  
+    $ touch .ssh/authorized_keys  
+    $ chmod 600 .ssh/authorized_keys  
+</code></pre>
 
-<pre><code>boot2docker  start
-Waiting for VM and Docker daemon to start........o
-Started.
-Writing /Users/leonard/.boot2docker/certs/boot2docker-vm/ca.pem
-Writing /Users/leonard/.boot2docker/certs/boot2docker-vm/cert.pem
-Writing /Users/leonard/.boot2docker/certs/boot2docker-vm/key.pem
+<h2>3、初始化Git仓库</h2>
 
-To connect the Docker client to the Docker daemon, please set:
-    export DOCKER_TLS_VERIFY=1
-    export DOCKER_HOST=tcp://192.168.59.103:2376
-    export DOCKER_CERT_PATH=/Users/leonard/.boot2docker/certs/boot2docker-vm
-</code></pre></li>
-</ul>
+<p>首先我们选定一个目录作为Git仓库，假定是/home/gitrepo/w3cschoolcc.git，
+在/home/gitrepo目录下输入命令：</p>
 
-<p>使用 boot2docker时，所有的 container都在boot2docker up命令启动的 Virtual Box VM里，<br />
-container使用的端口通过 docker -P或者 -p映射到了 VM里的 LinuxHost上，但是在 Mac OS X里是没有的。<br />
-从本机倒是可能用VM的ip访问到 container，从移动设备或其它机器上需要访问 container时，就需要在 Mac OS X上再做一次端口映射(portmapping)。</p>
+<pre><code>$ cd /home
+$ mkdir gitrepo
+$ chown git:git gitrepo/
+$ cd gitrepo
 
-<p><strong>有两个方法</strong>，在<strong><a href="https://github.com/boot2docker/boot2docker/blob/master/doc/WORKAROUNDS.md">https://github.com/boot2docker/boot2docker/blob/master/doc/WORKAROUNDS.md</a></strong>里有介绍：</p>
+$ git init --bare w3cschoolcc.git
+Initialized empty Git repository in /home/gitrepo/w3cschoolcc.git/
+</code></pre>
 
-<p>在 Mac OS X与 VM Linux之间临时建立 ssh tunnel<br />
-<code>boot2docker ssh -vnNTL 8000:localhost:10080</code></p>
+<p>以上命令Git创建一个空仓库，服务器上的Git仓库通常都以.git结尾。<br />
+然后，把仓库所属用户改为git：</p>
 
-<h1>用 Virtual Box的 NAT端口映射能力建立永久性的映射</h1>
+<pre><code>$ chown -R git:git w3cschoolcc.git
+</code></pre>
 
-<p>虚拟机已关闭时：<code>VBoxManage modifyvm &quot;boot2docker-vm&quot; --natpf1 &quot;tcp-port8000,tcp,,8000,,10080&quot;;</code></p>
+<h2>4、克隆仓库</h2>
 
-<p>虚拟机在运行时：<code>VBoxManage controlvm &quot;boot2docker-vm&quot; natpf1 &quot;tcp-port8000,tcp,,8000,,10080&quot;</code></p>
+<pre><code>$ git clone git@192.168.45.4:/home/gitrepo/w3cschoolcc.git  #可能需要输入git用户密码
+也可以git clone root@192.168.45.4:/home/gitrepo/w3cschoolcc.git  #此时输入root密码
+
+Cloning into 'w3cschoolcc'... warning: You appear to have cloned an empty repository. Checking connectivity... done.
+192.168.45.4 为 Git 所在服务器 ip ，你需要将其修改为你自己的 Git 服务 ip。
+</code></pre>
+
+<h4>这样我们的 Git 服务器安装就完成了，接下来我们可以禁用 git 用户通过shell登录，可以通过编辑/etc/passwd文件完成。找到类似下面的一行：</h4>
+
+<h2>git:x:503:503::/home/git:/bin/bash</h2>
+
+<p>改为：</p>
+
+<h2>git:x:503:503::/home/git:/sbin/nologin</h2>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/git/centos7%E6%90%AD%E5%BB%BAgit-server/" title="centos7搭建git-server">&larr; Previous</a></li>
+            <li class="prev"><a href="/git/git-conflict/" title="git conflict">&larr; Previous</a></li>
           
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/git/go-get-%E6%8A%A5%E9%94%99/" title="go get 报错">Next &rarr;</a></li>
+            <li class="next"><a href="/gitlab/docker-gitlab/" title="docker gitlab">Next &rarr;</a></li>
           
           
         </ul>
@@ -183,27 +185,19 @@ container使用的端口通过 docker -P或者 -p映射到了 VM里的 LinuxHost
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-02-18</span></div>
+    <div class="date"><span>2016-02-21</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#gitlab-ref">gitlab <span>2</span></a>
-</li>
-    
-      <li>
-  <a href="/categories/#docker-ref">docker <span>1</span></a>
+  <a href="/categories/#git-ref">git <span>5</span></a>
 </li>
     
     </ul>
     <br>
     <h4>Tags</h4>
     <ul class="tag_box">
-    
-      <li>
-  <a href="/tags/#gitlab-ref">gitlab <span>3</span></a>
-</li>
     
     </ul>
   </div>

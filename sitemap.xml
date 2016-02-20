@@ -9,6 +9,11 @@
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
+		<loc>http://sample.com/git/centos7%E6%90%AD%E5%BB%BAgit-server/</loc>
+		<lastmod>2016-02-21</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/gitlab/docker-gitlab/</loc>
 		<lastmod>2016-02-18</lastmod>
 		<changefreq>weekly</changefreq>
