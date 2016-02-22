@@ -98,6 +98,32 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/hbuilder/HBuilder%E8%B0%83%E8%AF%95APP/">HBuilder调试APP</a> <span class="date">2016-02-22</span></h3>
+
+  <h1>方法一</h1>
+
+<p>1,手机安装百度连接助手
+2,电脑安装91手机助手</p>
+
+<p><img src="../01.png" alt="" /></p>
+
+<h1>方法二</h1>
+
+<p>1,安装海马玩模拟器(Droid4X)</p>
+
+<p><img src="../02.png" alt="" /></p>
+
+<p>2,在Hbuilder--&gt;运行菜单中</p>
+
+<p><img src="../03.png" alt="" /></p>
+
+
+  <div class="more">
+    <a href="/hbuilder/HBuilder%E8%B0%83%E8%AF%95APP/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/git/git-conflict/">git conflict</a> <span class="date">2016-02-21</span></h3>
 
   <h3>如果系统中有一些配置文件在服务器上做了配置修改,然后后续开发又新添加一些配置项的时候,</h3>
@@ -418,40 +444,6 @@ systemctl --failed #显示启动失败的服务<br />
 
   <div class="more">
     <a href="/centos/systemctl/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/linux/iptables/">iptables</a> <span class="date">2016-02-17</span></h3>
-
-  <h2>1,<strong>检测iptables</strong>:</h2>
-
-<pre><code>`rpm -qa iptables`  
-</code></pre>
-
-<p><strong>result:</strong> <code>iptables-1.4.21-13.el7.x86_64</code></p>
-
-<h2>2,<strong>怎样检测并且确保iptables服务正在运行？</strong></h2>
-
-<pre><code>service status iptables           [On CentOS 6/5]
-systemctl status iptables         [On CentOS 7]
-</code></pre>
-
-<p>如果iptables没有在运行，可以使用下面的语句</p>
-
-<p>---------------- <strong>在CentOS 6/5下</strong> ----------------<br />
-<code>chkconfig --level 35 iptables on</code><br />
-<code>service iptables start</code></p>
-
-<p>---------------- <strong>在CentOS 7下</strong> ----------------<br />
-<code>systemctl enable iptables</code><br />
-<code>systemctl start iptables</code></p>
-
-<h3>检查iptables中当前定义的规则</h3>
-
-
-  <div class="more">
-    <a href="/linux/iptables/" class="btn">read more..</a>
   </div>
 </div>
 
