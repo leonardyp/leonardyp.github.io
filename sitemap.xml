@@ -24,6 +24,11 @@
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
+		<loc>http://sample.com/go/go%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/</loc>
+		<lastmod>2016-02-24</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/</loc>
 		<lastmod>2016-02-24</lastmod>
 		<changefreq>weekly</changefreq>

@@ -2,7 +2,7 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>24 Feb 16 23:38 CST</pubDate>
+    <pubDate>24 Feb 16 23:48 CST</pubDate>
     <item>
       <title>mongodb page split</title>
       <link>http://sample.com/mongodb/mongodb-page-split/</link>
@@ -26,6 +26,12 @@
       <link>http://sample.com/go/go%E5%A4%96%E9%83%A8%E5%8C%85%E6%93%8D%E4%BD%9C%E9%9D%9E%E5%AF%BC%E5%87%BA%E5%AD%97%E6%AE%B5/</link>
       <pubDate>2016-02-24 12:00:00 +0800</pubDate>
       <description>&lt;pre&gt;&lt;code&gt;type Template struct {&#xA;   name string&#xA;   *parse.Tree&#xA;   *common&#xA;   leftDelim  string&#xA;   rightDelim string&#xA;}&#xA;&#xA;&#xA;type common struct {&#xA;   tmpl       map[string]*Template&#xA;   parseFuncs template.FuncMap&#xA;   execFuncs  map[string]reflect.Value&#xA;}&#xA;&#xA;&#xA;func TestDemo(t *testing.T) {&#xA;   tpl := template.New(&amp;quot;Foo&amp;quot;)&#xA;   p := (*Template)(unsafe.Pointer(tpl))&#xA;   p.name = &amp;quot;Bar&amp;quot; // 关键在这里，突破私有成员&#xA;   logger.Debug(&amp;quot;%v:%v&amp;quot;, p, tpl)&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;输出结果&lt;/h2&gt;&#xA;&#xA;&lt;h1&gt;&amp;amp;{Bar &lt;nil&gt; &lt;nil&gt;  } &amp;amp;{Bar &lt;nil&gt; &lt;nil&gt;  }&lt;/h1&gt;&#xA;&#xA;&lt;h1&gt;&lt;strong&gt;t.name&lt;/strong&gt; 也变成 &lt;strong&gt;Bar&lt;/strong&gt;了, 成功突破template.Template私有字段 name&lt;/h1&gt;&#xA;</description>
+    </item>
+    <item>
+      <title>go加密算法测试总结</title>
+      <link>http://sample.com/go/go%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>2016-02-24 12:00:00 +0800</pubDate>
+      <description>&lt;h1&gt;一:各种加解密执行效率对比 ,每种操作总执行次数1万次&lt;/h1&gt;&#xA;&#xA;&lt;h2&gt;1,des:&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;&lt;strong&gt;加密&lt;/strong&gt;&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;    32.8221828s(39k/op)   &#xA;    2.769367662s(3k/op)  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;&lt;strong&gt;解密&lt;/strong&gt;&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;    33.0261118s(39k)  &#xA;    2.698096243)(3k)  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;2,des3:&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;&lt;strong&gt;加密&lt;/strong&gt;&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;    98.480689665s(39k/op)  &#xA;    8.284633236s(3k/op)  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;&lt;strong&gt;解密&lt;/strong&gt;&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;    97.500104132s(39k/op)  &#xA;    7.824800258s(3k/op)  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;3,aes:&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;&lt;strong&gt;加密&lt;/strong&gt;&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;    1.431315982s(16位密钥,39k/op)  &#xA;    1.655555551s(32位密钥,39k/op)  &#xA;    0.1835701936s(32位密钥,3k/op)  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;&lt;strong&gt;解密&lt;/strong&gt;&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;    1.478518076s(16位密钥,39k/op)  &#xA;    1.699795055(32位密钥,39k/op)  &#xA;    0.187044405000s(32位密钥,3k/op)  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h1&gt;二:加密前后数据长度对比&lt;/h1&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;des,des3加密后的数据较加密前平均多4字节  &#xA;&#xA;aes加密后的数据较加密前平均多24字节&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h1&gt;三:aes加密与自己简单的加密性能对比(195k/op)&lt;/h1&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;aes加密: 6.688336596s  &#xA;&#xA;自己加密算法:2.032817821s&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;自己简单的加密算法，用于跟以上加密算法简单对比,纯属瞎写,哈哈😄:&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;for i := 0; i &amp;lt; len(data); i++ {&#xA;    d := data[i]&#xA;    b := int(d) ^ i&#xA;    data[i] = byte(b)&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;即每个字节异或重新赋值&lt;/p&gt;&#xA;</description>
     </item>
     <item>
       <title>centos6.5安装mongodb</title>
