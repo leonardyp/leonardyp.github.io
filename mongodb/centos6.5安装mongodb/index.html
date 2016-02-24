@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Pages</title>
+    <title>centos6.5安装mongodb</title>
+  
+    <meta name="description" content="centos6.5安装mongodb">
   
     <meta name="author" content="Leonard YP">
 
@@ -56,9 +58,9 @@
 
             
               
-  <li class="active"><a href="/pages" class="active">Pages</a></li>
 
 
+  <li><a href="/pages">Pages</a></li>
 
 
             
@@ -77,59 +79,91 @@
     <div class="container">
 
       <div class="content">
-        
-<div class="page-header">
-  <h1>Pages </h1>
+        <div class="page-header">
+  <h1>centos6.5安装mongodb </h1>
 </div>
 
 <div class="row">
-  <div class="span12">
+  <div class="span8">
+    <pre><code>wget https://fastdl.mongodb.org/linux/mongodb-linux-i686-2.6.7.tgz?_ga=1.68265944.858401362.1421216907  
+
+tar -zxvf mongodb-linux-i686-2.6.7.tgz
+mkdir -p /data/db
+</code></pre>
+
+<p><code>mongod</code></p>
+
+<h2>错误及解决:</h2>
+
+<p><code>/lib/ld-linux.so.2: bad ELF interpreter: 没有那个文件或目录</code></p>
+
+<pre><code>sudo yum install glibc.i686
+</code></pre>
+
+<h2><code>mongodb 安装错误error while loading shared libraries: libstdc++.so.6: cannot open shared object file</code></h2>
+
+<pre><code>yum whatprovides libstdc++.so.6 
+
+yum install libstdc++-4.4.7-11.el6.i686
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/hbuilder/HBuilder%E8%B0%83%E8%AF%95APP/" title="HBuilder调试APP">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
     
-<ul>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
+  </div>
   
-
-
-  <li><a href="/about">关于作者</a></li>
-
-
-
-  
-
-
-  <li><a href="/archive">Archive</a></li>
-
-
-
-  
-
-
-  <li><a href="/categories">Categories</a></li>
-
-
-
-  
-
-
-  <li><a href="/">首页</a></li>
-
-
-
-  
-
-
-  <li><a href="/pages">Pages</a></li>
-
-
-
-  
-
-
-  <li><a href="/tags">Tags</a></li>
-
-
-
-</ul>
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2016-02-24</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#mongodb-ref">mongodb <span>1</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#nosql-ref">nosql <span>1</span></a>
+</li>
+    
+    </ul>
   </div>
 </div>
 

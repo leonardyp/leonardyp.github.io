@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>22 Feb 16 14:50 CST</pubDate>
+    <pubDate>24 Feb 16 22:59 CST</pubDate>
+    <item>
+      <title>centos6.5安装mongodb</title>
+      <link>http://sample.com/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/</link>
+      <pubDate>2016-02-24 12:00:00 +0800</pubDate>
+      <description>&lt;pre&gt;&lt;code&gt;wget https://fastdl.mongodb.org/linux/mongodb-linux-i686-2.6.7.tgz?_ga=1.68265944.858401362.1421216907  &#xA;&#xA;tar -zxvf mongodb-linux-i686-2.6.7.tgz&#xA;mkdir -p /data/db&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;mongod&lt;/code&gt;&lt;/p&gt;&#xA;&#xA;&lt;h2&gt;错误及解决:&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;/lib/ld-linux.so.2: bad ELF interpreter: 没有那个文件或目录&lt;/code&gt;&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;sudo yum install glibc.i686&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;&lt;code&gt;mongodb 安装错误error while loading shared libraries: libstdc++.so.6: cannot open shared object file&lt;/code&gt;&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;yum whatprovides libstdc++.so.6 &#xA;&#xA;yum install libstdc++-4.4.7-11.el6.i686&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
+    </item>
     <item>
       <title>HBuilder调试APP</title>
       <link>http://sample.com/hbuilder/HBuilder%E8%B0%83%E8%AF%95APP/</link>

@@ -98,6 +98,37 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/">centos6.5安装mongodb</a> <span class="date">2016-02-24</span></h3>
+
+  <pre><code>wget https://fastdl.mongodb.org/linux/mongodb-linux-i686-2.6.7.tgz?_ga=1.68265944.858401362.1421216907  
+
+tar -zxvf mongodb-linux-i686-2.6.7.tgz
+mkdir -p /data/db
+</code></pre>
+
+<p><code>mongod</code></p>
+
+<h2>错误及解决:</h2>
+
+<p><code>/lib/ld-linux.so.2: bad ELF interpreter: 没有那个文件或目录</code></p>
+
+<pre><code>sudo yum install glibc.i686
+</code></pre>
+
+<h2><code>mongodb 安装错误error while loading shared libraries: libstdc++.so.6: cannot open shared object file</code></h2>
+
+<pre><code>yum whatprovides libstdc++.so.6 
+
+yum install libstdc++-4.4.7-11.el6.i686
+</code></pre>
+
+
+  <div class="more">
+    <a href="/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/hbuilder/HBuilder%E8%B0%83%E8%AF%95APP/">HBuilder调试APP</a> <span class="date">2016-02-22</span></h3>
 
   <h1>方法一</h1>
@@ -413,37 +444,6 @@ Chef Client failed. 0 resources updated in 7.716937465 seconds
 
   <div class="more">
     <a href="/gitlab/centos6.5-gitlab/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/centos/systemctl/">systemctl</a> <span class="date">2016-02-17</span></h3>
-
-  <p><strong>systemctl</strong> 是管制服务的主要工具，<br />
-它整合了<em>chkconfig</em> 与 *service*功能于一体。</p>
-
-<blockquote>
-<p>systemctl is-enabled iptables.service</p>
-
-<p>systemctl is-enabled servicename.service #查询服务是否开机启动<br />
-systemctl enable *.service #开机运行服务<br />
-systemctl disable *.service #取消开机运行<br />
-systemctl start *.service #启动服务<br />
-systemctl stop *.service #停止服务<br />
-systemctl restart *.service #重启服务<br />
-systemctl reload *.service #重新加载服务配置文件<br />
-systemctl status *.service #查询服务运行状态<br />
-systemctl --failed #显示启动失败的服务<br />
-注：*代表某个服务的名字，如http的服务名为httpd</p>
-</blockquote>
-
-<h3>例如在CentOS 7 上安装http</h3>
-
-<p>[root@CentOS7 ~]#</p>
-
-
-  <div class="more">
-    <a href="/centos/systemctl/" class="btn">read more..</a>
   </div>
 </div>
 

@@ -4,6 +4,11 @@
 		<loc>http://sample.com/</loc>
 	</url>
 	<url>
+		<loc>http://sample.com/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/</loc>
+		<lastmod>2016-02-24</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/hbuilder/HBuilder%E8%B0%83%E8%AF%95APP/</loc>
 		<lastmod>2016-02-22</lastmod>
 		<changefreq>weekly</changefreq>
