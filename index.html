@@ -120,6 +120,40 @@ page2.sort({&quot;date“：-1}).limit(100);
 </div>
 
 <div class="post">
+  <h3 class="title"><a href="/mongodb/mongodb-basic-point/">mongodb basic point</a> <span class="date">2016-02-24</span></h3>
+
+  <p><a href="http://www.yiibai.com/mongodb/mongodb_create_database.html">参考</a></p>
+
+<h2>1,试了试 mongodb 的 insert()、save()  ，区别主要是：若存在主键，insert()  不做操作，而save() 则更改原来的内容为新内容。</h2>
+
+<p>存在数据：  { _id : 1, &ldquo; name &rdquo; : &ldquo; n1 &rdquo; }</p>
+
+<p>insert({ _id : 1, &ldquo; name &rdquo; : &ldquo; n2 &rdquo; })    会提示错误</p>
+
+<p>save({ _id : 1, &ldquo; name &rdquo; : &ldquo; n2 &rdquo; })     会把 n1 改为  n2  。</p>
+
+<h2>2,创建与使用数据库,use命令,当数据库不存在则创建数据库,新建数据库时show dbs看不见,要显示的数据库，需要把它插入至少一个文件。</h2>
+
+<h2>3,删除数据库,想要删除名为demo的数据库:</h2>
+
+<pre><code>use demo   
+db.dropDatabase()  
+</code></pre>
+
+<h2>4,更新多条数据:MongoDB默认将只更新单一的文件，来更新多个你需要设置参数置&rsquo;multi&rsquo; 为true</h2>
+
+<pre><code>db.mycol.update({'title':'MongoDB Overview'},{$set:{'title':'New MongoDB Tutorial'}},{multi:true}) 
+</code></pre>
+
+<h2>5,mongod   --rest 会有web控制台</h2>
+
+
+  <div class="more">
+    <a href="/mongodb/mongodb-basic-point/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/">mongodb-Deploy a Sharded Cluster</a> <span class="date">2016-02-24</span></h3>
 
   <p><a href="http://blog.csdn.net/irelandken/article/details/8003315">参考</a></p>
@@ -371,37 +405,6 @@ CApath: none
 
   <div class="more">
     <a href="/git/git-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E5%B9%B6%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/git/%E5%9C%A8github%E4%B8%8A%E5%90%8C%E6%AD%A5%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%28fork%29/">在github上同步一个分支(fork)</a> <span class="date">2016-02-18</span></h3>
-
-  <h3>在github上同步一个分支(fork)</h3>
-
-<p>在同步之前，需要创建一个远程点指向上游仓库(repo).如果你已经派生了一个原始仓库，可以按照如下方法做。</p>
-
-<pre><code>    $ git remote -v  
-    # List the current remotes （列出当前远程仓库）  
-    # origin  https://github.com/user/repo.git (fetch)  
-    # origin  https://github.com/user/repo.git (push)  
-    $ git remote add upstream https://github.com/otheruser/repo.git  
-    # Set a new remote (设置一个新的远程仓库)  
-    $ git remote -v  
-    # Verify new remote (验证新的原唱仓库)  
-    # origin    https://github.com/user/repo.git (fetch)  
-    # origin    https://github.com/user/repo.git (push)  
-    # upstream  https://github.com/otheruser/repo.git (fetch)  
-    # upstream  https://github.com/otheruser/repo.git (push)  
-</code></pre>
-
-<h2>同步</h2>
-
-<p>同步上游仓库到你的仓库需要执行<strong>两步</strong>：首先你需要从远程拉去，之后你需要合并你希望的分支到你的本地副本分支。</p>
-
-
-  <div class="more">
-    <a href="/git/%E5%9C%A8github%E4%B8%8A%E5%90%8C%E6%AD%A5%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%28fork%29/" class="btn">read more..</a>
   </div>
 </div>
 

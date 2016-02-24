@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>mongodb basic point</title>
+  
+    <meta name="description" content="mongodb basic point">
+  
+    <meta name="author" content="Leonard YP">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Leonard</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/pages">Pages</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">关于作者</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>mongodb basic point </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p><a href="http://www.yiibai.com/mongodb/mongodb_create_database.html">参考</a></p>
+
+<h2>1,试了试 mongodb 的 insert()、save()  ，区别主要是：若存在主键，insert()  不做操作，而save() 则更改原来的内容为新内容。</h2>
+
+<p>存在数据：  { _id : 1, &ldquo; name &rdquo; : &ldquo; n1 &rdquo; }</p>
+
+<p>insert({ _id : 1, &ldquo; name &rdquo; : &ldquo; n2 &rdquo; })    会提示错误</p>
+
+<p>save({ _id : 1, &ldquo; name &rdquo; : &ldquo; n2 &rdquo; })     会把 n1 改为  n2  。</p>
+
+<h2>2,创建与使用数据库,use命令,当数据库不存在则创建数据库,新建数据库时show dbs看不见,要显示的数据库，需要把它插入至少一个文件。</h2>
+
+<h2>3,删除数据库,想要删除名为demo的数据库:</h2>
+
+<pre><code>use demo   
+db.dropDatabase()  
+</code></pre>
+
+<h2>4,更新多条数据:MongoDB默认将只更新单一的文件，来更新多个你需要设置参数置&rsquo;multi&rsquo; 为true</h2>
+
+<pre><code>db.mycol.update({'title':'MongoDB Overview'},{$set:{'title':'New MongoDB Tutorial'}},{multi:true}) 
+</code></pre>
+
+<h2>5,mongod   --rest 会有web控制台</h2>
+
+<h2>6,$all匹配所有,类似$in不同的是$in只需匹配一个而$all则需匹配所有</h2>
+
+<h2>7,$exists判断存在</h2>
+
+<pre><code>如查询所有存在age字段的纪录：db.user.find({age:{$exists:true}}) 
+</code></pre>
+
+<h2>8,$mod取模运算</h2>
+
+<pre><code>如查询age取模10等于1的数据:    db.student.find({age:{$mod:[10,1]}}) 
+</code></pre>
+
+<h2>9,$nin与$in相反</h2>
+
+<pre><code>如查询x的值不在2、4、6范围内的数据：db.things.find({x:{$nin:[2,4,6]}}) 
+</code></pre>
+
+<h2>10,$size匹配数组元素个数</h2>
+
+<h2>11,sort排序</h2>
+
+<pre><code>如按照age升序排列： db.users.find().sort({age:1}) 
+</code></pre>
+
+<h2>12,游标：</h2>
+
+<pre><code>1）与大多数数据库产品一样，MongoDb也是用游标来循环处理每一条结果数据  
+
+for（var c=db.t1.find();c.hasNext();）{printjson(c.next())}
+</code></pre>
+
+<p>2）forEach方式处理游标</p>
+
+<pre><code>db.t3.find().forEach(function(u){printjson(u);})
+</code></pre>
+
+<h2>13,存储过程：存储在db.system.js表中，执行使用db.eval(&lsquo;存储过程名称&rsquo;)</h2>
+
+<pre><code>db.system.js.save({_id:&quot;get_count&quot;,value:function(){return db.c1.count();}})
+db.eval('get_count()') 
+</code></pre>
+
+<h2>14, 数据更新操作:</h2>
+
+<p>1）$inc</p>
+
+<pre><code>用法：{$inc:{field:value}},对一个数字字段的某个field增加value
+更新前：{ &quot;_id&quot; : ObjectId(&quot;4fe096e88a6e072b231ca5c9&quot;), &quot;name&quot; : &quot;liangzhangping&quot;, &quot;age&quot; : 30 }
+操作：db.t3.update({name:&quot;liangzhangping&quot;},{$inc:{age:5}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe096e88a6e072b231ca5c9&quot;), &quot;name&quot; : &quot;liangzhangping&quot;, &quot;age&quot; : 35 }
+</code></pre>
+
+<p>2）$set</p>
+
+<pre><code>用法：{$set:{field:value}},类似于SQL语法中“set field=value”
+更新前：{ &quot;_id&quot; : ObjectId(&quot;4fe096e88a6e072b231ca5c9&quot;), &quot;name&quot; : &quot;liangzhangping&quot;, &quot;age&quot; : 30 }
+操作：db.t3.update({name:&quot;liangzhangping&quot;},{$set:{age:28}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe096e88a6e072b231ca5c9&quot;), &quot;name&quot; : &quot;liangzhangping&quot;, &quot;age&quot; : 28 }    
+</code></pre>
+
+<p>3）$unset</p>
+
+<pre><code>用法：{$unset:{field:1}},删除字段，类似于SQL语法中删除列
+更新前：{ &quot;_id&quot; : ObjectId(&quot;4fe096e88a6e072b231ca5c9&quot;), &quot;name&quot; : &quot;liangzhangping&quot;, &quot;age&quot; : 30 }
+操作：db.t3.update({name:&quot;liangzhangping&quot;},{$unset:{age:1}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe096e88a6e072b231ca5c9&quot;), &quot;name&quot; : &quot;liangzhangping&quot; }  
+</code></pre>
+
+<p>4）$push</p>
+
+<pre><code>用法：{$push:{field:value}},把value追加到field里。field一定是数组类型，如果field不存在，会新增一个
+更新前：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;userid&quot; : 3, &quot;name&quot; : [ &quot;liangzhangping&quot;, &quot;lzp&quot; ] }
+操作：db.t3.update({&quot;userid&quot;:3},{$push:{name:&quot;xiaoping&quot;}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;liangzhangping&quot;, &quot;lzp&quot;, &quot;xiaoping&quot; ], &quot;userid&quot; : 3 }
+</code></pre>
+
+<p>5）$pushAll</p>
+
+<pre><code>用法：{$push:{field:value_array}},用法同$push一样，只是$pushAll一次可以追加多个值到一个数组字段内
+更新前：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;liangzhangping&quot;, &quot;lzp&quot;, &quot;xiaoping&quot; ], &quot;userid&quot; : 3 }
+操作：db.t3.update({&quot;userid&quot;:3},{$pushAll:{name:[&quot;N1&quot;,&quot;N2&quot;]}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;liangzhangping&quot;, &quot;lzp&quot;, &quot;xiaoping&quot;, &quot;N1&quot;, &quot;N2&quot; ], &quot;userid&quot; : 3 }
+</code></pre>
+
+<p>6）$addToSet</p>
+
+<pre><code>用法：{$addToSet:{field:value}},加一个值到数组内，而且只有当这个值不在数组内才增加
+更新前：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;liangzhangping&quot;, &quot;lzp&quot;, &quot;xiaoping&quot;, &quot;N1&quot;, &quot;N2&quot; ], &quot;userid&quot; : 3 }
+操作：db.t3.update({&quot;userid&quot;:3},{$addToSet:{name:&quot;N1&quot;}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;liangzhangping&quot;, &quot;lzp&quot;, &quot;xiaoping&quot;, &quot;N1&quot;, &quot;N2&quot; ], &quot;userid&quot; : 3 }
+</code></pre>
+
+<p>7）$pop</p>
+
+<pre><code>用法：{$pop:{field:[1,-1]}},删除数组内的一个值，-1：删除第一个，1：删除最后一个
+更新前：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;liangzhangping&quot;, &quot;lzp&quot;, &quot;xiaoping&quot;, &quot;N1&quot;, &quot;N2&quot; ], &quot;userid&quot; : 3 }
+操作：db.t3.update({&quot;userid&quot;:3},{$pop:{name:-1}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;lzp&quot;, &quot;xiaoping&quot;, &quot;N1&quot;, &quot;N2&quot; ], &quot;userid&quot; : 3 }                
+操作：db.t3.update({&quot;userid&quot;:3},{$pop:{name:1}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;lzp&quot;, &quot;xiaoping&quot;, &quot;N1&quot; ], &quot;userid&quot; : 3 }
+</code></pre>
+
+<p>8）$pull</p>
+
+<pre><code>用法：{$pull:{field:value}},从数组filed内删除一个等于value的值
+更新前：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;lzp&quot;, &quot;xiaoping&quot;, &quot;N1&quot; ], &quot;userid&quot; : 3 }
+操作：db.t3.update({&quot;userid&quot;:3},{$pull:{name:&quot;N1&quot;}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;lzp&quot;, &quot;xiaoping&quot; ], &quot;userid&quot; : 3 }     
+</code></pre>
+
+<p>9）$pullAll</p>
+
+<pre><code>用法：{$pullAll:{field:value_array}},用法同$pull一样，可以一次删除数组内的多个值
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ &quot;lzp&quot;, &quot;xiaoping&quot; ], &quot;userid&quot; : 3 } 
+操作：db.t3.update({&quot;userid&quot;:3},{$pullAll:{name:[&quot;lzp&quot;, &quot;xiaoping&quot;]}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ ], &quot;userid&quot; : 3 }      
+</code></pre>
+
+<p>10）$rename</p>
+
+<pre><code>用法：{$rename:{old_field_name:new_field_name}},完成字段的重命名
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;name&quot; : [ ], &quot;userid&quot; : 3 }   
+操作：db.t3.update({&quot;userid&quot;:3},{$rename:{name:&quot;alias&quot;}})
+更新后：{ &quot;_id&quot; : ObjectId(&quot;4fe098f08a6e072b231ca5ca&quot;), &quot;alias&quot; : [ ], &quot;userid&quot; : 3 }  
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/mongodb/mongodb-page-split/" title="mongodb page split">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/" title="mongodb-Deploy a Sharded Cluster">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2016-02-24</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#mongodb-ref">mongodb <span>4</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#nosql-ref">nosql <span>4</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; Leonard YP 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>
