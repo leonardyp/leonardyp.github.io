@@ -4,6 +4,11 @@
 		<loc>http://sample.com/</loc>
 	</url>
 	<url>
+		<loc>http://sample.com/mongodb/mongodb-page-split/</loc>
+		<lastmod>2016-02-24</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/mongodb/mongodb-Deploy-a-Sharded-Cluster/</loc>
 		<lastmod>2016-02-24</lastmod>
 		<changefreq>weekly</changefreq>

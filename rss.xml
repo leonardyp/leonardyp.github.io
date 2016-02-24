@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>24 Feb 16 23:11 CST</pubDate>
+    <pubDate>24 Feb 16 23:15 CST</pubDate>
+    <item>
+      <title>mongodb page split</title>
+      <link>http://sample.com/mongodb/mongodb-page-split/</link>
+      <pubDate>2016-02-24 12:00:00 +0800</pubDate>
+      <description>&lt;h2&gt;示例:&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;var lastest=null;&#xA;&#xA;while(page1.HasNext()){&#xA;    lastest=page1.Next();&#xA;}&#xA;&#xA;var page2=db.foo.find({&amp;quot;date&amp;quot;:{&amp;quot;date&amp;quot;:{&amp;quot;$gt&amp;quot;:lastest.date}});&#xA;&#xA;page2.sort({&amp;quot;date“：-1}).limit(100);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
+    </item>
     <item>
       <title>mongodb-Deploy a Sharded Cluster</title>
       <link>http://sample.com/mongodb/mongodb-Deploy-a-Sharded-Cluster/</link>

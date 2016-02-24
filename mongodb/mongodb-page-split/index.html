@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Tags</title>
+    <title>mongodb page split</title>
+  
+    <meta name="description" content="mongodb page split">
   
     <meta name="author" content="Leonard YP">
 
@@ -42,9 +44,9 @@
 
             
               
-  <li class="active"><a href="/tags" class="active">Tags</a></li>
 
 
+  <li><a href="/tags">Tags</a></li>
 
 
             
@@ -77,114 +79,82 @@
     <div class="container">
 
       <div class="content">
-        
-<div class="page-header">
-  <h1>Tags </h1>
+        <div class="page-header">
+  <h1>mongodb page split </h1>
 </div>
 
 <div class="row">
-  <div class="span12">
+  <div class="span8">
+    <h2>示例:</h2>
+
+<pre><code>var lastest=null;
+
+while(page1.HasNext()){
+    lastest=page1.Next();
+}
+
+var page2=db.foo.find({&quot;date&quot;:{&quot;date&quot;:{&quot;$gt&quot;:lastest.date}});
+
+page2.sort({&quot;date“：-1}).limit(100);
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/" title="mongodb-Deploy a Sharded Cluster">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
     
-<ul class="tag_box inline">
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-  <li>
-  <a href="/tags/#Gor-ref">Gor <span>1</span></a>
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2016-02-24</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#mongodb-ref">mongodb <span>3</span></a>
 </li>
-
-  <li>
-  <a href="/tags/#README-ref">README <span>1</span></a>
-</li>
-
-  <li>
-  <a href="/tags/#branch-ref">branch <span>1</span></a>
-</li>
-
-  <li>
-  <a href="/tags/#git-ref">git <span>3</span></a>
-</li>
-
-  <li>
-  <a href="/tags/#gitlab-ref">gitlab <span>3</span></a>
-</li>
-
-  <li>
-  <a href="/tags/#iptables-ref">iptables <span>1</span></a>
-</li>
-
-  <li>
-  <a href="/tags/#mount-ref">mount <span>1</span></a>
-</li>
-
-  <li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
   <a href="/tags/#nosql-ref">nosql <span>3</span></a>
 </li>
-
-  <li>
-  <a href="/tags/#systemctl-ref">systemctl <span>1</span></a>
-</li>
-
-</ul>
-
-
-
-  <h2 id="Gor-ref">Gor</h2>
-  
-    <li><a href="/2016/new-born.html">Leonard的第一篇博客</a></li>
-  
-
-  <h2 id="README-ref">README</h2>
-  
-    <li><a href="/README/%E8%AF%B4%E6%98%8E/">说明</a></li>
-  
-
-  <h2 id="branch-ref">branch</h2>
-  
-    <li><a href="/git/git-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E5%B9%B6%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B/">git 创建分支并提交到远程</a></li>
-  
-
-  <h2 id="git-ref">git</h2>
-  
-    <li><a href="/git/go-get-%E6%8A%A5%E9%94%99/">go get 报错</a></li>
-  
-    <li><a href="/git/git-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E5%B9%B6%E6%8F%90%E4%BA%A4%E5%88%B0%E8%BF%9C%E7%A8%8B/">git 创建分支并提交到远程</a></li>
-  
-    <li><a href="/git/%E5%9C%A8github%E4%B8%8A%E5%90%8C%E6%AD%A5%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%28fork%29/">在github上同步一个分支(fork)</a></li>
-  
-
-  <h2 id="gitlab-ref">gitlab</h2>
-  
-    <li><a href="/gitlab/docker-gitlab/">docker gitlab</a></li>
-  
-    <li><a href="/centos/centos7%E5%AE%89%E8%A3%85gitlab/">centos7安装gitlab</a></li>
-  
-    <li><a href="/gitlab/centos6.5-gitlab/">centos6.5 gitlab</a></li>
-  
-
-  <h2 id="iptables-ref">iptables</h2>
-  
-    <li><a href="/linux/iptables/">iptables</a></li>
-  
-
-  <h2 id="mount-ref">mount</h2>
-  
-    <li><a href="/centos/centos%E6%8C%82%E8%BD%BDntfs/">centos挂载ntfs</a></li>
-  
-
-  <h2 id="nosql-ref">nosql</h2>
-  
-    <li><a href="/mongodb/mongodb-page-split/">mongodb page split</a></li>
-  
-    <li><a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/">mongodb-Deploy a Sharded Cluster</a></li>
-  
-    <li><a href="/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/">centos6.5安装mongodb</a></li>
-  
-
-  <h2 id="systemctl-ref">systemctl</h2>
-  
-    <li><a href="/centos/systemctl/">systemctl</a></li>
-  
- 
-
+    
+    </ul>
   </div>
 </div>
 

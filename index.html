@@ -98,6 +98,28 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/mongodb/mongodb-page-split/">mongodb page split</a> <span class="date">2016-02-24</span></h3>
+
+  <h2>示例:</h2>
+
+<pre><code>var lastest=null;
+
+while(page1.HasNext()){
+    lastest=page1.Next();
+}
+
+var page2=db.foo.find({&quot;date&quot;:{&quot;date&quot;:{&quot;$gt&quot;:lastest.date}});
+
+page2.sort({&quot;date“：-1}).limit(100);
+</code></pre>
+
+
+  <div class="more">
+    <a href="/mongodb/mongodb-page-split/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/">mongodb-Deploy a Sharded Cluster</a> <span class="date">2016-02-24</span></h3>
 
   <p><a href="http://blog.csdn.net/irelandken/article/details/8003315">参考</a></p>
@@ -380,70 +402,6 @@ CApath: none
 
   <div class="more">
     <a href="/git/%E5%9C%A8github%E4%B8%8A%E5%90%8C%E6%AD%A5%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%28fork%29/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/centos/centos7%E5%AE%89%E8%A3%85gitlab/">centos7安装gitlab</a> <span class="date">2016-02-18</span></h3>
-
-  <p><a href="http://my.oschina.net/u/1169607/blog/345833">参考</a></p>
-
-<p><code>gitlab-ctl reconfigure 报错解决方法</code></p>
-
-<h2>遇见的问题及解决:</h2>
-
-<p>[root@websvr01 ~]# sudo gitlab-ctl reconfigure</p>
-
-<pre><code>Starting Chef Client, version 11.12.2
-Compiling Cookbooks...
-Recipe: gitlab::default
-  directory[/etc/gitlab] action create (up to date)
-================================================================================
-Recipe Compile Error in /opt/gitlab/embedded/cookbooks/gitlab/recipes/default.rb
-================================================================================
-RuntimeError
-------------
-External URL must include a FQDN
-Cookbook Trace:
----------------
-  /opt/gitlab/embedded/cookbooks/gitlab/libraries/gitlab.rb:109:in `parse_external_url'
-  /opt/gitlab/embedded/cookbooks/gitlab/libraries/gitlab.rb:260:in `generate_config'
-  /opt/gitlab/embedded/cookbooks/gitlab/recipes/default.rb:34:in `from_file'
-Relevant File Content:
-----------------------
-/opt/gitlab/embedded/cookbooks/gitlab/libraries/gitlab.rb:
-102:  
-103:      def parse_external_url
-104:        return unless external_url
-105:  
-106:        uri = URI(external_url.to_s)
-107:  
-108:        unless uri.host
-109&gt;&gt;         raise &quot;External URL must include a FQDN&quot;
-110:        end
-111:        Gitlab['user']['git_user_email'] ||= &quot;gitlab@#{uri.host}&quot;
-112:        Gitlab['gitlab_rails']['gitlab_host'] = uri.host
-113:        Gitlab['gitlab_rails']['gitlab_email_from'] ||= &quot;gitlab@#{uri.host}&quot;
-114:  
-115:        case uri.scheme
-116:        when &quot;http&quot;
-117:          Gitlab['gitlab_rails']['gitlab_https'] = false
-118:        when &quot;https&quot;
-Running handlers:
-[2014-11-25T11:10:44+08:00] ERROR: Running exception handlers
-Running handlers complete
-[2014-11-25T11:10:44+08:00] ERROR: Exception handlers complete
-[2014-11-25T11:10:44+08:00] FATAL: Stacktrace dumped to /opt/gitlab/embedded/cookbooks/cache/chef-stacktrace.out
-Chef Client failed. 0 resources updated in 7.716937465 seconds
-[2014-11-25T11:10:44+08:00] ERROR: External URL must include a FQDN
-[2014-11-25T11:10:45+08:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
-</code></pre>
-
-<h2>解决方法：</h2>
-
-
-  <div class="more">
-    <a href="/centos/centos7%E5%AE%89%E8%A3%85gitlab/" class="btn">read more..</a>
   </div>
 </div>
 
