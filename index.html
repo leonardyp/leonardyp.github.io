@@ -98,6 +98,42 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/">mongodb-Deploy a Sharded Cluster</a> <span class="date">2016-02-24</span></h3>
+
+  <p><a href="http://blog.csdn.net/irelandken/article/details/8003315">参考</a></p>
+
+<h3>2个Standard节点+1个Arbiter节点 搭建MongoDB Replication Sets</h3>
+
+<h1>1,创建目录</h1>
+
+<pre><code>[root@localhost ~]# mkdir -p /data/replset/r0  
+[root@localhost ~]# mkdir -p /data/replset/r1  
+[root@localhost ~]# mkdir -p /data/replset/r2  
+[root@localhost ~]# mkdir -p /data/replset/key  
+[root@localhost ~]# mkdir -p /data/replset/log  
+</code></pre>
+
+<h1>2,创建KEY</h1>
+
+<pre><code>[root@localhost ~]# echo &quot;replset1 key&quot; &gt; /data/replset/key/r0  
+[root@localhost ~]# echo &quot;replset1 key&quot; &gt; /data/replset/key/r1  
+[root@localhost ~]# echo &quot;replset1 key&quot; &gt; /data/replset/key/r2  
+[root@localhost ~]# chmod 600 /data/replset/key/r*  //600，防止其它程序改写此KEY  
+
+mongod --dbpath=/data/replset/r0 --replSet replset1 --keyFile /data/replset/key/r0 --port 28010//一定要加keyFile!!!
+
+mongod --dbpath=/data/replset/r1 --replSet replset1 --keyFile /data/replset/key/r1 --port 28011
+
+mongod --dbpath=/data/replset/r2 --replSet replset1 --keyFile /data/replset/key/r2 --port 28012
+</code></pre>
+
+
+  <div class="more">
+    <a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/">centos6.5安装mongodb</a> <span class="date">2016-02-24</span></h3>
 
   <pre><code>wget https://fastdl.mongodb.org/linux/mongodb-linux-i686-2.6.7.tgz?_ga=1.68265944.858401362.1421216907  
@@ -408,42 +444,6 @@ Chef Client failed. 0 resources updated in 7.716937465 seconds
 
   <div class="more">
     <a href="/centos/centos7%E5%AE%89%E8%A3%85gitlab/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/gitlab/centos6.5-gitlab/">centos6.5 gitlab</a> <span class="date">2016-02-18</span></h3>
-
-  <p><a href="https://about.gitlab.com/downloads/">参考</a><br />
-<a href="http://www.01happy.com/centos-6-5-install-gitlab/">教程</a></p>
-
-<h2><code>错误:</code></h2>
-
-<pre><code> Invalid GPG Key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puias: No key found in given key data
-</code></pre>
-
-<h2>解决:</h2>
-
-<pre><code> rpm --import http://puias.princeton.edu/data/puias/6/x86_64/os/RPM-GPG-KEY-puias
-</code></pre>
-
-<h2><code>错误:</code></h2>
-
-<p><img src="../A24DFE8B-19CB-4284-B4B5-153C4BFADDE7.png" alt="" /></p>
-
-<h2>解决:</h2>
-
-<pre><code>yum install libxml2-devel libxslt libxslt-devel
-</code></pre>
-
-<h1>gitlab安装成功!</h1>
-
-<p><img src="../success.png" alt="" /><br />
-  <img src="../4AD4BE76-6A77-4807-89C9-F97836F71391.png" alt="" /></p>
-
-
-  <div class="more">
-    <a href="/gitlab/centos6.5-gitlab/" class="btn">read more..</a>
   </div>
 </div>
 
