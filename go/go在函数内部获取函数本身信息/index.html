@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>go外部包操作非导出字段</title>
+    <title>go在函数内部获取函数本身信息</title>
   
-    <meta name="description" content="go外部包操作非导出字段">
+    <meta name="description" content="go在函数内部获取函数本身信息">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,54 +80,56 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>go外部包操作非导出字段 </h1>
+  <h1>go在函数内部获取函数本身信息 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <pre><code>type Template struct {
-   name string
-   *parse.Tree
-   *common
-   leftDelim  string
-   rightDelim string
+    <pre><code>type Person struct {  
+    Name string  
+    Age  int  
 }
 
 
-type common struct {
-   tmpl       map[string]*Template
-   parseFuncs template.FuncMap
-   execFuncs  map[string]reflect.Value
+func (this *Person) Eat(food string) {
+   fmt.Println(&quot;eatting :&quot;, food)
 }
 
 
-func TestDemo(t *testing.T) {
-   tpl := template.New(&quot;Foo&quot;)
-   p := (*Template)(unsafe.Pointer(tpl))
-   p.name = &quot;Bar&quot; // 关键在这里，突破私有成员
-   logger.Debug(&quot;%v:%v&quot;, p, tpl)
+func (this *Person) SayHi(name string, age int) {
+   rvalue := reflect.ValueOf(this)
+   rtype := reflect.TypeOf(this)
+   for i := 0; i &lt; rvalue.NumMethod(); i++ {
+      methodType := reflect.TypeOf(reflect.ValueOf(this).Method(i).Interface())
+      //methodValue := reflect.ValueOf(reflect.ValueOf(this).Method(i).Interface())
+      fmt.Println(&quot;函数名:&quot;, rtype.Method(i).Name)
+      fmt.Println(&quot;参数个数:&quot;, methodType.NumIn())
+      for j := 0; j &lt; methodType.NumIn(); j++ {
+         fmt.Printf(&quot;参数索引:%v\r\n参数类型:%v\r\n&quot;, j, methodType.In(j).Name())
+      }
+   }
+}
+
+
+func TestReflectMethod(t *testing.T) {
+   p := &amp;Person{}
+   p.SayHi(&quot;leo&quot;, 23)
 }
 </code></pre>
-
-<h2>输出结果</h2>
-
-<h1>&amp;{Bar <nil> <nil>  } &amp;{Bar <nil> <nil>  }</h1>
-
-<h1><strong>t.name</strong> 也变成 <strong>Bar</strong>了, 成功突破template.Template私有字段 name</h1>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/" title="mongodb-Deploy a Sharded Cluster">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/go/go%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/" title="go加密算法测试总结">Next &rarr;</a></li>
+            <li class="next"><a href="/mongodb/mongodb-page-split/" title="mongodb page split">Next &rarr;</a></li>
           
           
         </ul>
@@ -153,7 +155,7 @@ func TestDemo(t *testing.T) {
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-02-24</span></div>
+    <div class="date"><span>2016-02-25</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">

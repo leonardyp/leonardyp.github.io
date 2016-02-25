@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>25 Feb 16 07:55 CST</pubDate>
+    <pubDate>25 Feb 16 21:11 CST</pubDate>
+    <item>
+      <title>go在函数内部获取函数本身信息</title>
+      <link>http://sample.com/go/go%E5%9C%A8%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E6%9C%AC%E8%BA%AB%E4%BF%A1%E6%81%AF/</link>
+      <pubDate>2016-02-25 12:00:00 +0800</pubDate>
+      <description>&lt;pre&gt;&lt;code&gt;type Person struct {  &#xA;    Name string  &#xA;    Age  int  &#xA;}&#xA;&#xA;&#xA;func (this *Person) Eat(food string) {&#xA;   fmt.Println(&amp;quot;eatting :&amp;quot;, food)&#xA;}&#xA;&#xA;&#xA;func (this *Person) SayHi(name string, age int) {&#xA;   rvalue := reflect.ValueOf(this)&#xA;   rtype := reflect.TypeOf(this)&#xA;   for i := 0; i &amp;lt; rvalue.NumMethod(); i++ {&#xA;      methodType := reflect.TypeOf(reflect.ValueOf(this).Method(i).Interface())&#xA;      //methodValue := reflect.ValueOf(reflect.ValueOf(this).Method(i).Interface())&#xA;      fmt.Println(&amp;quot;函数名:&amp;quot;, rtype.Method(i).Name)&#xA;      fmt.Println(&amp;quot;参数个数:&amp;quot;, methodType.NumIn())&#xA;      for j := 0; j &amp;lt; methodType.NumIn(); j++ {&#xA;         fmt.Printf(&amp;quot;参数索引:%v\r\n参数类型:%v\r\n&amp;quot;, j, methodType.In(j).Name())&#xA;      }&#xA;   }&#xA;}&#xA;&#xA;&#xA;func TestReflectMethod(t *testing.T) {&#xA;   p := &amp;amp;Person{}&#xA;   p.SayHi(&amp;quot;leo&amp;quot;, 23)&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
+    </item>
     <item>
       <title>mongodb page split</title>
       <link>http://sample.com/mongodb/mongodb-page-split/</link>

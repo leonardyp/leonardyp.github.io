@@ -98,6 +98,41 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/go/go%E5%9C%A8%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E6%9C%AC%E8%BA%AB%E4%BF%A1%E6%81%AF/">go在函数内部获取函数本身信息</a> <span class="date">2016-02-25</span></h3>
+
+  <pre><code>type Person struct {  
+    Name string  
+    Age  int  
+}
+
+
+func (this *Person) Eat(food string) {
+   fmt.Println(&quot;eatting :&quot;, food)
+}
+
+
+func (this *Person) SayHi(name string, age int) {
+   rvalue := reflect.ValueOf(this)
+   rtype := reflect.TypeOf(this)
+   for i := 0; i &lt; rvalue.NumMethod(); i++ {
+      methodType := reflect.TypeOf(reflect.ValueOf(this).Method(i).Interface())
+      //methodValue := reflect.ValueOf(reflect.ValueOf(this).Method(i).Interface())
+      fmt.Println(&quot;函数名:&quot;, rtype.Method(i).Name)
+      fmt.Println(&quot;参数个数:&quot;, methodType.NumIn())
+      for j := 0; j &lt; methodType.NumIn(); j++ {
+         fmt.Printf(&quot;参数索引:%v\r\n参数类型:%v\r\n&quot;, j, methodType.In(j).Name())
+      }
+   }
+}
+</code></pre>
+
+
+  <div class="more">
+    <a href="/go/go%E5%9C%A8%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E6%9C%AC%E8%BA%AB%E4%BF%A1%E6%81%AF/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/mongodb/mongodb-page-split/">mongodb page split</a> <span class="date">2016-02-24</span></h3>
 
   <h2>示例:</h2>
@@ -393,39 +428,6 @@ adduser git -g git
 
   <div class="more">
     <a href="/git/centos7%E6%90%AD%E5%BB%BAgit-server/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/gitlab/docker-gitlab/">docker gitlab</a> <span class="date">2016-02-18</span></h3>
-
-  <p>相关参考资料:</p>
-
-<h3><a href="http://yangchangming.com/blog/show/47">OS X 上安装GitLab全程指南</a></h3>
-
-<h3><a href="http://www.tuicool.com/articles/UrQJFz">gitlab一键安装 笔记</a></h3>
-
-<h3><a href="https://github.com/sameersbn/docker-gitlab/blob/master/README.md#redis">sameersbn/gitlab:8.4.4</a></h3>
-
-<pre><code>docker run --name gitlab -d  -p 10080:80  --link gitlab-postgresql:postgresql --link gitlab-redis:redisio --volume /srv/docker/gitlab/gitlab:/home/git/data  sameersbn/gitlab:7.5.3
-</code></pre>
-
-<p>docker@boot2docker:~$</p>
-
-<pre><code>docker ps -a
-
-CONTAINER ID        IMAGE                            COMMAND                CREATED             STATUS              PORTS                                    NAMES
-
-2b61b7095091        sameersbn/gitlab:7.5.3           &quot;/app/init app:start   7 seconds ago       Up 6 seconds        22/tcp, 443/tcp, 0.0.0.0:10080-&gt;80/tcp   gitlab              
-
-0d3c6db7f97d        quay.io/sameersbn/redis:latest   &quot;/sbin/entrypoint.sh   23 hours ago        Up 23 hours         6379/tcp                                 gitlab-redis        
-
-7171631f285d        sameersbn/postgresql:latest      &quot;/sbin/entrypoint.sh   23 hours ago        Up 23 hours         5432/tcp                                 gitlab-postgresql  
-</code></pre>
-
-
-  <div class="more">
-    <a href="/gitlab/docker-gitlab/" class="btn">read more..</a>
   </div>
 </div>
 

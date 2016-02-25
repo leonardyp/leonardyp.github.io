@@ -2,15 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38b42b09-f402-4918-9268-b487cbaf238c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/default/Go外部包操作非导出字段/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/default/goodday/index.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/go/go在函数内部获取函数本身信息/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/new-born.html" afterPath="$PROJECT_DIR$/2016/new-born.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archive/index.html" afterPath="$PROJECT_DIR$/archive/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories/index.html" afterPath="$PROJECT_DIR$/categories/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/git/go-get-报错/index.html" afterPath="$PROJECT_DIR$/git/go-get-报错/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/go/go加密算法测试总结/index.html" afterPath="$PROJECT_DIR$/go/go加密算法测试总结/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/go/go外部包操作非导出字段/index.html" afterPath="$PROJECT_DIR$/go/go外部包操作非导出字段/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mongodb/mongodb-page-split/index.html" afterPath="$PROJECT_DIR$/mongodb/mongodb-page-split/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index.html" afterPath="$PROJECT_DIR$/pages/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rss.xml" afterPath="$PROJECT_DIR$/rss.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.xml" afterPath="$PROJECT_DIR$/sitemap.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/index.html" afterPath="$PROJECT_DIR$/tags/index.html" />
     </list>
     <ignored path="compiled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -123,7 +127,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mongodb" />
+              <option name="myItemId" value="go" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="go" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="go在函数内部获取函数本身信息" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -668,7 +690,8 @@
       <workItem from="1456044434172" duration="106000" />
       <workItem from="1456116947428" duration="1188000" />
       <workItem from="1456326038573" duration="2145000" />
-      <workItem from="1456329505552" duration="663000" />
+      <workItem from="1456329505552" duration="708000" />
+      <workItem from="1456405969724" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="第一篇博客,使用golang操作非导出字段">
       <created>1455545801936</created>
@@ -856,14 +879,20 @@
       <option name="project" value="LOCAL" />
       <updated>1456329005539</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="多余文件清理">
+      <created>1456358231754</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1456358231754</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18894000" />
+    <option name="totallyTimeSpent" value="18952000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -929,7 +958,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="博客迁移说明" />
     <MESSAGE value="README" />
     <MESSAGE value="centos7 systemctl" />
     <MESSAGE value="mount+systemctl文件提交" />
@@ -954,7 +982,8 @@
     <MESSAGE value=".idea" />
     <MESSAGE value="go外部包操作非导出字段" />
     <MESSAGE value="go加密算法测试总结" />
-    <option name="LAST_COMMIT_MESSAGE" value="go加密算法测试总结" />
+    <MESSAGE value="多余文件清理" />
+    <option name="LAST_COMMIT_MESSAGE" value="多余文件清理" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
