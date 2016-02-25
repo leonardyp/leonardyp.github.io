@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>go加密算法测试总结</title>
+    <title>go https</title>
   
-    <meta name="description" content="go加密算法测试总结">
+    <meta name="description" content="go https">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,95 +80,46 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>go加密算法测试总结 </h1>
+  <h1>go https </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h1>一:各种加解密执行效率对比 ,每种操作总执行次数1万次</h1>
-
-<h2>1,des:</h2>
-
-<p><strong>加密</strong></p>
-
-<pre><code>    32.8221828s(39k/op)   
-    2.769367662s(3k/op)  
+    <pre><code>$ openssl genrsa -out server.key 2048 // private key  
+$ openssl req -new -x509 -key server.key -out server.crt -days 365 //self-signed certificate  
 </code></pre>
 
-<p><strong>解密</strong></p>
+<p>//省略证书校验(一般用于测试)</p>
 
-<pre><code>    33.0261118s(39k)  
-    2.698096243)(3k)  
+<pre><code>tr := &amp;http.Transport{  
+   TLSClientConfig: &amp;tls.Config{InsecureSkipVerify: true},  
+}  
+
+client := &amp;http.Client{Transport: tr}  
+resp, err := client.Get(&quot;https://localhost:8081&quot;)  
 </code></pre>
 
-<h2>2,des3:</h2>
+<p>可以使用<strong>openssl x509 -text -in client.crt -noout</strong> 查看某个证书文件所包含的具体信息。</p>
 
-<p><strong>加密</strong></p>
+<h2><a href="https,tls:http://www.tuicool.com/articles/6JJj2az">资料1</a></h2>
 
-<pre><code>    98.480689665s(39k/op)  
-    8.284633236s(3k/op)  
-</code></pre>
+<h2><a href="http://studygolang.com/articles/3175">资料2</a></h2>
 
-<p><strong>解密</strong></p>
-
-<pre><code>    97.500104132s(39k/op)  
-    7.824800258s(3k/op)  
-</code></pre>
-
-<h2>3,aes:</h2>
-
-<p><strong>加密</strong></p>
-
-<pre><code>    1.431315982s(16位密钥,39k/op)  
-    1.655555551s(32位密钥,39k/op)  
-    0.1835701936s(32位密钥,3k/op)  
-</code></pre>
-
-<p><strong>解密</strong></p>
-
-<pre><code>    1.478518076s(16位密钥,39k/op)  
-    1.699795055(32位密钥,39k/op)  
-    0.187044405000s(32位密钥,3k/op)  
-</code></pre>
-
-<h1>二:加密前后数据长度对比</h1>
-
-<pre><code>des,des3加密后的数据较加密前平均多4字节  
-
-aes加密后的数据较加密前平均多24字节
-</code></pre>
-
-<h1>三:aes加密与自己简单的加密性能对比(195k/op)</h1>
-
-<pre><code>aes加密: 6.688336596s  
-
-自己加密算法:2.032817821s
-</code></pre>
-
-<p>自己简单的加密算法，用于跟以上加密算法简单对比,纯属瞎写,哈哈😄:</p>
-
-<pre><code>for i := 0; i &lt; len(data); i++ {
-    d := data[i]
-    b := int(d) ^ i
-    data[i] = byte(b)
-}
-</code></pre>
-
-<p>即每个字节异或重新赋值</p>
+<h2><a href="https://github.com/bigwhite/experiments/tree/master/gohttps">gthub代码示例:</a></h2>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/go/go%E5%A4%96%E9%83%A8%E5%8C%85%E6%93%8D%E4%BD%9C%E9%9D%9E%E5%AF%BC%E5%87%BA%E5%AD%97%E6%AE%B5/" title="go外部包操作非导出字段">&larr; Previous</a></li>
+            <li class="prev"><a href="/go/go%E5%9C%A8%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E6%9C%AC%E8%BA%AB%E4%BF%A1%E6%81%AF/" title="go在函数内部获取函数本身信息">&larr; Previous</a></li>
           
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/" title="centos6.5安装mongodb">Next &rarr;</a></li>
+            <li class="next"><a href="/mongodb/mongodb-page-split/" title="mongodb page split">Next &rarr;</a></li>
           
           
         </ul>
@@ -194,7 +145,7 @@ aes加密后的数据较加密前平均多24字节
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-02-24</span></div>
+    <div class="date"><span>2016-02-25</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -209,7 +160,7 @@ aes加密后的数据较加密前平均多24字节
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#%E6%9C%8D%E5%8A%A1%E7%AB%AF-ref">服务端 <span>3</span></a>
+  <a href="/tags/#https-ref">https <span>1</span></a>
 </li>
     
     </ul>

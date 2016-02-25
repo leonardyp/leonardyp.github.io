@@ -133,6 +133,37 @@ func (this *Person) SayHi(name string, age int) {
 </div>
 
 <div class="post">
+  <h3 class="title"><a href="/go/go-https/">go https</a> <span class="date">2016-02-25</span></h3>
+
+  <pre><code>$ openssl genrsa -out server.key 2048 // private key  
+$ openssl req -new -x509 -key server.key -out server.crt -days 365 //self-signed certificate  
+</code></pre>
+
+<p>//省略证书校验(一般用于测试)</p>
+
+<pre><code>tr := &amp;http.Transport{  
+   TLSClientConfig: &amp;tls.Config{InsecureSkipVerify: true},  
+}  
+
+client := &amp;http.Client{Transport: tr}  
+resp, err := client.Get(&quot;https://localhost:8081&quot;)  
+</code></pre>
+
+<p>可以使用<strong>openssl x509 -text -in client.crt -noout</strong> 查看某个证书文件所包含的具体信息。</p>
+
+<h2><a href="https,tls:http://www.tuicool.com/articles/6JJj2az">资料1</a></h2>
+
+<h2><a href="http://studygolang.com/articles/3175">资料2</a></h2>
+
+<h2><a href="https://github.com/bigwhite/experiments/tree/master/gohttps">gthub代码示例:</a></h2>
+
+
+  <div class="more">
+    <a href="/go/go-https/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/mongodb/mongodb-page-split/">mongodb page split</a> <span class="date">2016-02-24</span></h3>
 
   <h2>示例:</h2>
@@ -392,42 +423,6 @@ git pull
 
   <div class="more">
     <a href="/git/git-conflict/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/git/centos7%E6%90%AD%E5%BB%BAgit-server/">centos7搭建git-server</a> <span class="date">2016-02-21</span></h3>
-
-  <h2>1、安装Git</h2>
-
-<pre><code> yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel
- yum install git
-</code></pre>
-
-<p>接下来我们 创建一个git用户组和用户，用来运行git服务：</p>
-
-<pre><code>groupadd git
-adduser git -g git
-</code></pre>
-
-<h2>2、创建证书登录</h2>
-
-<p>收集所有需要登录的用户的公钥，公钥位于id_rsa.pub文件中，<br />
-把我们的公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个。<br />
-如果没有该文件创建它:</p>
-
-<pre><code>    $ cd /home/git/  
-    $ mkdir .ssh  
-    $ chmod 700 .ssh  
-    $ touch .ssh/authorized_keys  
-    $ chmod 600 .ssh/authorized_keys  
-</code></pre>
-
-<h2>3、初始化Git仓库</h2>
-
-
-  <div class="more">
-    <a href="/git/centos7%E6%90%AD%E5%BB%BAgit-server/" class="btn">read more..</a>
   </div>
 </div>
 
