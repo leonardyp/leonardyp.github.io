@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>go外部包操作非导出字段</title>
+    <title>go国际化本地化</title>
   
-    <meta name="description" content="go外部包操作非导出字段">
+    <meta name="description" content="go国际化本地化">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,54 +80,41 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>go外部包操作非导出字段 </h1>
+  <h1>go国际化本地化 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <pre><code>type Template struct {
-   name string
-   *parse.Tree
-   *common
-   leftDelim  string
-   rightDelim string
-}
+    <h2>1,通过url参数形式:</h2>
 
-
-type common struct {
-   tmpl       map[string]*Template
-   parseFuncs template.FuncMap
-   execFuncs  map[string]reflect.Value
-}
-
-
-func TestDemo(t *testing.T) {
-   tpl := template.New(&quot;Foo&quot;)
-   p := (*Template)(unsafe.Pointer(tpl))
-   p.name = &quot;Bar&quot; // 关键在这里，突破私有成员
-   logger.Debug(&quot;%v:%v&quot;, p, tpl)
-}
+<pre><code>www.demo.com?locale=zh 或  www.demo.com/zh/user   形式  
 </code></pre>
 
-<h2>输出结果</h2>
+<h2>2,通过获取客户端请求头信息</h2>
 
-<h1>&amp;{Bar <nil> <nil>  } &amp;{Bar <nil> <nil>  }</h1>
+<pre><code>lang=r.Header.Get(&quot;Accept-Language&quot;)  
+</code></pre>
 
-<h1><strong>t.name</strong> 也变成 <strong>Bar</strong>了, 成功突破template.Template私有字段 name</h1>
+<h2>3,通过IP库查询获取国家和地区信息</h2>
+
+<h2>4,用户profile</h2>
+
+<pre><code>将用户通过下拉菜单或其他方式设置的locale存储起来,下次登录的时候在读取出来国际化  
+</code></pre>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/" title="mongodb-Deploy a Sharded Cluster">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/go/go%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/" title="go加密算法测试总结">Next &rarr;</a></li>
+            <li class="next"><a href="/go/golang-%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E5%9D%91/" title="golang 文件夹权限坑">Next &rarr;</a></li>
           
           
         </ul>
@@ -153,7 +140,7 @@ func TestDemo(t *testing.T) {
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-02-24</span></div>
+    <div class="date"><span>2016-02-27</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">

@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38b42b09-f402-4918-9268-b487cbaf238c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/go/golang-文件夹权限坑/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/go/go国际化本地化/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archive/index.html" afterPath="$PROJECT_DIR$/archive/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories/index.html" afterPath="$PROJECT_DIR$/categories/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/git/go-get-报错/index.html" afterPath="$PROJECT_DIR$/git/go-get-报错/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/go/go-https/index.html" afterPath="$PROJECT_DIR$/go/go-https/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/go/golang-文件夹权限坑/index.html" afterPath="$PROJECT_DIR$/go/golang-文件夹权限坑/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/go/go加密算法测试总结/index.html" afterPath="$PROJECT_DIR$/go/go加密算法测试总结/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/go/go在函数内部获取函数本身信息/index.html" afterPath="$PROJECT_DIR$/go/go在函数内部获取函数本身信息/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/go/go外部包操作非导出字段/index.html" afterPath="$PROJECT_DIR$/go/go外部包操作非导出字段/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index.html" afterPath="$PROJECT_DIR$/pages/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rss.xml" afterPath="$PROJECT_DIR$/rss.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.xml" afterPath="$PROJECT_DIR$/sitemap.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/index.html" afterPath="$PROJECT_DIR$/tags/index.html" />
@@ -130,6 +130,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="go" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="go" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="go国际化本地化" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -693,7 +711,7 @@
       <workItem from="1456326038573" duration="2145000" />
       <workItem from="1456329505552" duration="708000" />
       <workItem from="1456405969724" duration="626000" />
-      <workItem from="1456465185087" duration="990000" />
+      <workItem from="1456465185087" duration="1201000" />
     </task>
     <task id="LOCAL-00001" summary="第一篇博客,使用golang操作非导出字段">
       <created>1455545801936</created>
@@ -905,11 +923,17 @@
       <option name="project" value="LOCAL" />
       <updated>1456406634757</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="golang 文件夹权限坑">
+      <created>1456576386255</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1456576386255</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20555000" />
+    <option name="totallyTimeSpent" value="20766000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -917,6 +941,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1535671" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -930,7 +955,6 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -978,7 +1002,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="iptables" />
     <MESSAGE value="mount修改" />
     <MESSAGE value="docker gitlab" />
     <MESSAGE value="go get 报错" />
@@ -1003,7 +1026,8 @@
     <MESSAGE value="go在函数内部获取函数本身信息" />
     <MESSAGE value="golang +https" />
     <MESSAGE value="golang +https 资料地址错误" />
-    <option name="LAST_COMMIT_MESSAGE" value="golang +https 资料地址错误" />
+    <MESSAGE value="golang 文件夹权限坑" />
+    <option name="LAST_COMMIT_MESSAGE" value="golang 文件夹权限坑" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />

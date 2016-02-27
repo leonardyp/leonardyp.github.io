@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>27 Feb 16 20:31 CST</pubDate>
+    <pubDate>27 Feb 16 20:36 CST</pubDate>
+    <item>
+      <title>go国际化本地化</title>
+      <link>http://sample.com/go/go%E5%9B%BD%E9%99%85%E5%8C%96%E6%9C%AC%E5%9C%B0%E5%8C%96/</link>
+      <pubDate>2016-02-27 12:00:00 +0800</pubDate>
+      <description>&lt;h2&gt;1,通过url参数形式:&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;www.demo.com?locale=zh 或  www.demo.com/zh/user   形式  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;2,通过获取客户端请求头信息&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;lang=r.Header.Get(&amp;quot;Accept-Language&amp;quot;)  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;3,通过IP库查询获取国家和地区信息&lt;/h2&gt;&#xA;&#xA;&lt;h2&gt;4,用户profile&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;将用户通过下拉菜单或其他方式设置的locale存储起来,下次登录的时候在读取出来国际化  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
+    </item>
     <item>
       <title>golang 文件夹权限坑</title>
       <link>http://sample.com/go/golang-%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E5%9D%91/</link>
