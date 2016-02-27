@@ -98,6 +98,44 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/go/golang-%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E5%9D%91/">golang 文件夹权限坑</a> <span class="date">2016-02-27</span></h3>
+
+  <pre><code>package main  
+
+import (  
+  &quot;fmt&quot;  
+  &quot;os&quot;  
+)  
+
+func main() {  
+    err := os.MkdirAll(&quot;/tmp/gotest/&quot;, 0777)  
+    if err != nil {   
+      panic(err)  
+    }  
+    fmt.Println(&quot;Mkdir /tmp/gotest/&quot;)  
+}  
+</code></pre>
+
+<p><strong>运行结果</strong>:<em>文件夹的权限还是系统默认的755</em></p>
+
+<h3>正确做法</h3>
+
+<pre><code>package main
+
+import (
+  &quot;fmt&quot;
+  &quot;os&quot;
+  &quot;syscall&quot;
+)
+</code></pre>
+
+
+  <div class="more">
+    <a href="/go/golang-%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E5%9D%91/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/go/go%E5%9C%A8%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E6%9C%AC%E8%BA%AB%E4%BF%A1%E6%81%AF/">go在函数内部获取函数本身信息</a> <span class="date">2016-02-25</span></h3>
 
   <pre><code>type Person struct {  
@@ -385,44 +423,6 @@ yum install libstdc++-4.4.7-11.el6.i686
 
   <div class="more">
     <a href="/hbuilder/HBuilder%E8%B0%83%E8%AF%95APP/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/git/git-conflict/">git conflict</a> <span class="date">2016-02-21</span></h3>
-
-  <h3>如果系统中有一些配置文件在服务器上做了配置修改,然后后续开发又新添加一些配置项的时候,</h3>
-
-<h4><em>在发布这个配置文件的时候,会发生代码冲突:</em></h4>
-
-<hr />
-
-<p><code>error: Your local changes to the following files would be overwritten by merge:
-     protected/config/main.php</code></p>
-
-<h2><code>Please, commit your changes or stash them before you can merge.</code></h2>
-
-<ul>
-<li><p>希望保留生产服务器上所做的改动,仅仅并入新配置项</p>
-
-<pre><code>  git stash
-  git pull
-  git stash pop   
-
-  然后可以使用git diff -w +文件名 来确认代码自动合并的情况.
-</code></pre></li>
-
-<li><p>如果希望用代码库中的文件完全覆盖本地工作版本</p>
-
-<pre><code>git reset --hard
-git pull
-其中git reset是针对版本,  
-</code></pre></li>
-</ul>
-
-
-  <div class="more">
-    <a href="/git/git-conflict/" class="btn">read more..</a>
   </div>
 </div>
 
