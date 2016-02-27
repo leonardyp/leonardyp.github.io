@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>27 Feb 16 21:00 CST</pubDate>
+    <pubDate>27 Feb 16 21:05 CST</pubDate>
+    <item>
+      <title>win7 ssh</title>
+      <link>http://sample.com/win7/win7-ssh/</link>
+      <pubDate>2016-02-27 12:00:00 +0800</pubDate>
+      <description>&lt;h2&gt;1、下载： openssh for Winodws:&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;免费下载地址在 &lt;em&gt;&lt;a href=&#34;http://linux.linuxidc.com/&#34;&gt;http://linux.linuxidc.com/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;用户名与密码都是 &lt;em&gt;www.linuxidc.com&lt;/em&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;具体下载目录在 /2014年资料/2月/14日/Windows 7命令行下使用SSH通过秘钥登录Linux&lt;/p&gt;&#xA;&#xA;&lt;p&gt;下载方法见 &lt;a href=&#34;http://www.linuxidc.com/Linux/2013-07/87684.htm&#34;&gt;http://www.linuxidc.com/Linux/2013-07/87684.htm&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;h2&gt;2、安装： 下一步&amp;gt;&amp;gt;&amp;gt;&amp;hellip;完成..&lt;/h2&gt;&#xA;&#xA;&lt;h2&gt;3、Windows环境变量：&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;右键计算机--&amp;gt;属性--&amp;gt;高级系统设置--&amp;gt;环境变量--&amp;gt;系统变量：编辑Path，在行尾追加 ;C:\Program Files (x86)\OpenSSH for Windows\bin --&amp;gt;各种确定即可&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://www.linuxidc.com/Linux/2014-02/96625.htm&#34;&gt;参考&lt;/a&gt;&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>win7 ls功能</title>
       <link>http://sample.com/win7/win7-ls%E5%8A%9F%E8%83%BD/</link>
