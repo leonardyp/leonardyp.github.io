@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>27 Feb 16 20:36 CST</pubDate>
+    <pubDate>27 Feb 16 21:00 CST</pubDate>
+    <item>
+      <title>win7 ls功能</title>
+      <link>http://sample.com/win7/win7-ls%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>2016-02-27 12:00:00 +0800</pubDate>
+      <description>&lt;h2&gt;1.首先，在系统桌面新建一个“文本文档”，然后，将以下内容复制进入：&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;  @echo off   &#xA;  dir  &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;2.接下来，将该新建文档“另存为”，并命名为“ls.bat”，保存类型为“所有文件”，然后，点击“保存”按钮即可。&lt;/h2&gt;&#xA;&#xA;&lt;h2&gt;3.返回桌面，可以﻿看到刚刚新建了一个批处理文件，接下来，将该批处理文件复制到，C\Windows文件夹目录中即可，这种，ls命令就可以正常使用了。&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;&lt;img src=&#34;../ls.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>go国际化本地化</title>
       <link>http://sample.com/go/go%E5%9B%BD%E9%99%85%E5%8C%96%E6%9C%AC%E5%9C%B0%E5%8C%96/</link>

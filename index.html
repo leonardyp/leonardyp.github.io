@@ -98,6 +98,27 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/win7/win7-ls%E5%8A%9F%E8%83%BD/">win7 ls功能</a> <span class="date">2016-02-27</span></h3>
+
+  <h2>1.首先，在系统桌面新建一个“文本文档”，然后，将以下内容复制进入：</h2>
+
+<pre><code>  @echo off   
+  dir  
+</code></pre>
+
+<h2>2.接下来，将该新建文档“另存为”，并命名为“ls.bat”，保存类型为“所有文件”，然后，点击“保存”按钮即可。</h2>
+
+<h2>3.返回桌面，可以﻿看到刚刚新建了一个批处理文件，接下来，将该批处理文件复制到，C\Windows文件夹目录中即可，这种，ls命令就可以正常使用了。</h2>
+
+<p><img src="../ls.png" alt="" /></p>
+
+
+  <div class="more">
+    <a href="/win7/win7-ls%E5%8A%9F%E8%83%BD/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/go/go%E5%9B%BD%E9%99%85%E5%8C%96%E6%9C%AC%E5%9C%B0%E5%8C%96/">go国际化本地化</a> <span class="date">2016-02-27</span></h3>
 
   <h2>1,通过url参数形式:</h2>
@@ -392,37 +413,6 @@ func TestDemo(t *testing.T) {
 
   <div class="more">
     <a href="/go/go%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/">centos6.5安装mongodb</a> <span class="date">2016-02-24</span></h3>
-
-  <pre><code>wget https://fastdl.mongodb.org/linux/mongodb-linux-i686-2.6.7.tgz?_ga=1.68265944.858401362.1421216907  
-
-tar -zxvf mongodb-linux-i686-2.6.7.tgz
-mkdir -p /data/db
-</code></pre>
-
-<p><code>mongod</code></p>
-
-<h2>错误及解决:</h2>
-
-<p><code>/lib/ld-linux.so.2: bad ELF interpreter: 没有那个文件或目录</code></p>
-
-<pre><code>sudo yum install glibc.i686
-</code></pre>
-
-<h2><code>mongodb 安装错误error while loading shared libraries: libstdc++.so.6: cannot open shared object file</code></h2>
-
-<pre><code>yum whatprovides libstdc++.so.6 
-
-yum install libstdc++-4.4.7-11.el6.i686
-</code></pre>
-
-
-  <div class="more">
-    <a href="/mongodb/centos6.5%E5%AE%89%E8%A3%85mongodb/" class="btn">read more..</a>
   </div>
 </div>
 
