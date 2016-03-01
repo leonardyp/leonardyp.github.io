@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>27 Feb 16 21:15 CST</pubDate>
+    <pubDate>01 Mar 16 23:24 CST</pubDate>
+    <item>
+      <title>docker-mac</title>
+      <link>http://sample.com/docker/docker-mac/</link>
+      <pubDate>2016-03-01 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;&lt;a href=&#34;http://blog.csdn.net/oopsoom/article/details/41785999&#34;&gt;Docker下载及安装:mac osx&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;&lt;a href=&#34;http://yeasy.gitbooks.io/docker_practice/content/&#34;&gt;Docker从入门到实战&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;&lt;p&gt;问题: &lt;code&gt;FATA[0000] Get http:///var/run/docker.sock/v1.16/version: dial unix /var/run/docker.sock: no such file or directory. Are you trying to connect to a TLS-enabled daemon without TLS?&lt;/code&gt;&lt;/p&gt;&#xA;&#xA;&lt;h2&gt;方法一:&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;找到boot2docker应用程序启动&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;方法二:&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;$(/usr/local/bin/boot2docker shellinit)  &#xA;&#xA;Alan:~ user03$ $(/usr/local/bin/boot2docker shellinit)&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;Writing /Users/user03/.boot2docker/certs/boot2docker-vm/ca.pem&lt;/p&gt;&#xA;&#xA;&lt;p&gt;Writing /Users/user03/.boot2docker/certs/boot2docker-vm/cert.pem&lt;/p&gt;&#xA;&#xA;&lt;p&gt;Writing /Users/user03/.boot2docker/certs/boot2docker-vm/key.pem&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;Alan:~ user03$ boot2docker ssh&#xA;&#xA;                    ##        .&#xA;&#xA;              ## ## ##       ==&#xA;&#xA;           ## ## ## ##      ===&#xA;&#xA;       /&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;\___/ ===&#xA;&#xA;  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~&#xA;&#xA;       \______ o          __/&#xA;&#xA;         \    \        __/&#xA;&#xA;          \____\______/&#xA;&#xA; _                 _   ____     _            _&#xA;&#xA;| |__   ___   ___ | |_|___ \ __| | ___   ___| | _____ _ __&#xA;&#xA;| &#39;_ \ / _ \ / _ \| __| __) / _` |/ _ \ / __| |/ / _ \ &#39;__|&#xA;&#xA;| |_) | (_) | (_) | |_ / __/ (_| | (_) | (__|   &amp;lt;  __/ |&#xA;&#xA;|_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|&#xA;&#xA;Boot2Docker version 1.4.1, build master : 86f7ec8 - Tue Dec 16 23:11:29 UTC 2014&#xA;&#xA;Docker version 1.4.1, build 5bc2ff8&#xA;&#xA;docker@boot2docker:~$ &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;成功!!!&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;### io/timeout问题&lt;/p&gt;&#xA;&#xA;&lt;h4&gt;boot2docker ssh &amp;lsquo;echo EXTRA_ARGS=\’’—insecure-registry dl.dockerpool.com:5000\” | sudo tee /var/lib/boot2docker/profile&amp;rsquo;&lt;/h4&gt;&#xA;</description>
+    </item>
     <item>
       <title>win7 ssh</title>
       <link>http://sample.com/win7/win7-ssh/</link>

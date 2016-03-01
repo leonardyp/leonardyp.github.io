@@ -98,6 +98,42 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/docker/docker-mac/">docker-mac</a> <span class="date">2016-03-01</span></h3>
+
+  <p><a href="http://blog.csdn.net/oopsoom/article/details/41785999">Docker下载及安装:mac osx</a></p>
+
+<p><a href="http://yeasy.gitbooks.io/docker_practice/content/">Docker从入门到实战</a></p>
+
+<p>问题: <code>FATA[0000] Get http:///var/run/docker.sock/v1.16/version: dial unix /var/run/docker.sock: no such file or directory. Are you trying to connect to a TLS-enabled daemon without TLS?</code></p>
+
+<h2>方法一:</h2>
+
+<pre><code>找到boot2docker应用程序启动
+</code></pre>
+
+<h2>方法二:</h2>
+
+<pre><code>$(/usr/local/bin/boot2docker shellinit)  
+
+Alan:~ user03$ $(/usr/local/bin/boot2docker shellinit)
+</code></pre>
+
+<p>Writing /Users/user03/.boot2docker/certs/boot2docker-vm/ca.pem</p>
+
+<p>Writing /Users/user03/.boot2docker/certs/boot2docker-vm/cert.pem</p>
+
+<p>Writing /Users/user03/.boot2docker/certs/boot2docker-vm/key.pem</p>
+
+<pre><code>Alan:~ user03$ boot2docker ssh
+</code></pre>
+
+
+  <div class="more">
+    <a href="/docker/docker-mac/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/win7/win7-ssh/">win7 ssh</a> <span class="date">2016-02-27</span></h3>
 
   <h2>1、下载： openssh for Winodws:</h2>
@@ -364,42 +400,6 @@ db.dropDatabase()
 
   <div class="more">
     <a href="/mongodb/mongodb-basic-point/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/">mongodb-Deploy a Sharded Cluster</a> <span class="date">2016-02-24</span></h3>
-
-  <p><a href="http://blog.csdn.net/irelandken/article/details/8003315">参考</a></p>
-
-<h3>2个Standard节点+1个Arbiter节点 搭建MongoDB Replication Sets</h3>
-
-<h1>1,创建目录</h1>
-
-<pre><code>[root@localhost ~]# mkdir -p /data/replset/r0  
-[root@localhost ~]# mkdir -p /data/replset/r1  
-[root@localhost ~]# mkdir -p /data/replset/r2  
-[root@localhost ~]# mkdir -p /data/replset/key  
-[root@localhost ~]# mkdir -p /data/replset/log  
-</code></pre>
-
-<h1>2,创建KEY</h1>
-
-<pre><code>[root@localhost ~]# echo &quot;replset1 key&quot; &gt; /data/replset/key/r0  
-[root@localhost ~]# echo &quot;replset1 key&quot; &gt; /data/replset/key/r1  
-[root@localhost ~]# echo &quot;replset1 key&quot; &gt; /data/replset/key/r2  
-[root@localhost ~]# chmod 600 /data/replset/key/r*  //600，防止其它程序改写此KEY  
-
-mongod --dbpath=/data/replset/r0 --replSet replset1 --keyFile /data/replset/key/r0 --port 28010//一定要加keyFile!!!
-
-mongod --dbpath=/data/replset/r1 --replSet replset1 --keyFile /data/replset/key/r1 --port 28011
-
-mongod --dbpath=/data/replset/r2 --replSet replset1 --keyFile /data/replset/key/r2 --port 28012
-</code></pre>
-
-
-  <div class="more">
-    <a href="/mongodb/mongodb-Deploy-a-Sharded-Cluster/" class="btn">read more..</a>
   </div>
 </div>
 
