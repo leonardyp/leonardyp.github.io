@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>iptables</title>
+    <title>防火墙导致服务器无法访问</title>
   
-    <meta name="description" content="iptables">
+    <meta name="description" content="防火墙导致服务器无法访问">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,82 +80,38 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>iptables </h1>
+  <h1>防火墙导致服务器无法访问 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h2>1,<strong>检测iptables</strong>:</h2>
+    <h2>通过下面的命令可以开启允许对外访问的网络端口：</h2>
 
-<pre><code>`rpm -qa iptables`  
+<pre><code>/sbin/iptables -I INPUT -p tcp --dport 8011 -j ACCEPT #开启8011端口 
+
+/etc/rc.d/init.d/iptables save #保存配置 
+
+/etc/rc.d/init.d/iptables restart #重启服务
 </code></pre>
 
-<p><strong>result:</strong> <code>iptables-1.4.21-13.el7.x86_64</code></p>
+<h2>查看端口是否已经开放</h2>
 
-<h2>2,<strong>怎样检测并且确保iptables服务正在运行？</strong></h2>
-
-<pre><code>service status iptables           [On CentOS 6/5]
-systemctl status iptables         [On CentOS 7]
+<pre><code>/etc/init.d/iptables status 
 </code></pre>
-
-<p>如果iptables没有在运行，可以使用下面的语句</p>
-
-<p>---------------- <strong>在CentOS 6/5下</strong> ----------------<br />
-<code>chkconfig --level 35 iptables on</code><br />
-<code>service iptables start</code></p>
-
-<p>---------------- <strong>在CentOS 7下</strong> ----------------<br />
-<code>systemctl enable iptables</code><br />
-<code>systemctl start iptables</code></p>
-
-<h3>检查iptables中当前定义的规则</h3>
-
-<pre><code>iptables -L
-</code></pre>
-
-<h3>刷新所有的iptables规则或者特定的链, 使用下面的命令来刷新一个特定的链。</h3>
-
-<blockquote>
-<p>iptables --flush OUTPUT</p>
-</blockquote>
-
-<h3>要刷新所有的规则，可以用：</h3>
-
-<blockquote>
-<p>iptables --flush</p>
-</blockquote>
-
-<h3>在iptables中添加一条规则，接受所有从一个信任的IP地址（例如，192.168.0.7）过来的包。</h3>
-
-<blockquote>
-<p>iptables -A INPUT -s 192.168.0.7 -j ACCEPT</p>
-</blockquote>
-
-<h3>还可以在源IP中使用标准的斜线和子网掩码：</h3>
-
-<blockquote>
-<p>iptables -A INPUT -s 192.168.0.<sup>7</sup>&frasl;<sub>24</sub> -j ACCEPT
-iptables -A INPUT -s 192.168.0.<sup>7</sup>&frasl;<sub>255</sub>.255.255.0 -j ACCEPT</p>
-</blockquote>
-
-<h3>假如有一台电脑的本地IP地址是192.168.0.6。你需要封锁在21、22、23和80号端口上的连接，你会怎么做？</h3>
-
-<p><strong>答案</strong>  : 这时，我所需要的就是在iptables中使用‘multiport‘选项，并将要封锁的端口号跟在它后面。<br />
-<code>iptables -A INPUT -s 192.168.0.6 -p tcp -m multiport --dport 22,23,80,8080 -j DROP</code></p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/centos/systemctl/" title="systemctl">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/centos/centos%E6%8C%82%E8%BD%BDntfs/" title="centos挂载ntfs">Next &rarr;</a></li>
+            <li class="next"><a href="/docker/docker-mac/" title="docker-mac">Next &rarr;</a></li>
           
           
         </ul>
@@ -181,7 +137,7 @@ iptables -A INPUT -s 192.168.0.<sup>7</sup>&frasl;<sub>255</sub>.255.255.0 -j AC
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-02-17</span></div>
+    <div class="date"><span>2016-03-01</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
@@ -190,18 +146,10 @@ iptables -A INPUT -s 192.168.0.<sup>7</sup>&frasl;<sub>255</sub>.255.255.0 -j AC
   <a href="/categories/#linux-ref">linux <span>3</span></a>
 </li>
     
-      <li>
-  <a href="/categories/#centos-ref">centos <span>4</span></a>
-</li>
-    
     </ul>
     <br>
     <h4>Tags</h4>
     <ul class="tag_box">
-    
-      <li>
-  <a href="/tags/#iptables-ref">iptables <span>1</span></a>
-</li>
     
     </ul>
   </div>

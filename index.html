@@ -98,6 +98,29 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/linux/%E9%98%B2%E7%81%AB%E5%A2%99%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/">防火墙导致服务器无法访问</a> <span class="date">2016-03-01</span></h3>
+
+  <h2>通过下面的命令可以开启允许对外访问的网络端口：</h2>
+
+<pre><code>/sbin/iptables -I INPUT -p tcp --dport 8011 -j ACCEPT #开启8011端口 
+
+/etc/rc.d/init.d/iptables save #保存配置 
+
+/etc/rc.d/init.d/iptables restart #重启服务
+</code></pre>
+
+<h2>查看端口是否已经开放</h2>
+
+<pre><code>/etc/init.d/iptables status 
+</code></pre>
+
+
+  <div class="more">
+    <a href="/linux/%E9%98%B2%E7%81%AB%E5%A2%99%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/docker/docker-mac/">docker-mac</a> <span class="date">2016-03-01</span></h3>
 
   <p><a href="http://blog.csdn.net/oopsoom/article/details/41785999">Docker下载及安装:mac osx</a></p>
@@ -366,40 +389,6 @@ page2.sort({&quot;date“：-1}).limit(100);
 
   <div class="more">
     <a href="/mongodb/mongodb-page-split/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/mongodb/mongodb-basic-point/">mongodb basic point</a> <span class="date">2016-02-24</span></h3>
-
-  <p><a href="http://www.yiibai.com/mongodb/mongodb_create_database.html">参考</a></p>
-
-<h2>1,试了试 mongodb 的 insert()、save()  ，区别主要是：若存在主键，insert()  不做操作，而save() 则更改原来的内容为新内容。</h2>
-
-<p>存在数据：  { _id : 1, &ldquo; name &rdquo; : &ldquo; n1 &rdquo; }</p>
-
-<p>insert({ _id : 1, &ldquo; name &rdquo; : &ldquo; n2 &rdquo; })    会提示错误</p>
-
-<p>save({ _id : 1, &ldquo; name &rdquo; : &ldquo; n2 &rdquo; })     会把 n1 改为  n2  。</p>
-
-<h2>2,创建与使用数据库,use命令,当数据库不存在则创建数据库,新建数据库时show dbs看不见,要显示的数据库，需要把它插入至少一个文件。</h2>
-
-<h2>3,删除数据库,想要删除名为demo的数据库:</h2>
-
-<pre><code>use demo   
-db.dropDatabase()  
-</code></pre>
-
-<h2>4,更新多条数据:MongoDB默认将只更新单一的文件，来更新多个你需要设置参数置&rsquo;multi&rsquo; 为true</h2>
-
-<pre><code>db.mycol.update({'title':'MongoDB Overview'},{$set:{'title':'New MongoDB Tutorial'}},{multi:true}) 
-</code></pre>
-
-<h2>5,mongod   --rest 会有web控制台</h2>
-
-
-  <div class="more">
-    <a href="/mongodb/mongodb-basic-point/" class="btn">read more..</a>
   </div>
 </div>
 
