@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>16 Mar 16 14:52 CST</pubDate>
+    <pubDate>21 Mar 16 13:15 CST</pubDate>
+    <item>
+      <title>ddos检测与防御</title>
+      <link>http://sample.com/linux/ddos%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1/</link>
+      <pubDate>2016-03-21 12:00:00 +0800</pubDate>
+      <description>&lt;h2&gt;方法一:iptables(需要手动添加)&lt;/h2&gt;&#xA;&#xA;&lt;h2&gt;方法二:DDoS deflate 可以自动屏蔽ip&lt;/h2&gt;&#xA;&#xA;&lt;p&gt;通过netstat监测跟踪创建大量网络连接的IP地址，在检测到某个结点超过预设的限 制时，该程序会通过APF或IPTABLES禁止或阻挡这些IP.&lt;/p&gt;&#xA;&#xA;&lt;h3&gt;如何确认是否受到DDOS攻击？&lt;/h3&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;执行：netstat -ntu | awk &#39;{print $5}&#39; | cut -d: -f1 | sort | uniq -c | sort -n&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;执行后，将会显示服务器上所有的每个IP多少个连接数。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;每个IP几个、十几个或几十个连接数都还算比较正常，如果像上面成百上千肯定就不正常了。&lt;/p&gt;&#xA;&#xA;&lt;p&gt;1、安装DDoS deflate&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;wget http://www.inetbase.com/scripts/ddos/install.sh //下载DDoS deflate&#xA;chmod 0700 install.sh //添加权限&#xA;./install.sh //执行 &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;安装: &lt;img src=&#34;../ddos.jpg&#34; alt=&#34;&#34; /&gt;&lt;br /&gt;&#xA;2、配置DDoS deflate(DDoS deflate的默认配置位于/usr/local/ddos/ddos.conf )&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;PROGDIR=&amp;quot;/usr/local/ddos&amp;quot;&#xA;&#xA;PROG=&amp;quot;/usr/local/ddos/ddos.sh&amp;quot;&#xA;&#xA;IGNORE_IP_LIST=&amp;quot;/usr/local/ddos/ignore.ip.list&amp;quot; //IP地址白名单&#xA;&#xA;CRON=&amp;quot;/etc/cron.d/ddos.cron&amp;quot; //定时执行程序&#xA;&#xA;APF=&amp;quot;/etc/apf/apf&amp;quot;&#xA;&#xA;IPT=&amp;quot;/sbin/iptables&amp;quot;&#xA;&#xA;FREQ=1 //检查配置时间间隔，默认1分钟&#xA;&#xA;NO_OF_CONNECTIONS=150 //最大连接数，超过这个数IP就会被屏蔽，一般默认即可&#xA;##### APF_BAN=1 (Make sure your APF version is atleast 0.96)&#xA;##### APF_BAN=0 (Uses iptables for banning ips instead of APF)&#xA;&#xA;APF_BAN=1 //使用APF还是iptables，推荐使用iptables&#xA;&#xA;KILL=1 //是否屏蔽IP，默认即可&#xA;&#xA;EMAIL_TO=&amp;quot;1679550318@qq.com&amp;quot; //当IP被屏蔽时给指定邮箱发送邮件，推荐使用，换成自己的邮箱即可&#xA;&#xA;BAN_PERIOD=600 //禁用IP时间，默认600秒，可根据情况调整 &#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
+    </item>
     <item>
       <title>防火墙导致服务器无法访问</title>
       <link>http://sample.com/linux/%E9%98%B2%E7%81%AB%E5%A2%99%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/</link>

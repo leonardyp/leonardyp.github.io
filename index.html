@@ -98,6 +98,40 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/linux/ddos%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1/">ddos检测与防御</a> <span class="date">2016-03-21</span></h3>
+
+  <h2>方法一:iptables(需要手动添加)</h2>
+
+<h2>方法二:DDoS deflate 可以自动屏蔽ip</h2>
+
+<p>通过netstat监测跟踪创建大量网络连接的IP地址，在检测到某个结点超过预设的限 制时，该程序会通过APF或IPTABLES禁止或阻挡这些IP.</p>
+
+<h3>如何确认是否受到DDOS攻击？</h3>
+
+<pre><code>执行：netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
+</code></pre>
+
+<p>执行后，将会显示服务器上所有的每个IP多少个连接数。</p>
+
+<p>每个IP几个、十几个或几十个连接数都还算比较正常，如果像上面成百上千肯定就不正常了。</p>
+
+<p>1、安装DDoS deflate</p>
+
+<pre><code>wget http://www.inetbase.com/scripts/ddos/install.sh //下载DDoS deflate
+chmod 0700 install.sh //添加权限
+./install.sh //执行 
+</code></pre>
+
+<p>安装: <img src="../ddos.jpg" alt="" /><br />
+2、配置DDoS deflate(DDoS deflate的默认配置位于/usr/local/ddos/ddos.conf )</p>
+
+
+  <div class="more">
+    <a href="/linux/ddos%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/linux/%E9%98%B2%E7%81%AB%E5%A2%99%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/">防火墙导致服务器无法访问</a> <span class="date">2016-03-01</span></h3>
 
   <h2>通过下面的命令可以开启允许对外访问的网络端口：</h2>
@@ -367,28 +401,6 @@ resp, err := client.Get(&quot;https://localhost:8081&quot;)
 
   <div class="more">
     <a href="/go/go-https/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/mongodb/mongodb-page-split/">mongodb page split</a> <span class="date">2016-02-24</span></h3>
-
-  <h2>示例:</h2>
-
-<pre><code>var lastest=null;
-
-while(page1.HasNext()){
-    lastest=page1.Next();
-}
-
-var page2=db.foo.find({&quot;date&quot;:{&quot;date&quot;:{&quot;$gt&quot;:lastest.date}});
-
-page2.sort({&quot;date“：-1}).limit(100);
-</code></pre>
-
-
-  <div class="more">
-    <a href="/mongodb/mongodb-page-split/" class="btn">read more..</a>
   </div>
 </div>
 
