@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>mac下使用Charles爬取安卓app数据</title>
+  
+    <meta name="description" content="mac下使用Charles爬取安卓app数据">
+  
+    <meta name="author" content="Leonard YP">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Leonard</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/pages">Pages</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">关于作者</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>mac下使用Charles爬取安卓app数据 </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h2>原本是想玩Fiddler的,但是得安装虚拟机太麻烦,其他的如tcpdump,wireshark等,依据个人喜好而用。</h2>
+
+<p><a href="http://iam42.iteye.com/blog/2186630">参考</a></p>
+
+<h1>一,  HTTP包：</h1>
+
+<h3>1. 安装抓包工具 Charles , <a href="http://waitsun.ctfile.com/downhtml/138091610/1458642290/1961701742/97686f0b0c08b8e01cd2ae39b2328991.html">下载</a></h3>
+
+<pre><code>破解:应用程序-&gt;显示包内容-&gt;Contents-&gt;Java-&gt;替换charles.jar，然后进入软件，此时显示30天试用，然后在菜单里面选注册，输入用户名和序列号：
+
+Name:
+http://ninjasaga.cheat.center
+
+Serial:
+18e69f6d5bc820d4d3
+</code></pre>
+
+<h3>2. 配置手机代理</h3>
+
+<pre><code>1,ifconfig查看mac ip地址
+
+2,打开手机设置，进入当前wifi连接，设置代理为手动，将服务器填为上一步中获得的IP，端口默认为8888（在charles的proxy setting中可以改这个端口号）。这时Charles弹出确认框，点击Allow按钮即可
+</code></pre>
+
+<p><img src="./代理.jpg" alt="" /><br />
+<img src="./证书安装成功.png" alt="" /></p>
+
+<pre><code>3.中文乱码问题解决
+    在应用程序文件夹找到Charles.app，选择显示包内容, 在charles的content/info.plist 中添加-Dfile.encoding=UTF-8
+</code></pre>
+
+<p><img src="./显示包内容.jpg" alt="" /></p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+&lt;key&gt;CFBundleDevelopmentRegion&lt;/key&gt;
+&lt;string&gt;English&lt;/string&gt;
+&lt;key&gt;CFBundleExecutable&lt;/key&gt;
+&lt;string&gt;Charles&lt;/string&gt;
+&lt;key&gt;CFBundleIconFile&lt;/key&gt;
+&lt;string&gt;charles.icns&lt;/string&gt;
+&lt;key&gt;CFBundleIdentifier&lt;/key&gt;
+&lt;string&gt;com.xk72.Charles&lt;/string&gt;
+&lt;key&gt;CFBundleDisplayName&lt;/key&gt;
+&lt;string&gt;Charles&lt;/string&gt;
+&lt;key&gt;CFBundleInfoDictionaryVersion&lt;/key&gt;
+&lt;string&gt;6.0&lt;/string&gt;
+&lt;key&gt;CFBundleName&lt;/key&gt;
+&lt;string&gt;Charles&lt;/string&gt;
+&lt;key&gt;CFBundlePackageType&lt;/key&gt;
+&lt;string&gt;APPL&lt;/string&gt;
+&lt;key&gt;CFBundleShortVersionString&lt;/key&gt;
+&lt;string&gt;3.11.4&lt;/string&gt;
+&lt;key&gt;CFBundleVersion&lt;/key&gt;
+&lt;string&gt;3.11.4&lt;/string&gt;
+&lt;key&gt;CFBundleSignature&lt;/key&gt;
+&lt;string&gt;Chls&lt;/string&gt;
+&lt;key&gt;NSHumanReadableCopyright&lt;/key&gt;
+&lt;string&gt;Charles Web Debugging Proxy http://charlesproxy.com/&lt;/string&gt;
+&lt;key&gt;LSApplicationCategoryType&lt;/key&gt;
+&lt;string&gt;public.app-category.developer-tools&lt;/string&gt;
+&lt;key&gt;NSHighResolutionCapable&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;NSSupportsAutomaticGraphicsSwitching&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;IgnorePSN&lt;/key&gt;
+&lt;true/&gt;
+&lt;key&gt;JVMRuntime&lt;/key&gt;
+&lt;string&gt;jdk1.8.0_74.jdk&lt;/string&gt;
+&lt;key&gt;JVMVersion&lt;/key&gt;
+&lt;string&gt;1.7&lt;/string&gt;
+&lt;key&gt;JVMMainClassName&lt;/key&gt;
+&lt;string&gt;com.xk72.charles.macosx.gui.Main&lt;/string&gt;
+&lt;key&gt;CFBundleDocumentTypes&lt;/key&gt;
+&lt;array&gt;
+&lt;dict&gt;
+&lt;key&gt;CFBundleTypeExtensions&lt;/key&gt;
+&lt;array&gt;
+&lt;string&gt;chls&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;CFBundleTypeIconFile&lt;/key&gt;
+&lt;string&gt;charles_session&lt;/string&gt;
+&lt;key&gt;CFBundleTypeName&lt;/key&gt;
+&lt;string&gt;Charles saved session&lt;/string&gt;
+&lt;key&gt;CFBundleTypeRole&lt;/key&gt;
+&lt;string&gt;Editor&lt;/string&gt;
+&lt;key&gt;LSTypeIsPackage&lt;/key&gt;
+&lt;false/&gt;&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;CFBundleTypeExtensions&lt;/key&gt;
+&lt;array&gt;
+&lt;string&gt;amf&lt;/string&gt;
+&lt;string&gt;amf0&lt;/string&gt;
+&lt;string&gt;amf3&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;CFBundleTypeIconFile&lt;/key&gt;
+&lt;string&gt;charles_amf&lt;/string&gt;
+&lt;key&gt;CFBundleTypeName&lt;/key&gt;
+&lt;string&gt;Charles AMF dump&lt;/string&gt;
+&lt;key&gt;CFBundleTypeRole&lt;/key&gt;
+&lt;string&gt;Editor&lt;/string&gt;
+&lt;key&gt;LSTypeIsPackage&lt;/key&gt;
+&lt;false/&gt;&lt;/dict&gt;
+&lt;dict&gt;
+&lt;key&gt;CFBundleTypeExtensions&lt;/key&gt;
+&lt;array&gt;
+&lt;string&gt;har&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;CFBundleTypeIconFile&lt;/key&gt;
+&lt;string&gt;charles_session&lt;/string&gt;
+&lt;key&gt;CFBundleTypeName&lt;/key&gt;
+&lt;string&gt;Charles HAR session&lt;/string&gt;
+&lt;key&gt;CFBundleTypeRole&lt;/key&gt;
+&lt;string&gt;Editor&lt;/string&gt;
+&lt;key&gt;LSTypeIsPackage&lt;/key&gt;
+&lt;false/&gt;&lt;/dict&gt;
+&lt;/array&gt;
+&lt;key&gt;LSArchitecturePriority&lt;/key&gt;
+&lt;array&gt;
+&lt;string&gt;x86_64&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;LSEnvironment&lt;/key&gt;
+&lt;dict&gt;
+&lt;key&gt;LC_CTYPE&lt;/key&gt;
+&lt;string&gt;UTF-8&lt;/string&gt;
+&lt;/dict&gt;
+&lt;key&gt;JVMOptions&lt;/key&gt;
+&lt;array&gt;
+&lt;string&gt;-Dfile.encoding=UTF-8&lt;/string&gt;
+&lt;string&gt;-Dcom.apple.mrj.application.live-resize=true&lt;/string&gt;
+&lt;string&gt;-Dapple.laf.useScreenMenuBar=true&lt;/string&gt;
+&lt;string&gt;-Dcom.apple.macos.useScreenMenuBar=true&lt;/string&gt;
+&lt;string&gt;-Dapple.mrj.application.growbox.intrudes=true&lt;/string&gt;
+&lt;string&gt;-Dcom.apple.hwaccel=true&lt;/string&gt;
+&lt;string&gt;-Dswing.aatext=true&lt;/string&gt;
+&lt;string&gt;-Dapple.awt.graphics.UseQuartz=true&lt;/string&gt;
+&lt;string&gt;-Dcharles.config=~/Library/Preferences/com.xk72.charles.config&lt;/string&gt;
+&lt;string&gt;-Dcharles.data=~/Library/Application Support/Charles/&lt;/string&gt;
+&lt;string&gt;-Dcharles.home=$APP_ROOT/Contents&lt;/string&gt;
+&lt;string&gt;-Xdock:icon=$APP_ROOT/Contents/Resources/charles.icns&lt;/string&gt;
+&lt;string&gt;-Xdock:name=Charles&lt;/string&gt;
+&lt;string&gt;-Dcom.apple.mrj.application.apple.menu.about.name=Charles&lt;/string&gt;
+&lt;string&gt;-Xbootclasspath/p:$APP_ROOT/Contents/Java/charles-sni-patch-1.0.jar&lt;/string&gt;
+&lt;/array&gt;
+&lt;key&gt;JVMDefaultOptions&lt;/key&gt;
+&lt;dict&gt;
+&lt;/dict&gt;
+&lt;key&gt;JVMArguments&lt;/key&gt;
+&lt;array&gt;
+&lt;/array&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+
+<h1>HTTPS抓包:</h1>
+
+<ol>
+<li>下载Charles证书<a href="http://www.charlesproxy.com/assets/legacy-ssl/charles.crt">http://www.charlesproxy.com/assets/legacy-ssl/charles.crt</a> ,导入到手机中,点击证书命名即可,点击查看受信任的凭据,在用户选项卡可以看见证书</li>
+<li>在Charles的工具栏上点击Proxy；选择SSL Proxying Settings&hellip; 切换到SSL选项卡，选中Enable SSL Proxying，选项卡的Locations表单可以填写要抓包的域名和端口，点击Add按钮，在弹出的表单中Host填写域名，比如填api.instagram.com，Port填443。如果不填直接确定则为＊表示匹配所有</li>
+</ol>
+
+<p><strong>接下来就可以随意玩耍了</strong>😄</p>
+
+<h1><code>可以使用该工具方便开发,不要干坏事哦~～</code></h1>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+            <li class="prev"><a href="/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E4%B9%8B%E7%B4%A2%E5%BC%95/" title="mysql查询优化之索引">&larr; Previous</a></li>
+          
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/linux/ddos%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1/" title="ddos检测与防御">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2016-03-22</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#mac-ref">mac <span>1</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; Leonard YP 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

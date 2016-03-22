@@ -9,6 +9,11 @@
 		<changefreq>weekly</changefreq>
 	</url>
 	<url>
+		<loc>http://sample.com/mac/mac%E4%B8%8B%E4%BD%BF%E7%94%A8Charles%E7%88%AC%E5%8F%96%E5%AE%89%E5%8D%93app%E6%95%B0%E6%8D%AE/</loc>
+		<lastmod>2016-03-22</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/linux/ddos%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1/</loc>
 		<lastmod>2016-03-21</lastmod>
 		<changefreq>weekly</changefreq>

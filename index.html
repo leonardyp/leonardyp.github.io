@@ -123,6 +123,39 @@
 </div>
 
 <div class="post">
+  <h3 class="title"><a href="/mac/mac%E4%B8%8B%E4%BD%BF%E7%94%A8Charles%E7%88%AC%E5%8F%96%E5%AE%89%E5%8D%93app%E6%95%B0%E6%8D%AE/">mac下使用Charles爬取安卓app数据</a> <span class="date">2016-03-22</span></h3>
+
+  <h2>原本是想玩Fiddler的,但是得安装虚拟机太麻烦,其他的如tcpdump,wireshark等,依据个人喜好而用。</h2>
+
+<p><a href="http://iam42.iteye.com/blog/2186630">参考</a></p>
+
+<h1>一,  HTTP包：</h1>
+
+<h3>1. 安装抓包工具 Charles , <a href="http://waitsun.ctfile.com/downhtml/138091610/1458642290/1961701742/97686f0b0c08b8e01cd2ae39b2328991.html">下载</a></h3>
+
+<pre><code>破解:应用程序-&gt;显示包内容-&gt;Contents-&gt;Java-&gt;替换charles.jar，然后进入软件，此时显示30天试用，然后在菜单里面选注册，输入用户名和序列号：
+
+Name:
+http://ninjasaga.cheat.center
+
+Serial:
+18e69f6d5bc820d4d3
+</code></pre>
+
+<h3>2. 配置手机代理</h3>
+
+<pre><code>1,ifconfig查看mac ip地址
+
+2,打开手机设置，进入当前wifi连接，设置代理为手动，将服务器填为上一步中获得的IP，端口默认为8888（在charles的proxy setting中可以改这个端口号）。这时Charles弹出确认框，点击Allow按钮即可
+</code></pre>
+
+
+  <div class="more">
+    <a href="/mac/mac%E4%B8%8B%E4%BD%BF%E7%94%A8Charles%E7%88%AC%E5%8F%96%E5%AE%89%E5%8D%93app%E6%95%B0%E6%8D%AE/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/linux/ddos%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1/">ddos检测与防御</a> <span class="date">2016-03-21</span></h3>
 
   <h2>方法一:iptables(需要手动添加)</h2>
@@ -360,41 +393,6 @@ import (
 
   <div class="more">
     <a href="/go/golang-%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E5%9D%91/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/go/go%E5%9C%A8%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E6%9C%AC%E8%BA%AB%E4%BF%A1%E6%81%AF/">go在函数内部获取函数本身信息</a> <span class="date">2016-02-25</span></h3>
-
-  <pre><code>type Person struct {  
-    Name string  
-    Age  int  
-}
-
-
-func (this *Person) Eat(food string) {
-   fmt.Println(&quot;eatting :&quot;, food)
-}
-
-
-func (this *Person) SayHi(name string, age int) {
-   rvalue := reflect.ValueOf(this)
-   rtype := reflect.TypeOf(this)
-   for i := 0; i &lt; rvalue.NumMethod(); i++ {
-      methodType := reflect.TypeOf(reflect.ValueOf(this).Method(i).Interface())
-      //methodValue := reflect.ValueOf(reflect.ValueOf(this).Method(i).Interface())
-      fmt.Println(&quot;函数名:&quot;, rtype.Method(i).Name)
-      fmt.Println(&quot;参数个数:&quot;, methodType.NumIn())
-      for j := 0; j &lt; methodType.NumIn(); j++ {
-         fmt.Printf(&quot;参数索引:%v\r\n参数类型:%v\r\n&quot;, j, methodType.In(j).Name())
-      }
-   }
-}
-</code></pre>
-
-
-  <div class="more">
-    <a href="/go/go%E5%9C%A8%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E6%9C%AC%E8%BA%AB%E4%BF%A1%E6%81%AF/" class="btn">read more..</a>
   </div>
 </div>
 
