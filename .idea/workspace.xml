@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="38b42b09-f402-4918-9268-b487cbaf238c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/linux/ddos.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/linux/ddos检测与防御/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysql/mysql查询优化之索引/加索引前.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysql/mysql查询优化之索引/加索引后.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/mysql/mysql查询优化之索引/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archive/index.html" afterPath="$PROJECT_DIR$/archive/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories/index.html" afterPath="$PROJECT_DIR$/categories/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linux/iptables/index.html" afterPath="$PROJECT_DIR$/linux/iptables/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linux/linux-让进程在后台可靠运行的几种方法/index.html" afterPath="$PROJECT_DIR$/linux/linux-让进程在后台可靠运行的几种方法/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linux/防火墙导致服务器无法访问/index.html" afterPath="$PROJECT_DIR$/linux/防火墙导致服务器无法访问/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/linux/ddos检测与防御/index.html" afterPath="$PROJECT_DIR$/linux/ddos检测与防御/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index.html" afterPath="$PROJECT_DIR$/pages/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rss.xml" afterPath="$PROJECT_DIR$/rss.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.xml" afterPath="$PROJECT_DIR$/sitemap.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/index.html" afterPath="$PROJECT_DIR$/tags/index.html" />
@@ -60,6 +60,7 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/menu/Menu.js" />
         <option value="$PROJECT_DIR$/about/index.html" />
+        <option value="$PROJECT_DIR$/mysql/mysql查询优化之索引/index.html" />
       </list>
     </option>
   </component>
@@ -101,9 +102,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -119,6 +120,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="compiled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="compiled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mysql查询优化之索引" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -749,7 +768,8 @@
       <workItem from="1457502504969" duration="28000" />
       <workItem from="1457510891624" duration="4000" />
       <workItem from="1458111108271" duration="298000" />
-      <workItem from="1458536077482" duration="486000" />
+      <workItem from="1458536077482" duration="679000" />
+      <workItem from="1458626200514" duration="432000" />
     </task>
     <task id="LOCAL-00001" summary="第一篇博客,使用golang操作非导出字段">
       <created>1455545801936</created>
@@ -1015,11 +1035,17 @@
       <option name="project" value="LOCAL" />
       <updated>1458111227850</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="ddos检测与防御">
+      <created>1458537357321</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1458537357321</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26202000" />
+    <option name="totallyTimeSpent" value="26827000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -1088,7 +1114,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
-    <MESSAGE value="关于作者" />
     <MESSAGE value="关于作者,修改" />
     <MESSAGE value="Git:代码冲突常见解决方法" />
     <MESSAGE value="centos7 git server" />
@@ -1113,7 +1138,8 @@
     <MESSAGE value="防火墙导致服务器无法访问" />
     <MESSAGE value="添加项目auth" />
     <MESSAGE value="关于作者 完善" />
-    <option name="LAST_COMMIT_MESSAGE" value="关于作者 完善" />
+    <MESSAGE value="ddos检测与防御" />
+    <option name="LAST_COMMIT_MESSAGE" value="ddos检测与防御" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1441,6 +1467,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38580644">
           <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql/mysql查询优化之索引/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.077419356">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>

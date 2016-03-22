@@ -98,6 +98,31 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E4%B9%8B%E7%B4%A2%E5%BC%95/">mysql查询优化之索引</a> <span class="date">2016-03-22</span></h3>
+
+  <h2>系统信息:    CPU： 1核    内存： 2048 MB</h2>
+
+<h2><code>添加一般索引前查询效率:</code></h2>
+
+<p><img src="./加索引前.jpg" alt="" /></p>
+
+<hr />
+
+<h2><code>添加一般索引后查询效率:</code></h2>
+
+<p><img src="./加索引后.jpg" alt="" /></p>
+
+<hr />
+
+<p><code>优化效果还是蛮明显的😄</code></p>
+
+
+  <div class="more">
+    <a href="/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E4%B9%8B%E7%B4%A2%E5%BC%95/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/linux/ddos%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1/">ddos检测与防御</a> <span class="date">2016-03-21</span></h3>
 
   <h2>方法一:iptables(需要手动添加)</h2>
@@ -370,37 +395,6 @@ func (this *Person) SayHi(name string, age int) {
 
   <div class="more">
     <a href="/go/go%E5%9C%A8%E5%87%BD%E6%95%B0%E5%86%85%E9%83%A8%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E6%9C%AC%E8%BA%AB%E4%BF%A1%E6%81%AF/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/go/go-https/">go https</a> <span class="date">2016-02-25</span></h3>
-
-  <pre><code>$ openssl genrsa -out server.key 2048 // private key  
-$ openssl req -new -x509 -key server.key -out server.crt -days 365 //self-signed certificate  
-</code></pre>
-
-<p>//省略证书校验(一般用于测试)</p>
-
-<pre><code>tr := &amp;http.Transport{  
-   TLSClientConfig: &amp;tls.Config{InsecureSkipVerify: true},  
-}  
-
-client := &amp;http.Client{Transport: tr}  
-resp, err := client.Get(&quot;https://localhost:8081&quot;)  
-</code></pre>
-
-<p>可以使用<strong>openssl x509 -text -in client.crt -noout</strong> 查看某个证书文件所包含的具体信息。</p>
-
-<h2><a href="http://www.tuicool.com/articles/6JJj2az">资料1</a></h2>
-
-<h2><a href="http://studygolang.com/articles/3175">资料2</a></h2>
-
-<h2><a href="https://github.com/bigwhite/experiments/tree/master/gohttps">gthub代码示例:</a></h2>
-
-
-  <div class="more">
-    <a href="/go/go-https/" class="btn">read more..</a>
   </div>
 </div>
 

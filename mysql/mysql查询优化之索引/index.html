@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>ddos检测与防御</title>
+    <title>mysql查询优化之索引</title>
   
-    <meta name="description" content="ddos检测与防御">
+    <meta name="description" content="mysql查询优化之索引">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,76 +80,40 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>ddos检测与防御 </h1>
+  <h1>mysql查询优化之索引 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h2>方法一:iptables(需要手动添加)</h2>
+    <h2>系统信息:    CPU： 1核    内存： 2048 MB</h2>
 
-<h2>方法二:DDoS deflate 可以自动屏蔽ip</h2>
+<h2><code>添加一般索引前查询效率:</code></h2>
 
-<p>通过netstat监测跟踪创建大量网络连接的IP地址，在检测到某个结点超过预设的限 制时，该程序会通过APF或IPTABLES禁止或阻挡这些IP.</p>
+<p><img src="./加索引前.jpg" alt="" /></p>
 
-<h3>如何确认是否受到DDOS攻击？</h3>
+<hr />
 
-<pre><code>执行：netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -n
-</code></pre>
+<h2><code>添加一般索引后查询效率:</code></h2>
 
-<p>执行后，将会显示服务器上所有的每个IP多少个连接数。</p>
+<p><img src="./加索引后.jpg" alt="" /></p>
 
-<p>每个IP几个、十几个或几十个连接数都还算比较正常，如果像上面成百上千肯定就不正常了。</p>
+<hr />
 
-<p>1、安装DDoS deflate</p>
-
-<pre><code>wget http://www.inetbase.com/scripts/ddos/install.sh //下载DDoS deflate
-chmod 0700 install.sh //添加权限
-./install.sh //执行 
-</code></pre>
-
-<p>安装: <img src="../ddos.jpg" alt="" /><br />
-2、配置DDoS deflate(DDoS deflate的默认配置位于/usr/local/ddos/ddos.conf )</p>
-
-<pre><code>PROGDIR=&quot;/usr/local/ddos&quot;
-
-PROG=&quot;/usr/local/ddos/ddos.sh&quot;
-
-IGNORE_IP_LIST=&quot;/usr/local/ddos/ignore.ip.list&quot; //IP地址白名单
-
-CRON=&quot;/etc/cron.d/ddos.cron&quot; //定时执行程序
-
-APF=&quot;/etc/apf/apf&quot;
-
-IPT=&quot;/sbin/iptables&quot;
-
-FREQ=1 //检查配置时间间隔，默认1分钟
-
-NO_OF_CONNECTIONS=150 //最大连接数，超过这个数IP就会被屏蔽，一般默认即可
-##### APF_BAN=1 (Make sure your APF version is atleast 0.96)
-##### APF_BAN=0 (Uses iptables for banning ips instead of APF)
-
-APF_BAN=1 //使用APF还是iptables，推荐使用iptables
-
-KILL=1 //是否屏蔽IP，默认即可
-
-EMAIL_TO=&quot;1679550318@qq.com&quot; //当IP被屏蔽时给指定邮箱发送邮件，推荐使用，换成自己的邮箱即可
-
-BAN_PERIOD=600 //禁用IP时间，默认600秒，可根据情况调整 
-</code></pre>
+<p><code>优化效果还是蛮明显的😄</code></p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E4%B9%8B%E7%B4%A2%E5%BC%95/" title="mysql查询优化之索引">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/linux/%E9%98%B2%E7%81%AB%E5%A2%99%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" title="防火墙导致服务器无法访问">Next &rarr;</a></li>
+            <li class="next"><a href="/linux/ddos%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1/" title="ddos检测与防御">Next &rarr;</a></li>
           
           
         </ul>
@@ -175,13 +139,13 @@ BAN_PERIOD=600 //禁用IP时间，默认600秒，可根据情况调整
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-03-21</span></div>
+    <div class="date"><span>2016-03-22</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#linux-ref">linux <span>4</span></a>
+  <a href="/categories/#mysql-ref">mysql <span>1</span></a>
 </li>
     
     </ul>
@@ -190,7 +154,7 @@ BAN_PERIOD=600 //禁用IP时间，默认600秒，可根据情况调整
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#ddos-ref">ddos <span>1</span></a>
+  <a href="/tags/#mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E4%B9%8B%E7%B4%A2%E5%BC%95-ref">mysql查询优化之索引 <span>1</span></a>
 </li>
     
     </ul>
