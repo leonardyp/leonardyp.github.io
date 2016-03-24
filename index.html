@@ -98,6 +98,38 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/erlang/erlang-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">erlang-基础概念</a> <span class="date">2016-03-24</span></h3>
+
+  <p>sudo brew install erlang
+安装错误:<code>Error: Cowardly refusing to `sudo brew install` for installing</code><br />
+&gt;解决:sudo chown -R $USER /usr/local</p>
+
+<p>想用户在任何方式进入Erlang Shell时都自动切换到指定的工作目录，则可以在用户目录中的编辑一个.erlang文件  ,如:</p>
+
+<pre><code>c:cd(&quot;study/erlang&quot;).
+io:format(&quot;My new work in: ~p!n&quot;, [element(2, file:get_cwd())]).
+</code></pre>
+
+<p>erlang声称他们取得了“9个9的可靠性”。
+通过通信来共享内存,是一门面向消息的的函数式编程语言</p>
+
+<pre><code>输入erl进入命令行
+
+halt()用于推退出erlang系统,也可以两次command+c
+
+f()用于释放已绑定表达式
+
+X=3. %%正确
+X=4. 报错,此处=不是赋值二而是表达式匹配,第一次匹配成功的原因:X未绑定将X和3绑定,再次匹配4的时候直接报错
+</code></pre>
+
+
+  <div class="more">
+    <a href="/erlang/erlang-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E4%B9%8B%E7%B4%A2%E5%BC%95/">mysql查询优化之索引</a> <span class="date">2016-03-22</span></h3>
 
   <h2>系统信息:    CPU： 1核    内存： 2048 MB</h2>
@@ -355,44 +387,6 @@ Alan:~ user03$ $(/usr/local/bin/boot2docker shellinit)
 
   <div class="more">
     <a href="/go/go%E5%9B%BD%E9%99%85%E5%8C%96%E6%9C%AC%E5%9C%B0%E5%8C%96/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/go/golang-%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E5%9D%91/">golang 文件夹权限坑</a> <span class="date">2016-02-27</span></h3>
-
-  <pre><code>package main  
-
-import (  
-  &quot;fmt&quot;  
-  &quot;os&quot;  
-)  
-
-func main() {  
-    err := os.MkdirAll(&quot;/tmp/gotest/&quot;, 0777)  
-    if err != nil {   
-      panic(err)  
-    }  
-    fmt.Println(&quot;Mkdir /tmp/gotest/&quot;)  
-}  
-</code></pre>
-
-<p><strong>运行结果</strong>:<em>文件夹的权限还是系统默认的755</em></p>
-
-<h3>正确做法</h3>
-
-<pre><code>package main
-
-import (
-  &quot;fmt&quot;
-  &quot;os&quot;
-  &quot;syscall&quot;
-)
-</code></pre>
-
-
-  <div class="more">
-    <a href="/go/golang-%E6%96%87%E4%BB%B6%E5%A4%B9%E6%9D%83%E9%99%90%E5%9D%91/" class="btn">read more..</a>
   </div>
 </div>
 

@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>22 Mar 16 18:29 CST</pubDate>
+    <pubDate>24 Mar 16 15:11 CST</pubDate>
+    <item>
+      <title>erlang-基础概念</title>
+      <link>http://sample.com/erlang/erlang-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</link>
+      <pubDate>2016-03-24 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;sudo brew install erlang&#xA;安装错误:&lt;code&gt;Error: Cowardly refusing to `sudo brew install` for installing&lt;/code&gt;&lt;br /&gt;&#xA;&amp;gt;解决:sudo chown -R $USER /usr/local&lt;/p&gt;&#xA;&#xA;&lt;p&gt;想用户在任何方式进入Erlang Shell时都自动切换到指定的工作目录，则可以在用户目录中的编辑一个.erlang文件  ,如:&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;c:cd(&amp;quot;study/erlang&amp;quot;).&#xA;io:format(&amp;quot;My new work in: ~p!n&amp;quot;, [element(2, file:get_cwd())]).&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;erlang声称他们取得了“9个9的可靠性”。&#xA;通过通信来共享内存,是一门面向消息的的函数式编程语言&lt;/p&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt;输入erl进入命令行&#xA;&#xA;halt()用于推退出erlang系统,也可以两次command+c&#xA;&#xA;f()用于释放已绑定表达式&#xA;&#xA;X=3. %%正确&#xA;X=4. 报错,此处=不是赋值二而是表达式匹配,第一次匹配成功的原因:X未绑定将X和3绑定,再次匹配4的时候直接报错&#xA;&#xA;列表:&#xA;  [First |TheRest] = [1,2,3,4,5].  %%|用于分割列表,First匹配1后面的匹配剩下的&#xA;&#xA;  [A, B | C] = [1, 2].      &#xA;  [1,2]&#xA;  1&amp;gt; A.&#xA;　　1&#xA;  2&amp;gt; B.&#xA;　   2&#xA;  3&amp;gt; C.&#xA;　　[]&#xA;&#xA;-module(tut). %%表示模块名,要和文件名一致  &#xA;&#xA;-export([double/1]).%%可以在其他模块使用, 函数名double参数个数1  &#xA;&#xA;c(tut).%%加载模块&#xA;&#xA;tut:double(3).%%调用模块方法&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;</description>
+    </item>
     <item>
       <title>mysql查询优化之索引</title>
       <link>http://sample.com/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E4%B9%8B%E7%B4%A2%E5%BC%95/</link>
