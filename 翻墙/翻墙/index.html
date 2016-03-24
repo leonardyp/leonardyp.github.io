@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>erlang-基础概念</title>
+    <title>翻墙</title>
   
-    <meta name="description" content="erlang-基础概念">
+    <meta name="description" content="翻墙">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,67 +80,32 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>erlang-基础概念 </h1>
+  <h1>翻墙 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p>sudo brew install erlang
-安装错误:<code>Error: Cowardly refusing to `sudo brew install` for installing</code><br />
-&gt;解决:sudo chown -R $USER /usr/local</p>
+    <h1>一直用XX-Net挺爽的,最近似乎不太稳定，得赶紧找其他的方案!</h1>
 
-<p>想用户在任何方式进入Erlang Shell时都自动切换到指定的工作目录，则可以在用户目录中的编辑一个.erlang文件  ,如:</p>
+<h2><code>1,https://github.com/leonardyp/XX-Net</code></h2>
 
-<pre><code>c:cd(&quot;study/erlang&quot;).
-io:format(&quot;My new work in: ~p!n&quot;, [element(2, file:get_cwd())]).
-</code></pre>
+<h2><code>2,https://getlantern.org/</code></h2>
 
-<p>erlang声称他们取得了“9个9的可靠性”。
-通过通信来共享内存,是一门面向消息的的函数式编程语言</p>
-
-<pre><code>输入erl进入命令行
-
-halt()用于推退出erlang系统,也可以两次command+c
-
-f()用于释放已绑定表达式
-
-X=3. %%正确
-X=4. 报错,此处=不是赋值而是表达式匹配,第一次匹配成功的原因:X未绑定将X和3绑定,再次匹配4的时候直接报错
-
-列表:
-  [First |TheRest] = [1,2,3,4,5].  %%|用于分割列表,First匹配1后面的匹配剩下的
-
-  [A, B | C] = [1, 2].      
-  [1,2]
-  1&gt; A.
-　　1
-  2&gt; B.
-　   2
-  3&gt; C.
-　　[]
-
--module(tut). %%表示模块名,要和文件名一致  
-
--export([double/1]).%%可以在其他模块使用, 函数名double参数个数1  
-
-c(tut).%%加载模块
-
-tut:double(3).%%调用模块方法
-</code></pre>
+<h2>今天尝试了下Lantern速度跟XX-Net差不多,比较稳定,安装也毫无技术含量,以上两款工具就基本够用了</h2>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/翻墙/%E7%BF%BB%E5%A2%99/" title="翻墙">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/mysql/mysql%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E4%B9%8B%E7%B4%A2%E5%BC%95/" title="mysql查询优化之索引">Next &rarr;</a></li>
+            <li class="next"><a href="/erlang/erlang-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" title="erlang-基础概念">Next &rarr;</a></li>
           
           
         </ul>
@@ -172,7 +137,7 @@ tut:double(3).%%调用模块方法
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#erlang-ref">erlang <span>1</span></a>
+  <a href="/categories/#%E7%BF%BB%E5%A2%99-ref">翻墙 <span>1</span></a>
 </li>
     
     </ul>
@@ -181,7 +146,7 @@ tut:double(3).%%调用模块方法
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#erlang-ref">erlang <span>1</span></a>
+  <a href="/tags/#%E7%BF%BB%E5%A2%99-ref">翻墙 <span>1</span></a>
 </li>
     
     </ul>
