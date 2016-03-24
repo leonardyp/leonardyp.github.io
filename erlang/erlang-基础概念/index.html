@@ -123,9 +123,67 @@ X=4. 报错,此处=不是赋值而是表达式匹配,第一次匹配成功的原
 
 -export([double/1]).%%可以在其他模块使用, 函数名double参数个数1  
 
-c(tut).%%加载模块
+c(tut).%%加载模块c是compiled意思
 
 tut:double(3).%%调用模块方法
+</code></pre>
+
+<ul>
+<li>变量必须是大写字母开头</li>
+
+<li><p>所有原子类型都是以小写字母开头,只是名字没有值</p>
+
+<h3>数据类型:</h3>
+
+<p>元组{A,B}</p>
+
+<p>列表:[A,B] ,列表像其他其他语言的链表</p>
+
+<p>map:#{&ldquo;key&rdquo;=&gt;42}.</p>
+
+<p>if
+Condition 1 -&gt;
+    Action 1;
+Condition 2 -&gt;
+    Action 2
+end
+<em>注意，在 end 之前没有 “;”</em><br />
+如果所有条件都测试失败，则会产生运行时错误。一个测试恒为真的条件就是 true。它常用作 if 的最后一个条件，即当所有条件都测试失败时，则执行 true 后面的动作。</p>
+
+<p>case A of
+     1 -&gt;
+       3;
+     2 -&gt;
+       5
+ end</p></li>
+</ul>
+
+<h2>内置函数:</h2>
+
+<ol>
+<li><p>trunc(5.0)=&gt;5取整函数</p></li>
+
+<li><p>2004 rem 400=&gt;4 取余函数</p></li>
+
+<li><p>length用于求列表长度</p></li>
+
+<li><p>is_tuple判断是否是元组</p></li>
+</ol>
+
+<h2>高阶函数:</h2>
+
+<pre><code>1&gt; Xf = fun(X) -&gt; X * 2 end.
+ #Fun&lt;erl_eval.5.123085357&gt;
+2&gt; Xf(5).
+10
+</code></pre>
+
+<h3>lists:map:</h3>
+
+<pre><code>1&gt; Add_3 = fun(X) -&gt; X + 3 end.
+ #Fun&lt;erl_eval.5.123085357&gt;
+2&gt; lists:map(Add_3, [1,2,3]).
+[4,5,6]
 </code></pre>
 
     <hr>
