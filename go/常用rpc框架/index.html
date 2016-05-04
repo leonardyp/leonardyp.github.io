@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>gopush-java</title>
+    <title>常用rpc框架</title>
   
-    <meta name="description" content="gopush-java">
+    <meta name="description" content="常用rpc框架">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,62 +80,25 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>gopush-java </h1>
+  <h1>常用rpc框架 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <h1>gopush 服务端搭建</h1>
-
-<ul>
-<li>参考   <a href="#https://github.com/Terry-Mao/gopush-cluster/blob/master/README_zh.md#%E5%AE%89%E8%A3%85">https://github.com/Terry-Mao/gopush-cluster/blob/master/README_zh.md#%E5%AE%89%E8%A3%85</a></li>
-</ul>
-
-<h1>首先要启动zookeeper:</h1>
-
-<p>cd /Users/leonard/work/src/data/programfiles/zookeeper-3.4.8/bin</p>
-
-<p>sh zkServer.sh  start</p>
-
-<h2>启动message,comet,web:</h2>
-
-<p>cd /Users/leonard/software/gopath/bin</p>
-
-<p>nohup message -c message.conf 2&gt;&amp;1 &gt;&gt;/Users/leonard/work/src/data/logs/gopush-cluster/panic-message.log &amp;
-nohup comet -c comet.conf 2&gt;&amp;1 &gt;&gt;/Users/leonard/work/src/data/logs/gopush-cluster/panic-comet.log &amp;</p>
-
-<p>nohup web -c web.conf 2&gt;&amp;1 &gt;&gt;/Users/leonard/work/src/data/logs/gopush-cluster/panic-web.log &amp;</p>
-
-<p><code>Error: Could not open &quot;/data/apps/go/bin/comet_log.xml&quot; for reading: open /data/apps/go/bin/comet_log.xml: no such file or directory
-[2]+  Exit 1                  comet -c comet.conf 2&gt;&amp;1 &gt;&gt; /Users/leonard/work/src/data/logs/gopush-cluster/panic-comet.log  
-</code></p>
-
-<h2>解决:需要修改comet.conf</h2>
-
-<h3>注意:message.conf需要修改</h3>
-
-<ul>
-<li><p>1,redis:   node1:1 tcp@localhost:6379#admin</p></li>
-
-<li><p>2,mysql:</p>
-
-<pre><code>node1:1 root:root@(localhost:3307)/gopush?parseTime=true&amp;loc=Local&amp;charset=utf8
-</code></pre></li>
-</ul>
-
+    
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/go/%E5%B8%B8%E7%94%A8rpc%E6%A1%86%E6%9E%B6/" title="常用rpc框架">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/翻墙/%E7%BF%BB%E5%A2%99/" title="翻墙">Next &rarr;</a></li>
+            <li class="next"><a href="/java/gopush-java/" title="gopush-java">Next &rarr;</a></li>
           
           
         </ul>
@@ -167,7 +130,7 @@ nohup comet -c comet.conf 2&gt;&amp;1 &gt;&gt;/Users/leonard/work/src/data/logs/
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#java-ref">java <span>1</span></a>
+  <a href="/categories/#go-ref">go <span>8</span></a>
 </li>
     
     </ul>
@@ -176,7 +139,7 @@ nohup comet -c comet.conf 2&gt;&amp;1 &gt;&gt;/Users/leonard/work/src/data/logs/
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#push-ref">push <span>1</span></a>
+  <a href="/tags/#rpc-ref">rpc <span>1</span></a>
 </li>
     
     </ul>

@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>04 May 16 09:46 CST</pubDate>
+    <pubDate>04 May 16 10:44 CST</pubDate>
+    <item>
+      <title>常用rpc框架</title>
+      <link>http://sample.com/go/%E5%B8%B8%E7%94%A8rpc%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>2016-05-04 12:00:00 +0800</pubDate>
+      <description></description>
+    </item>
     <item>
       <title>gopush-java</title>
       <link>http://sample.com/java/gopush-java/</link>
