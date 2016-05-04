@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>常用rpc框架</title>
+    <title>thrift</title>
   
     <meta name="description" content="常用rpc框架">
   
@@ -80,12 +80,34 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>常用rpc框架 </h1>
+  <h1>thrift </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    
+    <ul>
+<li>thrift:<a href="http://blog.csdn.net/yohunl/article/details/41748511">http://blog.csdn.net/yohunl/article/details/41748511</a></li>
+
+<li><p>go-php 示例:<a href="http://studygolang.com/articles/3110">http://studygolang.com/articles/3110</a></p>
+
+<p>cat rpcService.thrift</p>
+
+<p>namespace go test.rpc</p>
+
+<p>namespace java test.rpc</p>
+
+<p>// 测试服务</p>
+
+<p>service RpcService {</p>
+
+<pre><code>// 发起远程调用
+
+list&lt;string&gt; funCall(1:i64 callTime, 2:map&lt;string, string&gt; paramMap),
+</code></pre>
+
+<p>}</p></li>
+</ul>
+
     <hr>
     <div class="pagination">
       <ul>
@@ -98,7 +120,7 @@
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/java/gopush-java/" title="gopush-java">Next &rarr;</a></li>
+            <li class="next"><a href="/常用rpc框架/grpc/" title="grpc">Next &rarr;</a></li>
           
           
         </ul>
@@ -130,7 +152,7 @@
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#go-ref">go <span>8</span></a>
+  <a href="/categories/#%E5%B8%B8%E7%94%A8rpc%E6%A1%86%E6%9E%B6-ref">常用rpc框架 <span>2</span></a>
 </li>
     
     </ul>
@@ -139,7 +161,7 @@
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#rpc-ref">rpc <span>1</span></a>
+  <a href="/tags/#thrift-ref">thrift <span>1</span></a>
 </li>
     
     </ul>
