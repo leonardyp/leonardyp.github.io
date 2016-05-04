@@ -4,6 +4,11 @@
 		<loc>http://sample.com/</loc>
 	</url>
 	<url>
+		<loc>http://sample.com/java/gopush-java/</loc>
+		<lastmod>2016-05-04</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/翻墙/%E7%BF%BB%E5%A2%99/</loc>
 		<lastmod>2016-03-24</lastmod>
 		<changefreq>weekly</changefreq>
