@@ -4,6 +4,11 @@
 		<loc>http://sample.com/</loc>
 	</url>
 	<url>
+		<loc>http://sample.com/nosql/redis-or-ssdb/</loc>
+		<lastmod>2016-08-25</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/常用rpc框架/thrift/</loc>
 		<lastmod>2016-05-04</lastmod>
 		<changefreq>weekly</changefreq>

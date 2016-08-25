@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>redis or ssdb</title>
+  
+    <meta name="description" content="redis VS ssdb">
+  
+    <meta name="author" content="Leonard YP">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/twitter/stylesheets/bootstrap.min.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/stylesheets/style.css" type="text/css" rel="stylesheet" media="all">
+<link href="/assets/twitter/widgets/google_prettify/stylesheets/twitter-bootstrap.css" type="text/css" rel="stylesheet" media="all">
+ 
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Leonard</a>
+          <ul class="nav">
+            
+              
+
+
+  <li><a href="/archive">Archive</a></li>
+
+
+            
+              
+
+
+  <li><a href="/tags">Tags</a></li>
+
+
+            
+              
+
+
+  <li><a href="/categories">Categories</a></li>
+
+
+            
+              
+
+
+  <li><a href="/pages">Pages</a></li>
+
+
+            
+              
+
+
+  <li><a href="/about">关于作者</a></li>
+
+
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        <div class="page-header">
+  <h1>redis or ssdb </h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <h1>测试环境</h1>
+
+<p>1,  操作系统</p>
+
+<pre><code>centos7
+
+内核:3.10.0-123.20.1.el7.x86_64
+</code></pre>
+
+<p>2,  内存:</p>
+
+<pre><code>grep MemTotal /proc/meminfo
+
+MemTotal:        7138276 kB
+</code></pre>
+
+<p>3, 请求数 10000,并发clients  50</p>
+
+<p>4,服务器版本信息</p>
+
+<pre><code>   1,redis:   Redis server v=3.2.1 sha=00000000:0 malloc=libc bits=64 build=939341c443eba189
+
+   2,ssdb:  1.9.4
+</code></pre>
+
+<h1><code>redis-benchmark -n 10000  -c 50</code></h1>
+
+<p>====== PING_INLINE ======<br />
+  10000 requests completed in 0.31 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>31746.03 requests per second</p>
+
+<p>====== PING_BULK ======<br />
+  10000 requests completed in 0.29 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>34246.57 requests per second</p>
+
+<p>====== SET ======<br />
+  10000 requests completed in 0.31 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>32679.74 requests per second</p>
+
+<p>====== GET ======<br />
+  10000 requests completed in 0.30 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1<br />
+33222.59 requests per second</p>
+
+<p>====== INCR ======<br />
+  10000 requests completed in 0.31 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1<br />
+32051.28 requests per second</p>
+
+<p>====== LPUSH ======<br />
+  10000 requests completed in 0.31 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1<br />
+32679.74 requests per second</p>
+
+<p>====== RPUSH ======<br />
+  10000 requests completed in 0.31 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>32154.34 requests per second</p>
+
+<p>====== LPOP ======<br />
+  10000 requests completed in 0.32 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>31152.65 requests per second</p>
+
+<p>====== RPOP ======<br />
+  10000 requests completed in 0.29 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1<br />
+34843.21 requests per second</p>
+
+<p>====== SADD ======<br />
+  10000 requests completed in 0.32 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>31347.96 requests per second</p>
+
+<p>====== SPOP ======<br />
+  10000 requests completed in 0.30 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>33557.05 requests per second</p>
+
+<p>====== LPUSH (needed to benchmark LRANGE) ======<br />
+  10000 requests completed in 0.31 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>31847.13 requests per second</p>
+
+<p>====== LRANGE_100 (first 100 elements) ======<br />
+  10000 requests completed in 0.31 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>32258.06 requests per second</p>
+
+<p>====== LRANGE_300 (first 300 elements) ======<br />
+  10000 requests completed in 0.31 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>32679.74 requests per second</p>
+
+<p>====== LRANGE_500 (first 450 elements) ======<br />
+  10000 requests completed in 0.33 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>30303.03 requests per second</p>
+
+<p>====== LRANGE_600 (first 600 elements) ======<br />
+  10000 requests completed in 0.31 seconds<br />
+  3 bytes payload<br />
+  keep alive: 1</p>
+
+<p>32362.46 requests per second</p>
+
+<p>====== MSET (10 keys) ======<br />
+  10000 requests completed in 0.32 seconds<br />
+  3 bytes payload
+  keep alive: 1</p>
+
+<p>30959.75 requests per second</p>
+
+<h1><code>ssdb压测</code></h1>
+
+<p>========== set ==========<br />
+qps: 14691, time: 0.681 s<br />
+========== get ==========<br />
+qps: 20075, time: 0.498 s<br />
+========== del ==========<br />
+qps: 12913, time: 0.774 s<br />
+========== hset ==========<br />
+qps: 13218, time: 0.757 s<br />
+========== hget ==========<br />
+qps: 18534, time: 0.540 s<br />
+========== hdel ==========<br />
+qps: 12697, time: 0.788 s<br />
+========== zset ==========<br />
+qps: 8334, time: 1.200 s<br />
+========== zget ==========<br />
+qps: 17628, time: 0.567 s
+========== zdel ==========<br />
+qps: 11980, time: 0.835 s<br />
+========== qpush ==========<br />
+qps: 8499, time: 1.177 s<br />
+========== qpop ==========<br />
+qps: 10060, time: 0.994 s</p>
+
+<h2>CPU 对比:</h2>
+
+<pre><code>   redis:     百分之十几到 七十几         
+
+   ssdb:    15%-25%
+</code></pre>
+
+<h2>内存对比:</h2>
+
+<pre><code>  redis:   0.0%
+
+  ssdb:  1%左右浮动  +-0.5
+</code></pre>
+
+<pre><code>   1,redis比较消耗cpu资源
+   2,ssdb cpu 内存资源较为稳定
+   3,redis    ssdb查询优于redis , 更新略逊redis
+  
+     ssdb基于磁盘存储，对于想要redis的查询性能，对写入性能不敏感,且担心内存溢出,可以考虑尝试ssdb
+</code></pre>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/常用rpc框架/thrift/" title="thrift">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
+    
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2016-08-25</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#nosql-ref">nosql <span>1</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#redis-vs-ssdb-ref">redis vs ssdb <span>1</span></a>
+</li>
+    
+    </ul>
+  </div>
+</div>
+
+      </div>
+
+      <footer>
+        <p>&copy; Leonard YP 2013 
+          with help from <a href="http://github.com/wendal/gor" target="_blank" title="Gor -- Fast Blog">Gor</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+		  and Idea from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+<script src="//cdnjscn.b0.upaiyun.com/libs/prettify/r298/prettify.min.js"></script>
+<script>
+  var pres = document.getElementsByTagName("pre");
+  for (var i=0; i < pres.length; ++i) {
+    pres[i].className = "prettyprint linenums";
+  }
+  prettyPrint();
+</script>
+
+    
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-123-12']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

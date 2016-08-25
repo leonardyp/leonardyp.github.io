@@ -98,6 +98,40 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/nosql/redis-or-ssdb/">redis or ssdb</a> <span class="date">2016-08-25</span></h3>
+
+  <h1>测试环境</h1>
+
+<p>1,  操作系统</p>
+
+<pre><code>centos7
+
+内核:3.10.0-123.20.1.el7.x86_64
+</code></pre>
+
+<p>2,  内存:</p>
+
+<pre><code>grep MemTotal /proc/meminfo
+
+MemTotal:        7138276 kB
+</code></pre>
+
+<p>3, 请求数 10000,并发clients  50</p>
+
+<p>4,服务器版本信息</p>
+
+<pre><code>   1,redis:   Redis server v=3.2.1 sha=00000000:0 malloc=libc bits=64 build=939341c443eba189
+
+   2,ssdb:  1.9.4
+</code></pre>
+
+
+  <div class="more">
+    <a href="/nosql/redis-or-ssdb/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/常用rpc框架/thrift/">thrift</a> <span class="date">2016-05-04</span></h3>
 
   <ul>
@@ -334,42 +368,6 @@ chmod 0700 install.sh //添加权限
 
   <div class="more">
     <a href="/linux/%E9%98%B2%E7%81%AB%E5%A2%99%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/docker/docker-mac/">docker-mac</a> <span class="date">2016-03-01</span></h3>
-
-  <p><a href="http://blog.csdn.net/oopsoom/article/details/41785999">Docker下载及安装:mac osx</a></p>
-
-<p><a href="http://yeasy.gitbooks.io/docker_practice/content/">Docker从入门到实战</a></p>
-
-<p>问题: <code>FATA[0000] Get http:///var/run/docker.sock/v1.16/version: dial unix /var/run/docker.sock: no such file or directory. Are you trying to connect to a TLS-enabled daemon without TLS?</code></p>
-
-<h2>方法一:</h2>
-
-<pre><code>找到boot2docker应用程序启动
-</code></pre>
-
-<h2>方法二:</h2>
-
-<pre><code>$(/usr/local/bin/boot2docker shellinit)  
-
-Alan:~ user03$ $(/usr/local/bin/boot2docker shellinit)
-</code></pre>
-
-<p>Writing /Users/user03/.boot2docker/certs/boot2docker-vm/ca.pem</p>
-
-<p>Writing /Users/user03/.boot2docker/certs/boot2docker-vm/cert.pem</p>
-
-<p>Writing /Users/user03/.boot2docker/certs/boot2docker-vm/key.pem</p>
-
-<pre><code>Alan:~ user03$ boot2docker ssh
-</code></pre>
-
-
-  <div class="more">
-    <a href="/docker/docker-mac/" class="btn">read more..</a>
   </div>
 </div>
 
