@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Pages</title>
+    <title>grpc与thrift</title>
+  
+    <meta name="description" content="grpc与thrift性能测试">
   
     <meta name="author" content="Leonard YP">
 
@@ -56,9 +58,9 @@
 
             
               
-  <li class="active"><a href="/pages" class="active">Pages</a></li>
 
 
+  <li><a href="/pages">Pages</a></li>
 
 
             
@@ -77,59 +79,116 @@
     <div class="container">
 
       <div class="content">
-        
-<div class="page-header">
-  <h1>Pages </h1>
+        <div class="page-header">
+  <h1>grpc与thrift </h1>
 </div>
 
 <div class="row">
-  <div class="span12">
+  <div class="span8">
+    <p><code>-n 100w -c 1 表示100万次请求,1个协程 1个进程</code></p>
+
+<h2>cpu:     2.2 GHz Intel Core i7</h2>
+
+<h2>内存:    16 GB 1600 MHz DDR3</h2>
+
+<hr />
+
+<h1>grpc:</h1>
+
+<h2>1,  -n 100w    -c 1</h2>
+
+<pre><code> 第一次耗时:  2m4.34570465s
+
+ 第二次耗时:  2m7.211826234s
+
+ 第三次耗时:  2m5.24262806s
+
+  平均耗时:    2m5.60005298s
+</code></pre>
+
+<h2>2, -n100w     -c 10</h2>
+
+<pre><code> 第一次耗时:  42.024087027s
+
+ 第二次耗时:  42.444382712s
+
+ 第三次耗时:  41.43449645s
+
+ 平均耗时:    41.9676544s
+</code></pre>
+
+<h1>thrift:</h1>
+
+<h2>1,  -n 100w  -c  1</h2>
+
+<pre><code> 第一次耗时:  42.944920795s 
+
+ 第二次耗时:  41.842003381s
+
+ 第三次耗时:  41.322663199s
+
+ 平均耗时:    42.0365291s
+</code></pre>
+
+<p><code>thrif并发有坑,还在坑中-_-</code></p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+        <ul>
+          
+          
+            <li class="prev disabled"><a>&larr; Previous</a></li>
+          
+
+            <li><a href="/archive">Archive</a></li>
+
+          
+            <li class="next"><a href="/nosql/redis-or-ssdb/" title="redis or ssdb">Next &rarr;</a></li>
+          
+          
+        </ul>
+      </ul>
+    </div>
+    <hr>
     
-<ul>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
+  </div>
   
-
-
-  <li><a href="/pages">Pages</a></li>
-
-
-
-  
-
-
-  <li><a href="/tags">Tags</a></li>
-
-
-
-  
-
-
-  <li><a href="/about">关于作者</a></li>
-
-
-
-  
-
-
-  <li><a href="/archive">Archive</a></li>
-
-
-
-  
-
-
-  <li><a href="/categories">Categories</a></li>
-
-
-
-  
-
-
-  <li><a href="/">首页</a></li>
-
-
-
-</ul>
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>2016-09-08</span></div>
+    <br>
+    <h4>Categories</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/categories/#rpc-ref">rpc <span>1</span></a>
+</li>
+    
+    </ul>
+    <br>
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+      <li>
+  <a href="/tags/#rpc-ref">rpc <span>1</span></a>
+</li>
+    
+    </ul>
   </div>
 </div>
 

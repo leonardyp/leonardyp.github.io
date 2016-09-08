@@ -2,7 +2,13 @@
 <rss version="2.0">  <channel>
     <title>Leonard</title>
     <link>http://sample.com</link>
-    <pubDate>26 Aug 16 00:00 CST</pubDate>
+    <pubDate>08 Sep 16 20:34 CST</pubDate>
+    <item>
+      <title>grpc与thrift</title>
+      <link>http://sample.com/rpc/grpc%E4%B8%8Ethrift/</link>
+      <pubDate>2016-09-08 12:00:00 +0800</pubDate>
+      <description>&lt;p&gt;&lt;code&gt;-n 100w -c 1 表示100万次请求,1个协程 1个进程&lt;/code&gt;&lt;/p&gt;&#xA;&#xA;&lt;h2&gt;cpu:     2.2 GHz Intel Core i7&lt;/h2&gt;&#xA;&#xA;&lt;h2&gt;内存:    16 GB 1600 MHz DDR3&lt;/h2&gt;&#xA;&#xA;&lt;hr /&gt;&#xA;&#xA;&lt;h1&gt;grpc:&lt;/h1&gt;&#xA;&#xA;&lt;h2&gt;1,  -n 100w    -c 1&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt; 第一次耗时:  2m4.34570465s&#xA;&#xA; 第二次耗时:  2m7.211826234s&#xA;&#xA; 第三次耗时:  2m5.24262806s&#xA;&#xA;  平均耗时:    2m5.60005298s&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h2&gt;2, -n100w     -c 10&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt; 第一次耗时:  42.024087027s&#xA;&#xA; 第二次耗时:  42.444382712s&#xA;&#xA; 第三次耗时:  41.43449645s&#xA;&#xA; 平均耗时:    41.9676544s&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;h1&gt;thrift:&lt;/h1&gt;&#xA;&#xA;&lt;h2&gt;1,  -n 100w  -c  1&lt;/h2&gt;&#xA;&#xA;&lt;pre&gt;&lt;code&gt; 第一次耗时:  42.944920795s &#xA;&#xA; 第二次耗时:  41.842003381s&#xA;&#xA; 第三次耗时:  41.322663199s&#xA;&#xA; 平均耗时:    42.0365291s&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&#xA;&lt;p&gt;&lt;code&gt;thrif并发有坑,还在坑中-_-&lt;/code&gt;&lt;/p&gt;&#xA;</description>
+    </item>
     <item>
       <title>redis or ssdb</title>
       <link>http://sample.com/nosql/redis-or-ssdb/</link>

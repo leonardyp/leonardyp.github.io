@@ -98,6 +98,36 @@
 
 
 <div class="post">
+  <h3 class="title"><a href="/rpc/grpc%E4%B8%8Ethrift/">grpc与thrift</a> <span class="date">2016-09-08</span></h3>
+
+  <p><code>-n 100w -c 1 表示100万次请求,1个协程 1个进程</code></p>
+
+<h2>cpu:     2.2 GHz Intel Core i7</h2>
+
+<h2>内存:    16 GB 1600 MHz DDR3</h2>
+
+<hr />
+
+<h1>grpc:</h1>
+
+<h2>1,  -n 100w    -c 1</h2>
+
+<pre><code> 第一次耗时:  2m4.34570465s
+
+ 第二次耗时:  2m7.211826234s
+
+ 第三次耗时:  2m5.24262806s
+
+  平均耗时:    2m5.60005298s
+</code></pre>
+
+
+  <div class="more">
+    <a href="/rpc/grpc%E4%B8%8Ethrift/" class="btn">read more..</a>
+  </div>
+</div>
+
+<div class="post">
   <h3 class="title"><a href="/nosql/redis-or-ssdb/">redis or ssdb</a> <span class="date">2016-08-25</span></h3>
 
   <h1>测试环境</h1>
@@ -345,29 +375,6 @@ chmod 0700 install.sh //添加权限
 
   <div class="more">
     <a href="/linux/ddos%E6%A3%80%E6%B5%8B%E4%B8%8E%E9%98%B2%E5%BE%A1/" class="btn">read more..</a>
-  </div>
-</div>
-
-<div class="post">
-  <h3 class="title"><a href="/linux/%E9%98%B2%E7%81%AB%E5%A2%99%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/">防火墙导致服务器无法访问</a> <span class="date">2016-03-01</span></h3>
-
-  <h2>通过下面的命令可以开启允许对外访问的网络端口：</h2>
-
-<pre><code>/sbin/iptables -I INPUT -p tcp --dport 8011 -j ACCEPT #开启8011端口 
-
-/etc/rc.d/init.d/iptables save #保存配置 
-
-/etc/rc.d/init.d/iptables restart #重启服务
-</code></pre>
-
-<h2>查看端口是否已经开放</h2>
-
-<pre><code>/etc/init.d/iptables status 
-</code></pre>
-
-
-  <div class="more">
-    <a href="/linux/%E9%98%B2%E7%81%AB%E5%A2%99%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE/" class="btn">read more..</a>
   </div>
 </div>
 

@@ -4,6 +4,11 @@
 		<loc>http://sample.com/</loc>
 	</url>
 	<url>
+		<loc>http://sample.com/rpc/grpc%E4%B8%8Ethrift/</loc>
+		<lastmod>2016-09-08</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/nosql/redis-or-ssdb/</loc>
 		<lastmod>2016-08-25</lastmod>
 		<changefreq>weekly</changefreq>
