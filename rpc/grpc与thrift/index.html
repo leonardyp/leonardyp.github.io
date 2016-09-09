@@ -130,7 +130,12 @@
  平均耗时:    42.0365291s
 </code></pre>
 
-<p><code>thrif并发有坑,还在坑中-_-</code></p>
+<h1><code>thrift client非并发安全的，client并发直接会挂掉,针对这个问题 解决办法有二:</code></h1>
+
+<pre><code> 1, 自己实现链接池  可以仿照redis ,mysql 的 client都可以  
+
+ 2, 改thrift生成源码文件的 源码,使用sync包加锁    亲测可以
+</code></pre>
 
     <hr>
     <div class="pagination">
