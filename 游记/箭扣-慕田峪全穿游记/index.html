@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>grpc与thrift</title>
+    <title>箭扣-慕田峪全穿游记</title>
   
-    <meta name="description" content="grpc与thrift性能测试">
+    <meta name="description" content="箭扣+慕田峪 背包徒步穿越">
   
     <meta name="author" content="Leonard YP">
 
@@ -80,76 +80,78 @@
 
       <div class="content">
         <div class="page-header">
-  <h1>grpc与thrift </h1>
+  <h1>箭扣-慕田峪全穿游记 </h1>
 </div>
 
 <div class="row">
   <div class="span8">
-    <p><code>-n 100w -c 1 表示100万次请求,1个协程 1个进程</code></p>
-
-<h2>cpu:     2.2 GHz Intel Core i7</h2>
-
-<h2>内存:    16 GB 1600 MHz DDR3</h2>
+    <h2>从上次爬完慕田峪后半段的野长城之后,听说箭扣长城更难爬,就激起了我的好奇心，早就想来箭扣试下了,这次趁着端午长假来一次 <code>**箭扣+慕田峪**</code>全穿,体验很不过,记录下来 证明我已经是个老司机了~😄</h2>
 
 <hr />
 
-<h1>grpc:</h1>
+<h3>时间临近端午,5月26号还在想端午去哪里玩儿呢,27号决定去箭扣徒步,搜了点网上驴友的徒步路线 28号就背着双肩背包出发了,开始了为期两天的穿越！</h3>
 
-<h2>1,  -n 100w    -c 1</h2>
+<hr />
 
-<pre><code> 第一次耗时:  2m4.34570465s
+<h3>出去玩儿赶早不赶晚,省着由于时间原因扫兴,于是决定起早赶头班地铁,我住在13号线地铁🚇回龙观附近,于是5:30起床出发,坐到望京西  然后赶头班的丰宁城际班车(首班6:40 我六点30左右就到了~据说已经发完一班车了~) 然后上车去往怀柔汽车站了(地图上就一站我以为很快,结果开了一个多小时,终于知道城际班车的意思了,真尼玛远~!)</h3>
 
- 第二次耗时:  2m7.211826234s
+<hr />
 
- 第三次耗时:  2m5.24262806s
+<h3>到达怀柔汽车站需要坐公交🚌去于家园, 车很多 我坐的H21～～  8点30左右的时候到达于家园公交站,然后就得坐H25路去西栅(zha 不念shan~)子村（不建议坐黑车,40拼车真贵,后面要我20仍然没坐哈哈）,可是头班车11:30 现在才9点不到咋办,先吃顿早餐吧,吃的豆腐脑可香了！！！ 吃完一看时间还早</h3>
 
-  平均耗时:    2m5.60005298s
-</code></pre>
+<h3>刚好附近有家不错的电影院🎦,正好可以看场电影看的是&lt;&lt;三只小猪🐷&gt;&gt;,因为这个时间是在没啥电影可以挑的了，纯属打发时间~~~</h3>
 
-<h2>2, -n100w     -c 10</h2>
+<hr />
 
-<pre><code> 第一次耗时:  42.024087027s
+<hr />
 
- 第二次耗时:  42.444382712s
+<h2>下午1点多一点到达终点站，西栅子5队,附近好多农家院,我找了家问下 100元/晚(尽管店家各种劝我说山里夜晚冷,没带帐篷呆不了,我是一旦做了决定十匹马都拉不回来的那种,我比较有主见,所以完全没听进去哈哈😄), 不过我并没有入住，只是在这吃了顿午饭,顺便了解下路线情况</h2>
 
- 第三次耗时:  41.43449645s
+<hr />
 
- 平均耗时:    41.9676544s
-</code></pre>
+<h2>正好有两个驴友跟我路线一致（绝大部分人都是从北京结开始或者涧口开始,只走一小段，我既然来了肯定是要全穿的），于是我果断决定结伴同行,后面的经历验证了我这个决定是何等的英明 !!!</h2>
 
-<h1>thrift:</h1>
+<p><code>先附上网上找的驴友的路线图(路线与我基本一致): 西栅子五队-&gt;九眼楼-&gt;牛角边-&gt;慕田峪</code></p>
 
-<h2>1,  -n 100w  -c  1</h2>
+<p><img src="../img/mmexport1495885631627.jpg" alt="" /></p>
 
-<pre><code> 第一次耗时:  42.944920795s 
+<h2>吃晚饭下午两点半 我们问老板娘去九眼楼的路 然后我跟另外两个驴友 就顺着小路进入山里开始山地徒步,离长城有一段是山路，我们得在山林中穿越, 山中岔路真多～～～我们听老板娘的遇见岔路就往左走,否则走错了 可能就走到延庆那边去了~~~</h2>
 
- 第二次耗时:  41.842003381s
+<hr />
 
- 第三次耗时:  41.322663199s
+<h2>走一小段路看见一个指示牌，据另两个驴友分析这个剪头是错的,于是我们没按照剪头的方向走</h2>
 
- 平均耗时:    42.0365291s
-</code></pre>
+<p><img src="../img/IMG_20170528_145615.jpg" alt="" /></p>
 
-<h1><code>thrift client非并发安全的，client并发直接会挂掉,针对这个问题 解决办法有二:</code></h1>
+<h2>山里这种小虫子真多~这好像叫千足虫? 好肥美~~~</h2>
 
-<pre><code> 1, 自己实现链接池  可以仿照redis ,mysql 的 client都可以  
+<p><img src="../img/IMG_20170528_151235.jpg" alt="" /></p>
 
- 2, 改thrift生成源码文件的 源码,使用sync包加锁    亲测可以
-</code></pre>
+<h2>还在山里面呢,看见这堆乱石离城楼就不远了</h2>
+
+<p><img src="../img/IMG_20170528_152550.jpg" alt="" /></p>
+
+<h2>山里面的景色,马上就到城楼了!</h2>
+
+<p><img src="../img/IMG_20170528_153001.jpg" alt="" /></p>
+
+<h2>下午三点半左右  历时一个小时左右到达城楼 ✌️</h2>
+
+<p><img src="../img/IMG_20170528_153422.jpg" alt="" /></p>
 
     <hr>
     <div class="pagination">
       <ul>
         <ul>
           
-            <li class="prev"><a href="/游记/%E7%AE%AD%E6%89%A3-%E6%85%95%E7%94%B0%E5%B3%AA%E5%85%A8%E7%A9%BF%E6%B8%B8%E8%AE%B0/" title="箭扣-慕田峪全穿游记">&larr; Previous</a></li>
           
+            <li class="prev disabled"><a>&larr; Previous</a></li>
           
 
             <li><a href="/archive">Archive</a></li>
 
           
-            <li class="next"><a href="/nosql/redis-or-ssdb/" title="redis or ssdb">Next &rarr;</a></li>
+            <li class="next"><a href="/rpc/grpc%E4%B8%8Ethrift/" title="grpc与thrift">Next &rarr;</a></li>
           
           
         </ul>
@@ -175,13 +177,13 @@
   
   <div class="span4">
     <h4>Published</h4>
-    <div class="date"><span>2016-09-08</span></div>
+    <div class="date"><span>2017-06-11</span></div>
     <br>
     <h4>Categories</h4>
     <ul class="tag_box">
     
       <li>
-  <a href="/categories/#rpc-ref">rpc <span>1</span></a>
+  <a href="/categories/#%E6%B8%B8%E8%AE%B0-ref">游记 <span>1</span></a>
 </li>
     
     </ul>
@@ -190,7 +192,7 @@
     <ul class="tag_box">
     
       <li>
-  <a href="/tags/#rpc-ref">rpc <span>1</span></a>
+  <a href="/tags/#%E5%BE%92%E6%AD%A5-ref">徒步 <span>1</span></a>
 </li>
     
     </ul>

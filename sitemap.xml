@@ -4,6 +4,11 @@
 		<loc>http://sample.com/</loc>
 	</url>
 	<url>
+		<loc>http://sample.com/游记/%E7%AE%AD%E6%89%A3-%E6%85%95%E7%94%B0%E5%B3%AA%E5%85%A8%E7%A9%BF%E6%B8%B8%E8%AE%B0/</loc>
+		<lastmod>2017-06-11</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+	<url>
 		<loc>http://sample.com/rpc/grpc%E4%B8%8Ethrift/</loc>
 		<lastmod>2016-09-08</lastmod>
 		<changefreq>weekly</changefreq>
