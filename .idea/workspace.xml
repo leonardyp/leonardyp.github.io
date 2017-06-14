@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cd9f950e-456d-4f20-823a-681ac2c22a76" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+    <list default="true" id="cd9f950e-456d-4f20-823a-681ac2c22a76" name="Default" comment="箭扣长城+慕田峪长城  全穿">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/游记/img/mmexport1496156879351.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/游记/img/mmexport1496156886385.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/游记/img/mmexport1496156895130.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pages/index.html" afterPath="$PROJECT_DIR$/pages/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/游记/箭扣-慕田峪全穿游记/index.html" afterPath="$PROJECT_DIR$/游记/箭扣-慕田峪全穿游记/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rss.xml" afterPath="$PROJECT_DIR$/rss.xml" />
@@ -114,6 +116,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="游记" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="箭扣-慕田峪全穿游记" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -601,7 +607,13 @@
       <option name="project" value="LOCAL" />
       <updated>1497446367903</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="箭扣长城+慕田峪长城  全穿">
+      <created>1497446401288</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1497446401288</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
